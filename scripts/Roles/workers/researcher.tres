@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Role" format=3 uid="uid://cun4x3ea5rhls"]
+
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_hr3kr"]
+[ext_resource type="Script" uid="uid://dxee0nmyj4vtd" path="res://scripts/DataTypes/role.gd" id="2_2ubmx"]
+
+[sub_resource type="Resource" id="Resource_suxx4"]
+script = ExtResource("1_hr3kr")
+technical = 5.0
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("2_2ubmx")
+name = "Researcher"
+attributes = SubResource("Resource_suxx4")
+metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

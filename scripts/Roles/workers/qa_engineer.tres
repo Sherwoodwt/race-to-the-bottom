@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Role" format=3 uid="uid://yojlalho3s8n"]
+
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_aq6jn"]
+[ext_resource type="Script" uid="uid://dxee0nmyj4vtd" path="res://scripts/DataTypes/role.gd" id="2_x50rw"]
+
+[sub_resource type="Resource" id="Resource_ci7f2"]
+script = ExtResource("1_aq6jn")
+reliablility = 3.0
+sociability = 2.0
+competence = 3.0
+technical = 2.0
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("2_x50rw")
+name = "QA Engineer"
+attributes = SubResource("Resource_ci7f2")
+metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

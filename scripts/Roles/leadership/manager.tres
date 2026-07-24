@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Role" format=3 uid="uid://ca2tbjkupuy2f"]
+
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_bm325"]
+[ext_resource type="Script" uid="uid://dxee0nmyj4vtd" path="res://scripts/DataTypes/role.gd" id="1_hli8e"]
+
+[sub_resource type="Resource" id="Resource_bm325"]
+script = ExtResource("1_bm325")
+reliablility = 4.0
+sociability = 3.0
+competence = 1.0
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("1_hli8e")
+name = "Division Manager"
+level = 2
+attributes = SubResource("Resource_bm325")
+metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

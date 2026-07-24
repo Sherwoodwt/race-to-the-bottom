@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://siwoebadpl3d"]
+
+[node name="TreeRole" type="Button" unique_id=411619875]
+offset_left = 554.0
+offset_top = 308.0
+offset_right = 598.0
+offset_bottom = 339.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "TEST"

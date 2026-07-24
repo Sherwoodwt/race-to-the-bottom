@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b02exlcs43gta"]
+
+[node name="Demerit" type="PanelContainer" unique_id=950953808]
+
+[node name="Label" type="Label" parent="." unique_id=1398497848]
+layout_mode = 2

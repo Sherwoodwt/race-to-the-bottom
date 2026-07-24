@@ -1,0 +1,47 @@
+extends Node
+
+const MAX_TEAM_SIZE = 10
+const MIN_TEAM_SIZE = 6 # just initial
+
+@onready var leadership_roles: Array[Role] = load_all("res://scripts/Roles/leadership/")
+@onready var worker_roles: Array[Role] = load_all("res://scripts/Roles/workers/")
+
+var top: Role
+
+func load_all(path: String):
+	var roles: Array[Role]
+	var files = DirAccess.get_files_at(path)
+	for file in files:
+		var instance = load(path.path_join(file)) as Role
+		roles.append(instance)
+	return roles
+
+func _ready():
+	top = make_tree(0)
+
+func make_tree(level: int) -> Role:
+	# for debug
+	var spacing = ""
+	for i in range(level):
+		spacing += "\t"
+	# for debug
+	var top: Role
+	if level < leadership_roles.size():
+		top = leadership_roles[level].duplicate(true)
+		print(spacing + top.name)
+		var team_size = randi_range(MIN_TEAM_SIZE, MAX_TEAM_SIZE)
+		for i in range(team_size):
+			var child = make_tree(level + 1)
+			child.boss = top
+			top.team.append(child)
+	else:
+		# TODO: pick a certain amount of each
+		top = worker_roles.pick_random().duplicate(true)
+		print(spacing + top.name)
+	if level != 0:
+		top.employee = Employee.generate(top)
+	else:
+		top.employee = Employee.new()
+		top.employee.name = NameGenerator.random_name()
+		top.employee.role = top
+	return top
