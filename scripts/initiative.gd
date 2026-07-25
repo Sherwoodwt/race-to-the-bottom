@@ -15,6 +15,7 @@ signal initiative_started(initiative: Initiative)
 @export var title: String
 @export_multiline() var description: String
 @export var picture: Texture2D
+@export var demerit: Demerit
 
 var started: bool
 
@@ -37,6 +38,7 @@ func start_initiative():
 	initiative_started.emit(self)
 
 func finish_initiative():
+	timer.stop()
 	disabled = false
 	started = false
 	progress.value = 0
