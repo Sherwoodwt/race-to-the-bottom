@@ -7,4 +7,4 @@ extends Resource
 @export var team: Array[Role]
 @export var attributes: Attributes # ideal attributes for the job
 @export var employee: Employee
-@export var salary_range: Vector2
+@export var salary_range: Vector2i

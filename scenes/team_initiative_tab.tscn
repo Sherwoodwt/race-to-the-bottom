@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c00myajhbt2iv"]
+
+[ext_resource type="Script" uid="uid://xmy7c3oayb6b" path="res://scripts/initiative-tab.gd" id="1_1usig"]
+
+[node name="TeamInitiativeTab" type="Button" unique_id=65452084]
+custom_minimum_size = Vector2(140, 64)
+text = "Org-Wide"
+script = ExtResource("1_1usig")

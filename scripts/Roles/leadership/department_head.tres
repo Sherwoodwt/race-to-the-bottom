@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_jqs4b")
-name = "Department Head"
+name = "Dept Head"
 level = 3
+salary_range = Vector2i(220, 350)
 metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

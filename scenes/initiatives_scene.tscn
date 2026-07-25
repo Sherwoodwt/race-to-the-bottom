@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dxlfbu58p3sn1"]
+
+[ext_resource type="PackedScene" uid="uid://clalyvjgy5an4" path="res://scenes/initiative.tscn" id="1_xkr2h"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="2_lr42v"]
+
+[sub_resource type="Resource" id="Resource_kvpfn"]
+script = ExtResource("2_lr42v")
+reliability = 1
+competence = 3
+technical = 1
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iywne"]
+load_path = "res://.godot/imported/test.png-9345e8a13a5ffc7f7c123bcf8dce3547.ctex"
+
+[sub_resource type="Resource" id="Resource_dinhu"]
+script = ExtResource("2_lr42v")
+reliability = 2
+sociability = 3
+competence = 2
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p57ef"]
+load_path = "res://.godot/imported/eye.png-a84d27eb76574b804de06889c29718a8.ctex"
+
+[sub_resource type="Resource" id="Resource_kvuet"]
+script = ExtResource("2_lr42v")
+reliability = 1
+sociability = 2
+competence = 1
+technical = 3
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u5sy4"]
+load_path = "res://.godot/imported/training.png-d71dea35125cab3630d2c1e2f21a7606.ctex"
+
+[sub_resource type="Resource" id="Resource_ca42v"]
+script = ExtResource("2_lr42v")
+reliability = 1
+competence = 2
+technical = 4
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gee14"]
+load_path = "res://.godot/imported/report.png-00667459f58d90c5f728979c1a8e17d5.ctex"
+
+[sub_resource type="Resource" id="Resource_0tnpc"]
+script = ExtResource("2_lr42v")
+reliability = 3
+sociability = 2
+competence = 1
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vtaks"]
+load_path = "res://.godot/imported/meeting.png-a614556b283a17d184375ead68ad8939.ctex"
+
+[sub_resource type="Resource" id="Resource_trtic"]
+script = ExtResource("2_lr42v")
+sociability = 4
+competence = 2
+technical = 2
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ir15t"]
+load_path = "res://.godot/imported/presentation.png-4ed1ab8087b6d82001f2cb3302387541.ctex"
+
+[node name="InitiativesScene" type="VBoxContainer" unique_id=1445267729]
+offset_top = 100.0
+offset_right = 1128.0
+offset_bottom = 524.0
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2126000138]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TestInitiative2" parent="PanelContainer" unique_id=1228964180 instance=ExtResource("1_xkr2h")]
+layout_mode = 2
+attributes = SubResource("Resource_kvpfn")
+wait_time = 20.0
+title = "Verify Qualifications"
+description = "Ensure employees have a "
+picture = SubResource("CompressedTexture2D_iywne")
+
+[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=324308117]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TestInitiative2" parent="PanelContainer2" unique_id=1097056427 instance=ExtResource("1_xkr2h")]
+layout_mode = 2
+attributes = SubResource("Resource_dinhu")
+wait_time = 20.0
+title = "One-on-Ones"
+description = "Each employee must have a mandatory One-on-One check-in with their manager"
+picture = SubResource("CompressedTexture2D_p57ef")
+
+[node name="PanelContainer3" type="PanelContainer" parent="." unique_id=357081978]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TestInitiative2" parent="PanelContainer3" unique_id=1033629588 instance=ExtResource("1_xkr2h")]
+layout_mode = 2
+attributes = SubResource("Resource_kvuet")
+wait_time = 20.0
+title = "Training"
+description = "Employees must be trained to use the new system"
+picture = SubResource("CompressedTexture2D_u5sy4")
+
+[node name="PanelContainer4" type="PanelContainer" parent="." unique_id=1971609817]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TestInitiative2" parent="PanelContainer4" unique_id=1505605917 instance=ExtResource("1_xkr2h")]
+layout_mode = 2
+attributes = SubResource("Resource_ca42v")
+wait_time = 20.0
+title = "Report"
+description = "Employees must provide a detailed list of all programs and equipment"
+picture = SubResource("CompressedTexture2D_gee14")
+
+[node name="PanelContainer5" type="PanelContainer" parent="." unique_id=132477448]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TestInitiative2" parent="PanelContainer5" unique_id=450355591 instance=ExtResource("1_xkr2h")]
+layout_mode = 2
+attributes = SubResource("Resource_0tnpc")
+wait_time = 20.0
+title = "Attendance"
+description = "Additional morning meeting to verify attendance and reiterate company values"
+picture = SubResource("CompressedTexture2D_vtaks")
+
+[node name="PanelContainer6" type="PanelContainer" parent="." unique_id=40874630]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TestInitiative2" parent="PanelContainer6" unique_id=57251312 instance=ExtResource("1_xkr2h")]
+layout_mode = 2
+attributes = SubResource("Resource_trtic")
+wait_time = 20.0
+title = "Presentation"
+description = "Employees will present what they've been working on"
+picture = SubResource("CompressedTexture2D_ir15t")

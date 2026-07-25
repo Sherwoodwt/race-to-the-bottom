@@ -3,7 +3,7 @@ extends Resource
 
 @export var name: String
 @export var role: Role
-@export var salary: float
+@export var salary: int
 @export var attributes: Attributes
 @export var demerits: Array[Demerit]
 @export var reviews: Array[Review]
