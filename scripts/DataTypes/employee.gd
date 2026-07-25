@@ -5,7 +5,8 @@ extends Resource
 @export var role: Role
 @export var salary: float
 @export var attributes: Attributes
-@export var review: Array[Review]
+@export var demerits: Array[Demerit]
+@export var reviews: Array[Review]
 
 static func generate(role: Role) -> Employee:
 	var employee = Employee.new()

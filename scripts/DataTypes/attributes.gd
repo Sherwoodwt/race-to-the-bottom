@@ -13,3 +13,9 @@ static func make_comperable(other: Attributes) -> Attributes:
 	att.competence = clampi(randi_range(other.competence - 2, other.competence + 1), 0, 5)
 	att.technical = clampi(randi_range(other.technical - 2, other.technical + 1), 0, 5)
 	return att
+
+static func attribute_stars(val: int):
+	var text = ""
+	for i in range(val):
+		text += "*"
+	return text

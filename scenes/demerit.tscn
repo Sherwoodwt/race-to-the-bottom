@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b02exlcs43gta"]
 
-[node name="Demerit" type="PanelContainer" unique_id=950953808]
-
-[node name="Label" type="Label" parent="." unique_id=1398497848]
-layout_mode = 2
+[node name="Demerit" type="Label" unique_id=1398497848]
+offset_right = 161.0
+offset_bottom = 23.0
+text = "This is a test demerit"

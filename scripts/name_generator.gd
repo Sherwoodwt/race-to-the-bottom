@@ -49,6 +49,7 @@ func random_name() -> String:
 	"Zach T",
 	"Zach S",
 	"Zack",
+	"Zachary",
 	"Henry",
 	"Oliver",
 	"Minal",

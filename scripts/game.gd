@@ -1,11 +1,11 @@
 extends Control
 
+@onready var timer: Timer = $Q_Timer
+func _ready():
+	timer.timeout.connect(end_quarter)
+	timer.start()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func end_quarter():
+	print("Quarter is over")
+	# TODO: Pop up here with status
+	timer.start()

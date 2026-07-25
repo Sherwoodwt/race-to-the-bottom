@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b3jd6f4xliww7"]
+
+[ext_resource type="Script" uid="uid://buphm1vocf57q" path="res://scripts/review_display.gd" id="1_vdqwh"]
+[ext_resource type="Texture2D" uid="uid://clp48oi4me3tl" path="res://assets/profile.png" id="1_x6g6r"]
+
+[node name="Review" type="HBoxContainer" unique_id=253360911]
+theme_override_constants/separation = 12
+script = ExtResource("1_vdqwh")
+
+[node name="Control" type="Control" parent="." unique_id=1451396343]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1247539052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_x6g6r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1777708999]
+layout_mode = 2
+
+[node name="Author" type="Label" parent="VBoxContainer" unique_id=148220804]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Venky"
+
+[node name="Score" type="Label" parent="VBoxContainer" unique_id=1676278942]
+layout_mode = 2
+size_flags_vertical = 8
+text = "*****"
+
+[node name="Text" type="Label" parent="." unique_id=869381394]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "SULLY HAS AN EXCELLENT SIGNING VOICE AND A WONDFUL ATTITUDE"

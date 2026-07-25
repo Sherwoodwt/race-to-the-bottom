@@ -26,7 +26,8 @@ func set_focus(role: Role):
 		boss_button.visible = false
 	
 	selected_button.text = "%s\n%s" % [role.name, role.employee.name]
-	selected_button.pressed.connect(func(): focus_changed.emit(role))
+	selected_button.disabled = true
+	#selected_button.pressed.connect(func(): focus_changed.emit(role))
 	
 	for child in role.team:
 		var button = role_scene.instantiate()

@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://b0ngi5j3o2o1s"]
+
+[ext_resource type="Script" uid="uid://4le6tkfojo3l" path="res://scripts/profile.gd" id="1_hfxdp"]
+[ext_resource type="PackedScene" uid="uid://b02exlcs43gta" path="res://scenes/demerit.tscn" id="2_a5w2d"]
+[ext_resource type="Texture2D" uid="uid://clp48oi4me3tl" path="res://assets/profile.png" id="3_xgnm6"]
+[ext_resource type="PackedScene" uid="uid://th1728famw1l" path="res://scenes/hierarchy.tscn" id="4_k6pdw"]
+[ext_resource type="Script" uid="uid://cclcg6h2nkcpy" path="res://scripts/reviews.gd" id="5_re7fs"]
+[ext_resource type="PackedScene" uid="uid://b3jd6f4xliww7" path="res://scenes/review.tscn" id="6_p3ccv"]
+
+[node name="Organization" type="Control" unique_id=756527007]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1481505335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1897465113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1771438688]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1041378190]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Profile" type="Panel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=135132996]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_hfxdp")
+demerit_scene = ExtResource("2_a5w2d")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile" unique_id=2086896694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer" unique_id=92060255]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer" unique_id=521675675]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1360580066]
+layout_mode = 2
+texture = ExtResource("3_xgnm6")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2072499666]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1033182846]
+layout_mode = 2
+text = "Name: TEST"
+
+[node name="Role" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=371090840]
+layout_mode = 2
+text = "Role: TEST"
+
+[node name="Salary" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1801957884]
+layout_mode = 2
+text = "Salary: $123456"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1388686721]
+layout_mode = 2
+
+[node name="Reliability" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=178085596]
+layout_mode = 2
+text = "Reliability:"
+
+[node name="Sociability" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=83047339]
+layout_mode = 2
+text = "Sociability:"
+
+[node name="Competence" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=72236510]
+layout_mode = 2
+text = "Competence:"
+
+[node name="Intelligence" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1807591178]
+layout_mode = 2
+text = "Ingelligence:"
+
+[node name="AttributeVals" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer" unique_id=496211818]
+layout_mode = 2
+
+[node name="Reliability" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1074920162]
+layout_mode = 2
+text = "*****"
+
+[node name="Sociability" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=2083213894]
+layout_mode = 2
+text = "*****"
+
+[node name="Competence" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1035199409]
+layout_mode = 2
+text = "*****"
+
+[node name="Intelligence" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1276422296]
+layout_mode = 2
+text = "*****"
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer" unique_id=1080006629]
+layout_mode = 2
+text = "Demerits"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer" unique_id=836312414]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1496053146]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Hierarchy" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1798766368 instance=ExtResource("4_k6pdw")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer" unique_id=1049486130]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reviews" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/Panel" unique_id=1456816684]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_re7fs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews" unique_id=1016425296]
+layout_mode = 2
+
+[node name="Rating" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews/HBoxContainer" unique_id=1705476663]
+layout_mode = 2
+text = "Rating: "
+
+[node name="RatingScore" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews/HBoxContainer" unique_id=874817096]
+layout_mode = 2
+text = "<***>"
+
+[node name="ReviewsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews" unique_id=812120074]
+layout_mode = 2
+text = "Reviews"
+
+[node name="Reviews" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews" unique_id=655156016]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews/Reviews" unique_id=981527688]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Review" parent="Panel/MarginContainer/VBoxContainer/Panel/Reviews/Reviews/VBoxContainer" unique_id=253360911 instance=ExtResource("6_p3ccv")]
+layout_mode = 2
+
+[connection signal="focus_changed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Hierarchy" to="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile" method="_on_hierarchy_focus_changed"]
+[connection signal="focus_changed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Hierarchy" to="Panel/MarginContainer/VBoxContainer/Panel/Reviews" method="_on_hierarchy_focus_changed"]
