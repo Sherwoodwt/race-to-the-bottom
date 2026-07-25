@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b0ngi5j3o2o1s"]
 
+[ext_resource type="Script" uid="uid://cajwhknl0jsbx" path="res://scripts/organization.gd" id="1_a5w2d"]
 [ext_resource type="Script" uid="uid://4le6tkfojo3l" path="res://scripts/profile.gd" id="1_hfxdp"]
 [ext_resource type="PackedScene" uid="uid://b02exlcs43gta" path="res://scenes/demerit.tscn" id="2_a5w2d"]
 [ext_resource type="Texture2D" uid="uid://clp48oi4me3tl" path="res://assets/profile.png" id="3_xgnm6"]
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 offset_top = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a5w2d")
 
 [node name="Panel" type="Panel" parent="." unique_id=1481505335]
 layout_mode = 1
@@ -183,3 +185,4 @@ layout_mode = 2
 
 [connection signal="focus_changed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Hierarchy" to="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile" method="_on_hierarchy_focus_changed"]
 [connection signal="focus_changed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Hierarchy" to="Panel/MarginContainer/VBoxContainer/Panel/Reviews" method="_on_hierarchy_focus_changed"]
+[connection signal="initiative_pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Hierarchy" to="." method="_on_hierarchy_initiative_pressed"]

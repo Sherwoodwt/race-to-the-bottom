@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cxbghx5n0reqh"]
+
+[ext_resource type="Script" uid="uid://xppbkievq600" path="res://scripts/initiative_screen.gd" id="1_8ya1r"]
+[ext_resource type="PackedScene" uid="uid://c00myajhbt2iv" path="res://scenes/team_initiative_tab.tscn" id="2_wv0d6"]
+
+[node name="Initiatives" type="Control" unique_id=759931945]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ya1r")
+initiative_tab_scene = ExtResource("2_wv0d6")
+
+[node name="Panel" type="Panel" parent="." unique_id=1021183276]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1140432118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=150136563]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1171232013]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="InitiativeArea" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1445235863]
+custom_maximum_size = Vector2(-1, 480)
+layout_mode = 2
+size_flags_vertical = 8

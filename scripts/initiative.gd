@@ -2,6 +2,7 @@ class_name Initiative
 extends Button
 
 signal initiative_finished(initiative: Initiative)
+signal initiative_started(initiative: Initiative)
 
 @onready var progress: TextureProgressBar = $HBoxContainer/TextureProgressBar
 @onready var timer: Timer = $Timer
@@ -33,6 +34,7 @@ func start_initiative():
 	timer.start()
 	disabled = true
 	started = true
+	initiative_started.emit(self)
 
 func finish_initiative():
 	disabled = false

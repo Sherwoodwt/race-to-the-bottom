@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dxlfbu58p3sn1"]
 
+[ext_resource type="Script" uid="uid://dwr7juwu6cyda" path="res://scripts/initiatives.gd" id="1_lr42v"]
 [ext_resource type="PackedScene" uid="uid://clalyvjgy5an4" path="res://scenes/initiative.tscn" id="1_xkr2h"]
 [ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="2_lr42v"]
 
@@ -70,6 +71,7 @@ offset_right = 1128.0
 offset_bottom = 524.0
 size_flags_vertical = 8
 theme_override_constants/separation = 8
+script = ExtResource("1_lr42v")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2126000138]
 custom_minimum_size = Vector2(0, 64)

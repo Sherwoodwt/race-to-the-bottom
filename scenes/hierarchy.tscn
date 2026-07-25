@@ -76,6 +76,21 @@ grow_vertical = 2
 text = "Selected"
 horizontal_alignment = 1
 
+[node name="Initiatives" type="Button" parent="MarginContainer/HBoxContainer/Control2" unique_id=1083413403]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = 85.0
+offset_right = 4.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Initiatives"
+
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=808958698]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -92,3 +107,5 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Control2/Initiatives" to="." method="_on_initiatives_pressed"]

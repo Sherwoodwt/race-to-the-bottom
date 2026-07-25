@@ -17,4 +17,3 @@ func change_tab():
 
 func hide_tab():
 	tab_scene.visible = false
- 

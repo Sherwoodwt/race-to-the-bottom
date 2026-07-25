@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://bfkpfi4ix7g0q" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b7kfs402xys1v" path="res://scripts/tab.gd" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://c00myajhbt2iv" path="res://scenes/team_initiative_tab.tscn" id="4_p57ef"]
-[ext_resource type="Script" uid="uid://xppbkievq600" path="res://scripts/initiative_screen.gd" id="4_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://dxlfbu58p3sn1" path="res://scenes/initiatives_scene.tscn" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Control" unique_id=1521623346]
 layout_mode = 3
@@ -26,11 +24,12 @@ anchor_right = 1.0
 offset_bottom = 94.0
 grow_horizontal = 2
 
-[node name="Call" type="Button" parent="Tabs" unique_id=1096196656]
+[node name="Call" type="Button" parent="Tabs" unique_id=1096196656 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Telecall"
 script = ExtResource("2_lnu2h")
+tab_scene = NodePath("../../Call")
 
 [node name="Organization" type="Button" parent="Tabs" unique_id=226917574 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
@@ -46,57 +45,29 @@ text = "Initiatives"
 script = ExtResource("2_lnu2h")
 tab_scene = NodePath("../../Initiatives")
 
-[node name="Assignment" type="Button" parent="Tabs" unique_id=683884214]
+[node name="Assignment" type="Button" parent="Tabs" unique_id=683884214 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Assignment"
 script = ExtResource("2_lnu2h")
+tab_scene = NodePath("../../Assignment")
 
 [node name="Organization" parent="." unique_id=756527007 instance=ExtResource("3_lnu2h")]
+layout_mode = 1
+
+[node name="Initiatives" parent="." unique_id=759931945 instance=ExtResource("4_lbhrr")]
+layout_mode = 1
+
+[node name="Call" type="Control" parent="." unique_id=949817085]
 visible = false
-layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Initiatives" type="Control" parent="." unique_id=152020968]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_u5sy4")
+[node name="Assignment" type="Control" parent="." unique_id=1418825731]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="Initiatives" unique_id=390227273]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Initiatives/Panel" unique_id=1316392669]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Initiatives/Panel/MarginContainer" unique_id=2040799806]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="TeamInitiativeTab" parent="Initiatives/Panel/MarginContainer/HBoxContainer" unique_id=65452084 instance=ExtResource("4_p57ef")]
-layout_mode = 2
-
-[node name="InitiativeArea" type="Control" parent="Initiatives/Panel/MarginContainer" unique_id=1039573346]
-layout_mode = 2
-
-[node name="InitiativesScene" parent="Initiatives/Panel/MarginContainer/InitiativeArea" unique_id=1445267729 instance=ExtResource("6_gee14")]
-layout_mode = 0
-offset_top = 0.0
-offset_bottom = 424.0
+[connection signal="team_initiatives" from="Organization" to="." method="_on_organization_team_initiatives"]

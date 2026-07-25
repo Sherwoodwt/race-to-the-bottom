@@ -1,12 +1,15 @@
 extends Control
 
 signal focus_changed(role: Role)
+signal initiative_pressed(employee: Employee)
 
 @onready var boss_button: Button = $MarginContainer/HBoxContainer/Control/Boss
 @onready var selected_button: Button = $MarginContainer/HBoxContainer/Control2/Selected
 @onready var employees: Control = $MarginContainer/HBoxContainer/MarginContainer/ScrollContainer/Employees
 
 @export var role_scene: PackedScene
+
+var role: Role
 
 func _ready():
 	set_focus(OrgData.top)
@@ -27,6 +30,7 @@ func set_focus(role: Role):
 	
 	selected_button.text = "%s\n%s" % [role.name, role.employee.name]
 	selected_button.disabled = true
+	self.role = role
 	#selected_button.pressed.connect(func(): focus_changed.emit(role))
 	
 	for child in role.team:
@@ -41,3 +45,7 @@ func set_focus(role: Role):
 func clear_pressed(button: Button):
 	for connection in button.pressed.get_connections():
 		button.pressed.disconnect(connection.callable)
+
+
+func _on_initiatives_pressed() -> void:
+	initiative_pressed.emit(role.employee)
