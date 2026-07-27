@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Review" format=3 uid="uid://po18h037p2b2"]
+
+[ext_resource type="Script" uid="uid://c4dia4jq6rdy8" path="res://scripts/DataTypes/review.gd" id="1_5t5v2"]
+
+[resource]
+script = ExtResource("1_5t5v2")
+about_boss = true
+stars = 2
+description = "[NAME] is a proficient leader but can be gruff and hard to approach"
+metadata/_custom_type_script = "uid://c4dia4jq6rdy8"

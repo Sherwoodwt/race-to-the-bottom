@@ -18,6 +18,7 @@ func load_all(path: String):
 
 func _ready():
 	top = make_tree(0)
+	make_comments(top)
 
 func make_tree(level: int) -> Role:
 	# for debug
@@ -41,7 +42,15 @@ func make_tree(level: int) -> Role:
 	if level != 0:
 		top.employee = Employee.generate(top)
 	else:
-		top.employee = Employee.new()
-		top.employee.name = NameGenerator.random_name()
-		top.employee.role = top
+		top.employee = Employee.generate(top)
+		top.employee.attributes.reliability = 5
+		top.employee.attributes.sociability = 5
+		top.employee.attributes.competence = 5
+		top.employee.attributes.technical = 5
 	return top
+
+# mutates hierarchy to add reviews
+func make_comments(role: Role):
+	role.employee.generate_reviews()
+	for child in role.team:
+		make_comments(child)

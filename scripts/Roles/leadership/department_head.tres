@@ -1,10 +1,20 @@
 [gd_resource type="Resource" script_class="Role" format=3 uid="uid://dl4a03v8lin38"]
 
 [ext_resource type="Script" uid="uid://dxee0nmyj4vtd" path="res://scripts/DataTypes/role.gd" id="1_jqs4b"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_vpq8s"]
+
+[sub_resource type="Resource" id="Resource_a5w2d"]
+script = ExtResource("1_vpq8s")
+reliability = 5
+sociability = 5
+competence = 5
+technical = 5
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
 [resource]
 script = ExtResource("1_jqs4b")
 name = "Dept Head"
 level = 3
+attributes = SubResource("Resource_a5w2d")
 salary_range = Vector2i(220, 350)
 metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

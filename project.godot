@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 OrgData="*uid://bay3brf1mm2dy"
 NameGenerator="*uid://sgm0527py1rw"
+ReviewGenerator="*uid://daoxlc8634p76"
 
 [display]
 

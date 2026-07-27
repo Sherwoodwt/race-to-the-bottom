@@ -1,0 +1,124 @@
+boss; 5; [NAME] is a tough no-nonsense leader with a stoic demeanor and take-no-prisoners attitude
+any; 5; [NAME] is easy going and pleasant
+boss; 4; [NAME] is a good leader but sometimes lacks confidence
+boss; 2; [NAME] is a proficient leader but can be gruff and hard to approach
+subordinate; 2; [NAME] makes up songs and sings them to her coworkers distracting them
+any; 2; [NAME] is quiet and it's sometimes hard to tell when they are in the room
+any; 3; [NAME]'s real name is Sam but because they watch the Social Exchange Theory religiously they demand to be called [NAME] after one of the characters on the show
+any; 3; [NAME] sometimes goes on long rants about anime
+any; 0; [NAME] always hides food in their desk until it goes bad and stinks up the office
+any; 1; [NAME] is too cometetive during company picnic events and has been accused of bullying the competition 
+any; 2; [NAME] is always talking about being haunted by a sleep paralysis demon 
+any; 3; [NAME] won the cook off at the company bbq but some believe they bribed the judges 
+subordinate; 2; [NAME] is very secretive and hard to extract certain information from
+subordinate; 1; [NAME] often calls out sick because of "tour date conflicts"
+any; 2; [NAME] always plays "air bass" during company kareoke night
+any; 4; [NAME] is alright
+any; 1; [NAME] once was a used car salesman until an incident involving a vw bug landed them in court for misrepresentation
+any; 3; [NAME] is allergic to papaya and does not enjoy papaya themed jokes or references 
+any; 2; [NAME] is friendly but often smells like trash
+any; 4; [NAME] is sharp and witty but hates to be compared to their older siblings
+subordinate; 1; [NAME] consistantly misses project goals 
+any; 3; [NAME] is fun to work with for a while but long exposure wears thin
+subordinate; 2; hr suspects [NAME] may be working under the influence of alcohol though they have not been caught
+subordinate; 2; management has received several complaints that [NAME] has adjusted the ac in their department to unbearably hot temperatures
+any; 2; a rock has more personality than [NAME]
+any; 1; [NAME] is often retalitory in nature, usualy striking back quickly
+any; 3; [NAME] has a strange fascination with the lord of the rings 
+any; 2; [NAME] is annoying and has a weird face
+any; 2; [NAME] responds to every internal email with "without admission of liability."
+boss; 2; [NAME] secretly fudges the team's progress in presentations
+any; 2; [NAME]'s out of office message is "gone phishing" 
+any; 3; [NAME]'s first reply to any employee to call them is "did you try turning it off and on again?"
+any; 2; [NAME] has a Raichu their desk and pretends it makes growling noises when people approach
+any; 2; [NAME] derives immense joy from finding bugs in code and breaking software right before release dates
+any; 2; [NAME] accidentally crashed the test server on her first day
+any; 4; no one is sure what [NAME] actually does around here
+any; 3; [NAME] was once a customer support rep and brags about past calls to anyone who will listen
+boss; 1; [NAME] demands to be rewarded for every day they don't make somebody cry out of frustration
+any; 3; [NAME] claims to be bilingual but refuses to speak in any language other than Lithuanian on thursdays
+boss; 3; [NAME] claims they can spin any bad company news into a "visionary opportunity for growth"
+any; 3; [NAME] spends an inordinant amount of time on their phone but claims its for "media relations"
+any; 2; [NAME] likes to live-stream internal office drama 
+any; 3; [NAME] holds 50 different keys and the one they need is always the last key they try
+any; 3; [NAME] can often be heard crying in the restroom
+any; 3; [NAME] was reprimanded for driving a riding lawnmower home after work 
+subordinate; 3; [NAME] has been cuaght putting "out of order" signs on vending machines when their favorite items are running low
+subordinate; 4; [NAME] is amazing at multitasking and seems to be in many places at once
+any; 2; [NAME] got into a "nerd fight" and was banned from the employee lounge to cool off
+any; 2; [NAME] sometimes displays a superior complex
+subordinate; 3; [NAME] talks a lot and sometimes get distratced from their tasks
+any; 3; [NAME] sometimes displays megolomaniacal tendencies specifically in regard to the music playing in the elevator
+subordinate; 3; [NAME] often falls alseep during meetings and when confronted gives the excuse that they aren't used to the time zone
+any; 3; [NAME] can speak 3 languages, english, french and no one is sure about the third one
+boss; 2; [NAME] was promoted after threatening to rip someone's arms off when they lost a game of Mario Kart
+any; 3; [NAME]'s hair is very soft but tends to hold static electricity making it dangerous for coworkers 
+any; 2; [NAME] has been known to use charcoal in the bbq at company picnics despite complaints
+any; 3; [NAME] always smells like bug spray and often leaves a trail of sand that leaks from their pockets
+any; 1; [NAME] and me do not get along due to an incident involving a candy bar - hr has advised that I say no more
+subordinate; 3; [NAME] is known to take extra long restroom breaks due to a medical condition
+subordinate; 5; [NAME] single handedly saved the Johnson account
+subordinate; 3; coworkers find [NAME] pleasant but not too pleasant
+any; 3; [NAME] grows mushrooms at their desk and offers them to fellow coworkes
+subordinate; 4; [NAME] is a very successful go-getter with their eyes on higher positions within the company
+any; 1; [NAME] is left-handed 
+any; 3; [NAME] sometimes catches their nose ring on office equipment
+any; 4; lets just say[NAME] is the reason company parties are now held in the warehouse rather than off-site
+any; 3; [NAME] has a pentactle tattoo in their neck and gets upset when others call it a pentagram
+any; 2; [NAME] over indulges and has been known to gossip about coworkers
+any; 2; [NAME] can often be found loitering outside the office for reasons unknown
+any; 1; [NAME] clips their toes in the breakroom
+subordinate; 4; [NAME] was awarded sales person of the week at their previous job
+any; 2; [NAME] uses a gavel during zoom meetings to resolve arguments
+any; 2; [NAME] uses case law to win arguments over refridgerator space disputes
+any; 2; [NAME] hoards whiteboard markers in their desk 
+any; 3; [NAME] takes meticulous notes and threatens to read them back when people lie
+any; 4; [NAME] wears sunglasses indoors and refuse to explain why
+any; 3; [NAME] makes little people out of cable ties and puts them on other employees desks
+subordinate; 2; [NAME] has been reprimanded for locking everyone out of the server room
+any; 4; [NAME] is despised by the engineering department to the point that they have burned a [NAME] effigy
+any; 2; [NAME] brings home-baked muffins to work every Tuesday but only trades them for favors 
+any; 3; [NAME] is strangly silent except for the occassional rattling "kkkkkkkk" or "gyurrrrr" sounds when agitated
+any; 3; [NAME] only ever responds with emojis
+any; 2; [NAME] decorated their entire cubicle with fairy lights that sometimes trip the circuit breaker
+any; 1; [NAME] wears tailored suits and looks down on anyone wearing a hoodie
+any; 3; [NAME] knows all the big players in the industry and has dated most of them
+boss; 1; [NAME] once fired someone for touching the thermostat but they were not even and employee
+any; 5; [NAME] used their personal money to buy a foosball table for the breakroom
+subordinate; 4; [NAME] has a photographic memory of most company machinery
+any; 2; everyone knows when [NAME] is in a bad mood
+any; 1; [NAME] always represents the company in a positive manner no matter what
+any; 3; [NAME] is lactose intolerant so birthday parties are more complicated
+any; 3; [NAME] has a lovely voice but always whispers
+any; 1; [NAME] is a weirdo
+any; 1; [NAME] cheats
+any; 5; [NAME] has an excellent signing voice and a wondful attitude
+any; 4; [NAME] is kind of a flirt but their teeth are too shiney
+any; 2; [NAME] once met a celebrity and won’t stop talking about it
+any; 4; [NAME] can often be found holding a jar of peanut butter
+any; 5; [NAME] always operates the bbq at company picnics
+any; 3; [NAME] has some peculiar connections that may be tied to a secret government agency
+subordinate; 2; [NAME] has been reprimanded by hr for stealing food from the refridgerator
+subordinate; 2; [NAME] makes chittering noises that sometime scare his fellow colleagues
+subordinate; 3; [NAME] often quotes lines from the their favorite movie to their coworkers
+subordinate; 1; [NAME] once mis-spelled their own name on an important company report
+subordinate; 2; [NAME] has a keen eye for detail except when it comes to their own work. 
+any; 2; [NAME] suffers from a deficit in personality
+any; 1; I hate [NAME]
+any; 3; [NAME] fills their schedule with fake meetings to appear busier than they actually are
+subordinate; 2; [NAME] is a huge proponent of the lack of drug testing at the company
+any; 1; [NAME] calls their water bottle "my precious" and growls when anyone gets near it
+any; 4; [NAME] always has chocolate on hand 
+any; 4; once [NAME] and I got into a heated verbal disagreement over a dungeons and dragons game
+subordinate; 3; [NAME] has been know to extort snacks from coworkers
+any; 3; [NAME] once gave himself a concussion after trying to crush an energy drink can on his forehead
+any; 2; [NAME] has reported being followed  by sinister forces
+any; 2; [NAME] constantly tries to upstage everybody
+any; 4; [NAME] has been know to disappear and pop-up just when they're needed most
+boss; 1; [NAME] requires employees use a ticketing system for breaks
+any; 2; [NAME] has a standing desk that they adjust every 7 minutes
+any; 3; [NAME] may be a practicing witch but everyone is afraid to ask
+subordinate; 3; [NAME] carries two phones at all times but never answers when called
+subordinate; 2; [NAME] takes naps on company time 
+any; 1; [NAME] seems to think we're friends. We are not
+boss; 1; [NAME] is the captian of the company softball team and abuses their authority on and off the field

@@ -24,23 +24,31 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=336482061]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=664907157]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=186085318]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Boss" parent="MarginContainer/HBoxContainer/Control" unique_id=411619875 instance=ExtResource("2_1yrct")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -15.5
-offset_right = 22.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Space" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=600740789]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NeighborUp" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=411619875 instance=ExtResource("2_1yrct")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+
+[node name="Boss" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=323474021 instance=ExtResource("2_1yrct")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="NeighborDown" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1546256784 instance=ExtResource("2_1yrct")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="Space2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=393570341]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1527656419]
 layout_mode = 2

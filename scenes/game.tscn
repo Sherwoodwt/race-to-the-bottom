@@ -56,6 +56,7 @@ tab_scene = NodePath("../../Assignment")
 layout_mode = 1
 
 [node name="Initiatives" parent="." unique_id=759931945 instance=ExtResource("4_lbhrr")]
+visible = false
 layout_mode = 1
 
 [node name="Call" type="Control" parent="." unique_id=949817085]

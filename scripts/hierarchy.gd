@@ -3,7 +3,9 @@ extends Control
 signal focus_changed(role: Role)
 signal initiative_pressed(employee: Employee)
 
-@onready var boss_button: Button = $MarginContainer/HBoxContainer/Control/Boss
+@onready var boss_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Boss
+@onready var neighbor_up: Button = $MarginContainer/HBoxContainer/VBoxContainer/NeighborUp
+@onready var neighbor_down: Button = $MarginContainer/HBoxContainer/VBoxContainer/NeighborDown
 @onready var selected_button: Button = $MarginContainer/HBoxContainer/Control2/Selected
 @onready var initiative_button: Button = $MarginContainer/HBoxContainer/Control2/Initiatives
 @onready var employees: Control = $MarginContainer/HBoxContainer/MarginContainer/ScrollContainer/Employees
@@ -25,8 +27,24 @@ func set_focus(role: Role):
 		boss_button.visible = true
 		boss_button.text = "%s\n%s" % [role.boss.name, role.boss.employee.name]
 		boss_button.pressed.connect(func(): focus_changed.emit(role.boss))
+		var prev = role.boss.find_neighbor(role, true)
+		if prev:
+			neighbor_up.visible = true
+			neighbor_up.text = "%s\n%s" % [prev.name, prev.employee.name]
+			neighbor_up.pressed.connect(func(): focus_changed.emit(prev))
+		else:
+			neighbor_up.visible = false
+		var next = role.boss.find_neighbor(role)
+		if next:
+			neighbor_down.visible = true
+			neighbor_down.text = "%s\n%s" % [next.name, next.employee.name]
+			neighbor_down.pressed.connect(func(): focus_changed.emit(next))
+		else:
+			neighbor_down.visible = false
 	else:
 		boss_button.visible = false
+		neighbor_down.visible = false
+		neighbor_up.visible = false
 	
 	selected_button.text = "%s\n%s" % [role.name, role.employee.name]
 	selected_button.disabled = true
