@@ -14,7 +14,9 @@ func _on_hierarchy_focus_changed(role: Role) -> void:
 	var rating_total = 0
 	for review in role.employee.reviews:
 		rating_total = review.stars
-		var inst = review_scene.instantiate() as Control
+		var inst = review_scene.instantiate() as ReviewDisplay
+		reviews.add_child(inst)
+		inst.setup(review)
 	if role.employee.reviews.size() == 0:
 		score.text = "N/A"
 	else:

@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-OrgData="*uid://bay3brf1mm2dy"
-NameGenerator="*uid://sgm0527py1rw"
 ReviewGenerator="*uid://daoxlc8634p76"
+NameGenerator="*uid://sgm0527py1rw"
+OrgData="*uid://bay3brf1mm2dy"
 
 [display]
 

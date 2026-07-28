@@ -73,16 +73,25 @@ func compare(other: Employee):
 
 # look at boss, neighbors, and team and make opinions to add to them
 func generate_reviews() -> void:
-	# handle boss
-	if role.boss and randf() > .8:
-		var ability = int(role.boss.employee.get_attribute_compatability() * 5)
-		var min = clampi(ability - 1, 0, 5)
-		var max = clampi(ability + 1, 0, 5)
-		var review = ReviewGenerator.random_review(min, max, false, true)
-		role.boss.employee.reviews.append(review)
+	if role.boss:
+		# handle boss
+		if randf() > .8:
+			role.boss.employee.reviews.append(_make_review(role.boss.employee, false, true))
 	
-	# handle neighbors
-	#for neighbor in role.boss.team:
-		#if neighbor != role and randf() > .5:
-			#var ability = int(neighbor.employee.get_attribute_compatability() * 5)
-			#var review = ReviewGenerator.random_review(ability - 1, ability + 1, )
+		# handle neighbors
+		for neighbor in role.boss.team:
+			if neighbor != role and randf() > .5:
+				neighbor.employee.reviews.append(_make_review(neighbor.employee, false, false))
+	
+	# handle team
+	for sub in role.team:
+		if randf() > .6 or sub.employee.get_attribute_compatability() < .6:
+			sub.employee.reviews.append(_make_review(sub.employee, true, false))
+
+func _make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool):
+	var ability = int(other.get_attribute_compatability() * 5)
+	var min = clampi(ability - 2, 0, 5)
+	var max = clampi(ability, 0, 5)
+	var review = ReviewGenerator.random_review(min, max, exclude_boss, exclude_subordinate)
+	review.author = self
+	return review

@@ -8,7 +8,10 @@ func _ready():
 	var file = FileAccess.open(reviews_file, FileAccess.READ)
 	if file:
 		while not file.eof_reached():
-			var args = file.get_line().split("; ")
+			var line = file.get_line()
+			if line.is_empty():
+				break
+			var args = line.split("; ")
 			var review = Review.new()
 			review.about_boss = args[0] == "boss"
 			review.about_subordinate = args[0] == "subordinate"

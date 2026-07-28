@@ -8,3 +8,7 @@ extends Resource
 @export_multiline() var description: String
 
 @export var author: Employee
+
+static func format():
+	#TODO
+	pass

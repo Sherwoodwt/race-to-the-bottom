@@ -1,3 +1,4 @@
+class_name ReviewDisplay
 extends Control
 
 @onready var author: Label = $VBoxContainer/Author
@@ -7,4 +8,4 @@ extends Control
 func setup(review: Review):
 	author.text = review.author.name
 	score.text = Attributes.attribute_stars(review.stars)
-	score.text = review.description
+	text.text = review.description
