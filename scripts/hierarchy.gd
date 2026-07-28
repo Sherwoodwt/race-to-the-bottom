@@ -20,6 +20,8 @@ func _ready():
 func set_focus(role: Role):
 	clear_pressed(boss_button)
 	clear_pressed(selected_button)
+	clear_pressed(neighbor_down)
+	clear_pressed(neighbor_up)
 	for child in employees.get_children():
 		employees.remove_child(child)
 	

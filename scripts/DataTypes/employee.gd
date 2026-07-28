@@ -75,7 +75,7 @@ func compare(other: Employee):
 func generate_reviews() -> void:
 	if role.boss:
 		# handle boss
-		if randf() > .8:
+		if role.boss != OrgData.top and randf() > .8:
 			role.boss.employee.reviews.append(_make_review(role.boss.employee, false, true))
 	
 		# handle neighbors
@@ -92,6 +92,6 @@ func _make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool
 	var ability = int(other.get_attribute_compatability() * 5)
 	var min = clampi(ability - 2, 0, 5)
 	var max = clampi(ability, 0, 5)
-	var review = ReviewGenerator.random_review(min, max, exclude_boss, exclude_subordinate)
+	var review = ReviewGenerator.random_review(other, min, max, exclude_boss, exclude_subordinate)
 	review.author = self
 	return review

@@ -21,15 +21,9 @@ func _ready():
 	make_comments(top)
 
 func make_tree(level: int) -> Role:
-	# for debug
-	var spacing = ""
-	for i in range(level):
-		spacing += "\t"
-	# for debug
 	var top: Role
 	if level < leadership_roles.size():
 		top = leadership_roles[level].duplicate(true)
-		print(spacing + top.name)
 		var team_size = randi_range(MIN_TEAM_SIZE, MAX_TEAM_SIZE)
 		for i in range(team_size):
 			var child = make_tree(level + 1)
@@ -38,7 +32,6 @@ func make_tree(level: int) -> Role:
 	else:
 		# TODO: pick a certain amount of each
 		top = worker_roles.pick_random().duplicate(true)
-		print(spacing + top.name)
 	if level != 0:
 		top.employee = Employee.generate(top)
 	else:

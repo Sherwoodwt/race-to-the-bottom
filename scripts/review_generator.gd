@@ -20,10 +20,12 @@ func _ready():
 			reviews.append(review)
 		file.close()
 
-func random_review(min: int, max: int, exclude_boss: bool, exclude_subordinate: bool) -> Review:
-	return reviews \
+func random_review(target: Employee, min: int, max: int, exclude_boss: bool, exclude_subordinate: bool) -> Review:
+	var review:Review = reviews \
 		.filter(func(r): return !r.about_boss if exclude_boss else true) \
 		.filter(func(r): return !r.about_subordinate if exclude_subordinate else true) \
 		.filter(func(r): return r.stars >= min and r.stars <= max) \
 		.pick_random() \
 		.duplicate()
+	review.description = review.format_name(target)
+	return review

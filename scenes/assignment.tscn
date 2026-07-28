@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bqiclrrtrgi52"]
+
+[ext_resource type="Script" uid="uid://b76psx0vah5sv" path="res://scripts/assignment.gd" id="1_e70hn"]
+[ext_resource type="Texture2D" uid="uid://bxil636srxcny" path="res://assets/empty-time-big.png" id="1_xurij"]
+[ext_resource type="Texture2D" uid="uid://d3e6xrlrv8cgj" path="res://assets/full-time-big.png" id="2_e70hn"]
+
+[node name="Assignment" type="Control" unique_id=1926028782]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e70hn")
+
+[node name="QuarterTimer" type="Timer" parent="." unique_id=2040148004]
+wait_time = 360.0
+autostart = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1472478823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1919369953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1512715555]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer" unique_id=733461291]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=383011058]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1218478019]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuarterTimer" type="TextureProgressBar" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=569828704]
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 300.0
+rounded = true
+fill_mode = 4
+texture_under = ExtResource("1_xurij")
+texture_progress = ExtResource("2_e70hn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1036173288]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=415953029]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Target Budget: "
+
+[node name="TargetBudget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1055190509]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "$12345"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1782041897]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1201717488]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Current Budget: "
+
+[node name="Budget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=795000573]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "$12345"
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1261113633]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="Panel/MarginContainer/HBoxContainer" unique_id=2080912305]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/VBoxContainer/QuarterTimer" to="." method="_on_quarter_timer_value_changed"]

@@ -9,6 +9,6 @@ extends Resource
 
 @export var author: Employee
 
-static func format():
-	#TODO
-	pass
+# returns formatted description
+func format_name(target: Employee) -> String:
+	return description.replace("[NAME]", target.name)
