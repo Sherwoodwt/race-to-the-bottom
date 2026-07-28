@@ -12,9 +12,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e70hn")
+target_budget = 35000
+target_productivity = 0.25
 
-[node name="QuarterTimer" type="Timer" parent="." unique_id=2040148004]
-wait_time = 360.0
+[node name="DayTimer" type="Timer" parent="." unique_id=2040148004]
+wait_time = 4.0
 autostart = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1472478823]
@@ -40,10 +42,6 @@ theme_override_constants/margin_bottom = 12
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1512715555]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer" unique_id=733461291]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=383011058]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -53,47 +51,122 @@ theme_override_constants/separation = 12
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Quarter" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1410910465]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "1st Quarter"
+horizontal_alignment = 1
+
 [node name="QuarterTimer" type="TextureProgressBar" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=569828704]
 layout_mode = 2
 size_flags_horizontal = 4
-max_value = 300.0
+max_value = 90.0
+value = 90.0
 rounded = true
-fill_mode = 4
+fill_mode = 5
 texture_under = ExtResource("1_xurij")
 texture_progress = ExtResource("2_e70hn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1036173288]
+[node name="Days" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1289750415]
+layout_mode = 2
+text = "90 Days"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1226023877]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=415953029]
+[node name="Control2" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1944603213]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Budget" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1260333630]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget" unique_id=1970115100]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Budget"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget" unique_id=1036173288]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer" unique_id=415953029]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Target Budget: "
+text = "Target: "
 
-[node name="TargetBudget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1055190509]
+[node name="TargetBudget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer" unique_id=1055190509]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 32
 text = "$12345"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1782041897]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget" unique_id=1782041897]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1201717488]
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer2" unique_id=1201717488]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Current Budget: "
+text = "Current: "
 
-[node name="Budget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=795000573]
+[node name="Budget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer2" unique_id=795000573]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 32
 text = "$12345"
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=971474584]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Productivity" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=324881596]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity" unique_id=1152594313]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Productivity"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity" unique_id=2045282953]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer" unique_id=1558517967]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Target: "
+
+[node name="TargetProductivity" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer" unique_id=1193083065]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 32
+text = "25%"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity" unique_id=1454849012]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer2" unique_id=905585688]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Current: "
+
+[node name="Productivity" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer2" unique_id=1251926882]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 32
+text = "100%"
+
+[node name="Control3" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1049356821]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Control2" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1261113633]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control2" type="Control" parent="Panel/MarginContainer/HBoxContainer" unique_id=2080912305]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[connection signal="value_changed" from="Panel/MarginContainer/HBoxContainer/VBoxContainer/QuarterTimer" to="." method="_on_quarter_timer_value_changed"]
+[connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]

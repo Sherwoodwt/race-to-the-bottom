@@ -1,6 +1,8 @@
 class_name Employee
 extends Resource
 
+signal productivity_changed
+
 @export var name: String
 @export var role: Role
 @export var salary: int
@@ -32,6 +34,7 @@ func roll_for_demerit(initiative: Initiative):
 		var tec = randf_range(0, ini.technical) > attributes.technical
 		if rel or soc or com or tec:
 			demerits.append(initiative.demerit.duplicate())
+			productivity_changed.emit()
 	else:
 		for member in role.team:
 			member.employee.roll_for_demerit(initiative)
@@ -60,6 +63,12 @@ func get_productivity() -> float:
 			subs += t.employee.get_productivity()
 		val *= subs / float(role.team.size())
 	return val
+
+func get_budget() -> int:
+	var budget = salary
+	for person in role.team:
+		budget += person.employee.get_budget()
+	return budget
 
 # what does self think of other
 func compare(other: Employee):

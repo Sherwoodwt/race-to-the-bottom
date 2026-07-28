@@ -1,5 +1,7 @@
 extends Node
 
+signal productivity_changed
+
 const MAX_TEAM_SIZE = 10
 const MIN_TEAM_SIZE = 6 # just initial
 
@@ -34,6 +36,7 @@ func make_tree(level: int) -> Role:
 		top = worker_roles.pick_random().duplicate(true)
 	if level != 0:
 		top.employee = Employee.generate(top)
+		top.employee.productivity_changed.connect(func(): productivity_changed.emit())
 	else:
 		top.employee = Employee.generate(top)
 		top.employee.attributes.reliability = 5
@@ -47,3 +50,6 @@ func make_comments(role: Role):
 	role.employee.generate_reviews()
 	for child in role.team:
 		make_comments(child)
+
+func get_total_budget() -> int:
+	return top.employee.get_budget()
