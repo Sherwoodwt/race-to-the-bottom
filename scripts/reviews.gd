@@ -9,6 +9,7 @@ extends Control
 func _ready():
 	_on_hierarchy_focus_changed(OrgData.top)
 
+# can't focus if they're fired
 func _on_hierarchy_focus_changed(role: Role) -> void:
 	reviews_label.text = "What people say about %s:" % role.employee.name
 	for child in reviews.get_children():

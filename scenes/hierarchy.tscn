@@ -33,6 +33,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="NeighborUp" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=411619875 instance=ExtResource("2_1yrct")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 2

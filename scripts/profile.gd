@@ -1,32 +1,42 @@
 extends Control
 
-@onready var employee_name: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name
-@onready var role_name: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Role
-@onready var salary: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Salary
-@onready var productivity: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Productivity
-@onready var reliability: Label = $MarginContainer/VBoxContainer/HBoxContainer/AttributeVals/Reliability
-@onready var sociability: Label = $MarginContainer/VBoxContainer/HBoxContainer/AttributeVals/Sociability
-@onready var competence: Label = $MarginContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
-@onready var technical: Label = $MarginContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
-@onready var demerit_label: Label = $MarginContainer/VBoxContainer/Label
-@onready var demerits: Control = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
+signal initiative_selected(employee: Employee)
+
+@onready var employee_name: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Name
+@onready var role_name: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Role
+@onready var salary: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Salary
+@onready var productivity: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Productivity
+@onready var reliability: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Reliability
+@onready var sociability: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Sociability
+@onready var competence: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
+@onready var technical: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
+@onready var demerits: Control = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/Demerits
+@onready var initiative_button: Button = $MarginContainer/HBoxContainer/Buttons/InitiativesButton
+@onready var fire_button: Button = $MarginContainer/HBoxContainer/Buttons/FireButton
 
 @export var demerit_scene: PackedScene
+
+var employee: Employee
 
 func _ready():
 	_on_hierarchy_focus_changed(OrgData.top)
 
+# only run on roles with employees
 func _on_hierarchy_focus_changed(role: Role) -> void:
+	employee = role.employee
 	for child in demerits.get_children():
 		demerits.remove_child(child)
-	employee_name.text = "Name: %s" % role.employee.name
-	role_name.text = "Role: %s" % role.name
-	productivity.text = "Productivity: %d%%" % int(role.employee.get_productivity() * 100)
-	
+	initiative_button.disabled = OrgData.top == role or role.team.size() == 0
+	fire_button.disabled = OrgData.top == role \
+		or role.employee.demerits.size() == 0 \
+		or role.boss.team.size() == 1
+	employee_name.text = role.employee.name
 	if role == OrgData.top:
-		salary.text = "This is you"
-	else:
-		salary.text = "Salary: $%s" % role.employee.salary
+		employee_name.text += " (YOU)"
+	role_name.text = role.name
+	productivity.text = "%d%%" % int(role.employee.get_productivity() * 100)
+	
+	salary.text = "$%s" % role.employee.salary
 	reliability.text = Attributes.attribute_stars(role.employee.attributes.reliability)
 	sociability.text = Attributes.attribute_stars(role.employee.attributes.sociability)
 	competence.text = Attributes.attribute_stars(role.employee.attributes.competence)
@@ -35,3 +45,11 @@ func _on_hierarchy_focus_changed(role: Role) -> void:
 		var inst = demerit_scene.instantiate() as Label
 		inst.text = demerit.text
 		demerits.add_child(inst)
+
+
+func _on_initiatives_button_pressed() -> void:
+	initiative_selected.emit(employee)
+
+
+func _on_fire_button_pressed() -> void:
+	employee.fire()

@@ -54,11 +54,11 @@ func set_focus(role: Role):
 	initiative_button.disabled = role.team.size() == 0
 	#selected_button.pressed.connect(func(): focus_changed.emit(role))
 	
-	for child in role.team:
+	for child in role.employee_team():
 		var button = role_scene.instantiate()
-		if child.employee:
-			button.text = "%s\n%s" % [child.name, child.employee.name]
-			button.pressed.connect(func(): focus_changed.emit(child))
+		if child:
+			button.text = "%s\n%s" % [child.role.name, child.name]
+			button.pressed.connect(func(): focus_changed.emit(child.role))
 		else:
 			button.disabled = true
 		employees.add_child(button)

@@ -36,8 +36,8 @@ func roll_for_demerit(initiative: Initiative):
 			demerits.append(initiative.demerit.duplicate())
 			productivity_changed.emit()
 	else:
-		for member in role.team:
-			member.employee.roll_for_demerit(initiative)
+		for member in role.employee_team():
+			member.roll_for_demerit(initiative)
 
 # returns percentage
 func get_attribute_compatability():
@@ -59,15 +59,15 @@ func get_productivity() -> float:
 		val -= .1
 	if role.team.size() > 0:
 		var subs = 0.0
-		for t in role.team:
-			subs += t.employee.get_productivity()
+		for e in role.employee_team():
+			subs += e.get_productivity()
 		val *= subs / float(role.team.size())
 	return val
 
 func get_budget() -> int:
 	var budget = salary
-	for person in role.team:
-		budget += person.employee.get_budget()
+	for person in role.employee_team():
+		budget += person.get_budget()
 	return budget
 
 # what does self think of other
@@ -88,14 +88,14 @@ func generate_reviews() -> void:
 			role.boss.employee.reviews.append(_make_review(role.boss.employee, false, true))
 	
 		# handle neighbors
-		for neighbor in role.boss.team:
-			if neighbor != role and randf() > .5:
-				neighbor.employee.reviews.append(_make_review(neighbor.employee, false, false))
+		for neighbor in role.boss.employee_team():
+			if neighbor != self and randf() > .5:
+				neighbor.reviews.append(_make_review(neighbor, false, false))
 	
 	# handle team
-	for sub in role.team:
-		if randf() > .6 or sub.employee.get_attribute_compatability() < .6:
-			sub.employee.reviews.append(_make_review(sub.employee, true, false))
+	for sub in role.employee_team():
+		if randf() > .6 or sub.get_attribute_compatability() < .6:
+			sub.reviews.append(_make_review(sub, true, false))
 
 func _make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool):
 	var ability = int(other.get_attribute_compatability() * 5)
@@ -104,3 +104,10 @@ func _make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool
 	var review = ReviewGenerator.random_review(other, min, max, exclude_boss, exclude_subordinate)
 	review.author = self
 	return review
+
+func fire():
+	var i = role.boss.team.find(role)
+	role.boss.team.remove_at(i)
+	role.boss.employee.productivity_changed.emit()
+	role.employee = null
+	OrgData.fired_employees.append(self)

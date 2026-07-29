@@ -9,6 +9,7 @@ const MIN_TEAM_SIZE = 6 # just initial
 @onready var worker_roles: Array[Role] = load_all("res://scripts/Roles/workers/")
 
 var top: Role
+var fired_employees: Array[Employee]
 
 func load_all(path: String):
 	var roles: Array[Role]

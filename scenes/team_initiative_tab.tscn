@@ -5,6 +5,7 @@
 
 [node name="TeamInitiativeTab" type="Button" unique_id=65452084]
 custom_minimum_size = Vector2(140, 64)
+button_mask = 3
 text = "Org-Wide"
 script = ExtResource("1_1usig")
 initiatives_scene = ExtResource("2_6vh6m")

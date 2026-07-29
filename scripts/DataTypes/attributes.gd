@@ -22,3 +22,11 @@ static func attribute_stars(val: int):
 	for i in range(val):
 		text += "*"
 	return text
+
+func diff(other: Attributes) -> Array[int]:
+	return [
+		reliability - other.reliability,
+		sociability - other.sociability,
+		competence - other.competence,
+		technical - other.technical,
+	]

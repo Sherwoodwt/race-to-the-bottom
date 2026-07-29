@@ -9,12 +9,27 @@ extends Resource
 @export var employee: Employee
 @export var salary_range: Vector2i
 
-# given a child, finds next child in team, or previous if specified
-func find_neighbor(role: Role, previous: bool = false):
-	var i = team.find(role)
+# given a child, finds next child in team, or previous if specified. Need to have employee
+func find_neighbor(role: Role, previous: bool = false) -> Role:
+	var emp_team = employee_team()
+	var i = emp_team.find(role.employee)
 	if i < 0:
 		return null
 	i += 1 if !previous else -1
-	if i < 0 or i >= team.size():
+	if i < 0 or i >= emp_team.size():
 		return null
-	return team[i]
+	return emp_team[i].role
+
+func employee_team() -> Array[Employee]:
+	return team \
+		.filter(func(c): return c.employee) \
+		.map(func(c): return c.employee)
+
+# return all worker level employees in hierarchy
+func worker_team() -> Array[Employee]:
+	var all: Array[Employee]
+	if team.size() == 0:
+		return [employee]
+	for t in team:
+		all.append_array(t.worker_team())
+	return all

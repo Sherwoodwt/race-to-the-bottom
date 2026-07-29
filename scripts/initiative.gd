@@ -9,6 +9,7 @@ signal initiative_started(initiative: Initiative)
 @onready var label: Label = $HBoxContainer/Label
 @onready var description_label: Label = $HBoxContainer/Label2
 @onready var sprite: TextureRect = $HBoxContainer/TextureRect
+@onready var effect_label: Label = $HBoxContainer/TextureProgressBar/HBoxContainer/Label2
 
 @export var attributes: Attributes
 @export var wait_time: float
@@ -43,3 +44,15 @@ func finish_initiative():
 	started = false
 	progress.value = 0
 	initiative_finished.emit(self)
+
+func check_employee(boss: Employee):
+	var val: int = 0
+	for employee in boss.role.worker_team():
+		var fails: int = 0
+		var dif = employee.attributes.diff(attributes)
+		for d in dif:
+			if d < 0:
+				fails += 1
+		if fails > 1:
+			val += 1
+	effect_label.text = "%d" % val
