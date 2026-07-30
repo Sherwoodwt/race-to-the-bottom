@@ -14,4 +14,5 @@ script = ExtResource("1_55qlc")
 name = "Team Lead"
 level = 1
 attributes = SubResource("Resource_6362c")
+salary_range = Vector2i(140, 180)
 metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

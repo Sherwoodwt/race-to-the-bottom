@@ -13,6 +13,7 @@ signal initiative_selected(employee: Employee)
 @onready var demerits: Control = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/Demerits
 @onready var initiative_button: Button = $MarginContainer/HBoxContainer/Buttons/InitiativesButton
 @onready var fire_button: Button = $MarginContainer/HBoxContainer/Buttons/FireButton
+@onready var portrait: PortraitDisplay = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Portrait
 
 @export var demerit_scene: PackedScene
 
@@ -24,6 +25,8 @@ func _ready():
 # only run on roles with employees
 func _on_hierarchy_focus_changed(role: Role) -> void:
 	employee = role.employee
+	portrait.portrait = employee.portrait
+	portrait.reset()
 	for child in demerits.get_children():
 		demerits.remove_child(child)
 	initiative_button.disabled = OrgData.top == role or role.team.size() == 0

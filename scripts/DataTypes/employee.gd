@@ -7,8 +7,10 @@ signal productivity_changed
 @export var role: Role
 @export var salary: int
 @export var attributes: Attributes
-@export var demerits: Array[Demerit]
-@export var reviews: Array[Review]
+
+var demerits: Array[Demerit]
+var reviews: Array[Review]
+var portrait: Portrait
 
 # creates top level, player character
 static func generate_top() -> Employee:
@@ -23,6 +25,7 @@ static func generate(role: Role) -> Employee:
 	employee.role = role
 	employee.salary = randf_range(role.salary_range.x, role.salary_range.y)
 	employee.attributes = Attributes.make_comperable(role.attributes)
+	employee.portrait = PortraitGenerator.generate_portrait()
 	return employee
 
 func roll_for_demerit(initiative: Initiative):

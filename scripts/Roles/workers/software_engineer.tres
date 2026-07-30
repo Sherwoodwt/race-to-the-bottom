@@ -11,7 +11,7 @@ metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
 [resource]
 script = ExtResource("2_cj3ul")
-name = "Software Engineer"
+name = "Engineer"
 attributes = SubResource("Resource_x2xsh")
 salary_range = Vector2i(120, 180)
 metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

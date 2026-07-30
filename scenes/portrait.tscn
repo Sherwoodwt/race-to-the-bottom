@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://2ufabb6o25a2"]
+
+[ext_resource type="Texture2D" uid="uid://cfd55t3b64bcn" path="res://assets/profile_default.png" id="1_k07cr"]
+[ext_resource type="Script" uid="uid://tiy133p0k8ll" path="res://scripts/portrait_display.gd" id="2_31ep3"]
+
+[node name="Portrait" type="TextureRect" unique_id=1529899193]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_k07cr")
+stretch_mode = 2
+script = ExtResource("2_31ep3")
+
+[node name="Accessory" type="TextureRect" parent="." unique_id=295504679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hair" type="TextureRect" parent="." unique_id=87579932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FacialHair" type="TextureRect" parent="." unique_id=492872293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

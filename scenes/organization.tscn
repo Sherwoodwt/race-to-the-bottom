@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cajwhknl0jsbx" path="res://scripts/organization.gd" id="1_a5w2d"]
 [ext_resource type="Script" uid="uid://4le6tkfojo3l" path="res://scripts/profile.gd" id="1_hfxdp"]
 [ext_resource type="PackedScene" uid="uid://b02exlcs43gta" path="res://scenes/demerit.tscn" id="2_a5w2d"]
-[ext_resource type="Texture2D" uid="uid://clp48oi4me3tl" path="res://assets/profile.png" id="3_xgnm6"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="4_a5w2d"]
 [ext_resource type="PackedScene" uid="uid://th1728famw1l" path="res://scenes/hierarchy.tscn" id="4_k6pdw"]
 [ext_resource type="Script" uid="uid://cclcg6h2nkcpy" path="res://scripts/reviews.gd" id="5_re7fs"]
 [ext_resource type="PackedScene" uid="uid://b3jd6f4xliww7" path="res://scenes/review.tscn" id="6_p3ccv"]
@@ -44,6 +44,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1041378190]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
 
 [node name="Profile" type="Panel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=135132996]
 layout_mode = 2
@@ -84,11 +85,11 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/HBoxContainer/VBoxContainer" unique_id=521675675]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1360580066]
+[node name="Portrait" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1529899193 instance=ExtResource("4_a5w2d")]
 layout_mode = 2
-texture = ExtResource("3_xgnm6")
-expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Profile/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2072499666]
 layout_mode = 2

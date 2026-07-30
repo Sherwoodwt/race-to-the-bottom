@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b3jd6f4xliww7"]
 
 [ext_resource type="Script" uid="uid://buphm1vocf57q" path="res://scripts/review_display.gd" id="1_vdqwh"]
-[ext_resource type="Texture2D" uid="uid://clp48oi4me3tl" path="res://assets/profile.png" id="1_x6g6r"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="2_vdqwh"]
 
 [node name="Review" type="HBoxContainer" unique_id=253360911]
 theme_override_constants/separation = 12
@@ -11,17 +11,9 @@ script = ExtResource("1_vdqwh")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1247539052]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Portrait" parent="Control" unique_id=1529899193 instance=ExtResource("2_vdqwh")]
+layout_mode = 0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_x6g6r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1777708999]
 layout_mode = 2
