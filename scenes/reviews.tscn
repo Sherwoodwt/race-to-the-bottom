@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bcfd6veyk5cmp"]
+
+[ext_resource type="Script" uid="uid://cclcg6h2nkcpy" path="res://scripts/reviews.gd" id="1_evnfq"]
+[ext_resource type="PackedScene" uid="uid://b3jd6f4xliww7" path="res://scenes/review.tscn" id="2_kinkk"]
+
+[node name="Reviews" type="VBoxContainer" unique_id=394017895]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_evnfq")
+review_scene = ExtResource("2_kinkk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=517868617]
+layout_mode = 2
+
+[node name="Rating" type="Label" parent="HBoxContainer" unique_id=1255490577]
+layout_mode = 2
+text = "Rating among peers: "
+
+[node name="RatingScore" type="Label" parent="HBoxContainer" unique_id=562599281]
+layout_mode = 2
+text = "<***>"
+
+[node name="ReviewsLabel" type="Label" parent="." unique_id=689693879]
+layout_mode = 2
+text = "What people say about [NAME]:"
+
+[node name="Reviews" type="ScrollContainer" parent="." unique_id=1051658697]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Reviews" unique_id=1359858945]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Review" parent="Reviews/VBoxContainer" unique_id=253360911 instance=ExtResource("2_kinkk")]
+layout_mode = 2

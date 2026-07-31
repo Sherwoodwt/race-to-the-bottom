@@ -6,8 +6,9 @@
 [node name="Portrait" type="TextureRect" unique_id=1529899193]
 offset_right = 128.0
 offset_bottom = 128.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_k07cr")
-stretch_mode = 2
+expand_mode = 2
 script = ExtResource("2_31ep3")
 
 [node name="Accessory" type="TextureRect" parent="." unique_id=295504679]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 2
 
 [node name="Hair" type="TextureRect" parent="." unique_id=87579932]
 layout_mode = 1
@@ -25,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 2
 
 [node name="FacialHair" type="TextureRect" parent="." unique_id=492872293]
 layout_mode = 1
@@ -33,3 +36,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 2

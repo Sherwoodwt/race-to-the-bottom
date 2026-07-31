@@ -3,12 +3,11 @@ extends Control
 signal focus_changed(role: Role)
 signal initiative_pressed(employee: Employee)
 
-@onready var boss_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Boss
-@onready var neighbor_up: Button = $MarginContainer/HBoxContainer/VBoxContainer/NeighborUp
-@onready var neighbor_down: Button = $MarginContainer/HBoxContainer/VBoxContainer/NeighborDown
-@onready var selected_button: Button = $MarginContainer/HBoxContainer/Control2/Selected
-@onready var initiative_button: Button = $MarginContainer/HBoxContainer/Control2/Initiatives
-@onready var employees: Control = $MarginContainer/HBoxContainer/MarginContainer/ScrollContainer/Employees
+@onready var boss_button: PortraitButton = $MarginContainer/VBoxContainer/Control/Boss
+@onready var neighbor_left: PortraitButton = $MarginContainer/VBoxContainer/HBoxContainer/Control3/LeftNeighbor
+@onready var neighbor_right: PortraitButton = $MarginContainer/VBoxContainer/HBoxContainer/Control4/RightNeighbor
+@onready var selected_button: PortraitButton = $MarginContainer/VBoxContainer/HBoxContainer/Control2/Selected
+@onready var team: Control = $MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer2
 @export var role_scene: PackedScene
 
 var role: Role
@@ -20,50 +19,53 @@ func _ready():
 func set_focus(role: Role):
 	clear_pressed(boss_button)
 	clear_pressed(selected_button)
-	clear_pressed(neighbor_down)
-	clear_pressed(neighbor_up)
-	for child in employees.get_children():
-		employees.remove_child(child)
+	clear_pressed(neighbor_right)
+	clear_pressed(neighbor_left)
+	for child in team.get_children():
+		team.remove_child(child)
 	
 	if role.boss:
 		boss_button.visible = true
-		boss_button.text = "%s\n%s" % [role.boss.name, role.boss.employee.name]
+		#boss_button.text = "%s\n%s" % [role.boss.name, role.boss.employee.name]
 		boss_button.pressed.connect(func(): focus_changed.emit(role.boss))
+		boss_button.set_role(role.boss)
 		var prev = role.boss.find_neighbor(role, true)
 		if prev:
-			neighbor_up.visible = true
-			neighbor_up.text = "%s\n%s" % [prev.name, prev.employee.name]
-			neighbor_up.pressed.connect(func(): focus_changed.emit(prev))
+			neighbor_left.visible = true
+			#neighbor_left.text = "%s\n%s" % [prev.name, prev.employee.name]
+			neighbor_left.pressed.connect(func(): focus_changed.emit(prev))
+			neighbor_left.set_role(prev)
 		else:
-			neighbor_up.visible = false
+			neighbor_left.visible = false
 		var next = role.boss.find_neighbor(role)
 		if next:
-			neighbor_down.visible = true
-			neighbor_down.text = "%s\n%s" % [next.name, next.employee.name]
-			neighbor_down.pressed.connect(func(): focus_changed.emit(next))
+			neighbor_right.visible = true
+			#neighbor_right.text = "%s\n%s" % [next.name, next.employee.name]
+			neighbor_right.pressed.connect(func(): focus_changed.emit(next))
+			neighbor_right.set_role(next)
 		else:
-			neighbor_down.visible = false
+			neighbor_right.visible = false
 	else:
 		boss_button.visible = false
-		neighbor_down.visible = false
-		neighbor_up.visible = false
+		neighbor_right.visible = false
+		neighbor_left.visible = false
 	
-	selected_button.text = "%s\n%s" % [role.name, role.employee.name]
+	#selected_button.text = "%s\n%s" % [role.name, role.employee.name]
 	selected_button.disabled = true
+	selected_button.set_role(role)
 	self.role = role
-	initiative_button.disabled = role.team.size() == 0
-	#selected_button.pressed.connect(func(): focus_changed.emit(role))
 	
-	for child in role.employee_team():
-		var button = role_scene.instantiate()
-		if child:
-			button.text = "%s\n%s" % [child.role.name, child.name]
-			button.pressed.connect(func(): focus_changed.emit(child.role))
+	for child in role.team:
+		var button = role_scene.instantiate() as PortraitButton
+		if child.employee:
+			#button.text = "%s\n%s" % [child.role.name, child.name]
+			button.pressed.connect(func(): focus_changed.emit(child))
 		else:
 			button.disabled = true
-		employees.add_child(button)
+		team.add_child(button)
+		button.set_role(child)
 
-func clear_pressed(button: Button):
+func clear_pressed(button: PortraitButton):
 	for connection in button.pressed.get_connections():
 		button.pressed.disconnect(connection.callable)
 

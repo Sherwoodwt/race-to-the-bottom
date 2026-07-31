@@ -25,8 +25,7 @@ func _ready():
 # only run on roles with employees
 func _on_hierarchy_focus_changed(role: Role) -> void:
 	employee = role.employee
-	portrait.portrait = employee.portrait
-	portrait.reset()
+	portrait.set_portrait(employee.portrait)
 	for child in demerits.get_children():
 		demerits.remove_child(child)
 	initiative_button.disabled = OrgData.top == role or role.team.size() == 0
