@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://4le6tkfojo3l" path="res://scripts/profile.gd" id="1_6udjm"]
 [ext_resource type="PackedScene" uid="uid://b02exlcs43gta" path="res://scenes/demerit.tscn" id="2_e631i"]
 [ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="3_b4vjc"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/button.tres" id="3_e631i"]
 
 [node name="Profile" type="Panel" unique_id=1172396901]
 size_flags_horizontal = 3
@@ -21,137 +22,141 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=925607914]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2131549738]
 layout_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=863438569]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2034596628]
 layout_mode = 2
 
-[node name="InitiativesButton" type="Button" parent="MarginContainer/HBoxContainer/Buttons" unique_id=1618139479]
+[node name="InitiativesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1618139479]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("3_e631i")
 text = "Initiatives"
 
-[node name="FireButton" type="Button" parent="MarginContainer/HBoxContainer/Buttons" unique_id=976022918]
+[node name="FireButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=976022918]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("3_e631i")
 text = "Fire"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1377060630]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1377060630]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=58139019]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=58139019]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="Portrait" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1529899193 instance=ExtResource("3_b4vjc")]
+[node name="Portrait" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1529899193 instance=ExtResource("3_b4vjc")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=492596824]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=492596824]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1004028189]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1004028189]
 layout_mode = 2
 text = "Name: "
 
-[node name="RoleLabell" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2140797624]
+[node name="RoleLabell" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2140797624]
 layout_mode = 2
 text = "Role: "
 
-[node name="SalaryLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1049217212]
+[node name="SalaryLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1049217212]
 layout_mode = 2
 text = "Salary: "
 
-[node name="ProductivityLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1381648415]
+[node name="ProductivityLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1381648415]
 layout_mode = 2
 text = "Productivity: "
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=961438978]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=961438978]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=2101970305]
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=2101970305]
 layout_mode = 2
 text = "TEST"
 horizontal_alignment = 2
 
-[node name="Role" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1789872773]
+[node name="Role" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1789872773]
 layout_mode = 2
 text = "TEST"
 horizontal_alignment = 2
 
-[node name="Salary" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=491080507]
+[node name="Salary" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=491080507]
 layout_mode = 2
 text = "$123456"
 horizontal_alignment = 2
 
-[node name="Productivity" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=780513743]
+[node name="Productivity" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=780513743]
 layout_mode = 2
 text = "100%"
 horizontal_alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1579608286]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1579608286]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1790538392]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1790538392]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Reliability" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=599072292]
+[node name="Reliability" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=599072292]
 layout_mode = 2
 text = "Reliability:"
 
-[node name="Sociability" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1550397714]
+[node name="Sociability" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1550397714]
 layout_mode = 2
 text = "Sociability:"
 
-[node name="Competence" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=156039355]
+[node name="Competence" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=156039355]
 layout_mode = 2
 text = "Competence:"
 
-[node name="Intelligence" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1455143015]
+[node name="Intelligence" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1455143015]
 layout_mode = 2
 text = "Intelligence:"
 
-[node name="AttributeVals" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1252071433]
+[node name="AttributeVals" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1252071433]
 custom_minimum_size = Vector2(44, 0)
 layout_mode = 2
 
-[node name="Reliability" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=2112091224]
+[node name="Reliability" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=2112091224]
 layout_mode = 2
 text = "*****"
 horizontal_alignment = 2
 
-[node name="Sociability" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=153454923]
+[node name="Sociability" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=153454923]
 layout_mode = 2
 text = "*****"
 horizontal_alignment = 2
 
-[node name="Competence" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1035766895]
+[node name="Competence" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1035766895]
 layout_mode = 2
 text = "*****"
 horizontal_alignment = 2
 
-[node name="Intelligence" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1507482537]
+[node name="Intelligence" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals" unique_id=1507482537]
 layout_mode = 2
 text = "*****"
 horizontal_alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=6619474]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=6619474]
 layout_mode = 2
 text = "Demerits"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1578720608]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1578720608]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Demerits" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer" unique_id=581020843]
+[node name="Demerits" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/ScrollContainer" unique_id=581020843]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/InitiativesButton" to="." method="_on_initiatives_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Buttons/FireButton" to="." method="_on_fire_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/InitiativesButton" to="." method="_on_initiatives_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/FireButton" to="." method="_on_fire_button_pressed"]

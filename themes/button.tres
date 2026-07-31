@@ -1,0 +1,41 @@
+[gd_resource type="Theme" format=3 uid="uid://bnfy33yynqhrq"]
+
+[ext_resource type="Texture2D" uid="uid://bew3f7xfcyv6r" path="res://assets/RetroWindowsGUI/Windows_Button_Inactive.png" id="1_q8uvm"]
+[ext_resource type="Texture2D" uid="uid://c44rid25juim" path="res://assets/RetroWindowsGUI/Windows_Button_Focus.png" id="2_spg3m"]
+[ext_resource type="Texture2D" uid="uid://invrykjrj2cm" path="res://assets/RetroWindowsGUI/Windows_Button.png" id="3_2m8ap"]
+[ext_resource type="Texture2D" uid="uid://cl66kic8ria04" path="res://assets/RetroWindowsGUI/Windows_Button_Pressed.png" id="4_6enhr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkaav"]
+texture = ExtResource("1_q8uvm")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4peli"]
+texture = ExtResource("2_spg3m")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ay62n"]
+texture = ExtResource("3_2m8ap")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqhhn"]
+texture = ExtResource("4_6enhr")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_kkaav")
+Button/styles/hover = SubResource("StyleBoxTexture_4peli")
+Button/styles/normal = SubResource("StyleBoxTexture_ay62n")
+Button/styles/pressed = SubResource("StyleBoxTexture_cqhhn")
