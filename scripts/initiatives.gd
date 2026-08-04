@@ -4,7 +4,7 @@ extends Node
 signal started
 signal finished
 
-@onready var start_initiatives: Array[Initiative] = [$PanelContainer/TestInitiative2, $PanelContainer2/TestInitiative2, $PanelContainer3/TestInitiative2, $PanelContainer4/TestInitiative2, $PanelContainer5/TestInitiative2, $PanelContainer6/TestInitiative2]
+@onready var start_initiatives: Array[Initiative] = [$TestInitiative2, $TestInitiative3, $TestInitiative4, $TestInitiative5, $TestInitiative6, $TestInitiative7]
 
 var employee: Employee
 

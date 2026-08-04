@@ -1,19 +1,20 @@
+class_name Profile
 extends Control
 
 signal initiative_selected(employee: Employee)
 
-@onready var employee_name: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Name
-@onready var role_name: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Role
-@onready var salary: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Salary
-@onready var productivity: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Productivity
-@onready var reliability: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Reliability
-@onready var sociability: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Sociability
-@onready var competence: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
-@onready var technical: Label = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
-@onready var demerits: Control = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/Demerits
-@onready var initiative_button: Button = $MarginContainer/HBoxContainer/Buttons/InitiativesButton
-@onready var fire_button: Button = $MarginContainer/HBoxContainer/Buttons/FireButton
-@onready var portrait: PortraitDisplay = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Portrait
+@onready var employee_name: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Name
+@onready var role_name: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Role
+@onready var salary: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Salary
+@onready var productivity: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Productivity
+@onready var reliability: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Reliability
+@onready var sociability: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Sociability
+@onready var competence: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
+@onready var technical: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
+@onready var demerits: Control = $MarginContainer/VBoxContainer/VBoxContainer/ScrollContainer/Demerits
+@onready var initiative_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/InitiativesButton
+@onready var fire_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/FireButton
+@onready var portrait: PortraitDisplay = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Portrait
 
 @export var demerit_scene: PackedScene
 

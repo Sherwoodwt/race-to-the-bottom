@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://thk5jjumnbdl"]
 
 [ext_resource type="Script" uid="uid://frv888cne2ik" path="res://scripts/hierarchy.gd" id="1_f1lpg"]
-[ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role.tscn" id="2_1yrct"]
+[ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role_button.tscn" id="2_1yrct"]
 
 [node name="Hierarchy" type="Panel" unique_id=1798766368]
 anchor_right = 1.0

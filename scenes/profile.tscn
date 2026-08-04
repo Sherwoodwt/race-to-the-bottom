@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://4le6tkfojo3l" path="res://scripts/profile.gd" id="1_6udjm"]
 [ext_resource type="PackedScene" uid="uid://b02exlcs43gta" path="res://scenes/demerit.tscn" id="2_e631i"]
 [ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="3_b4vjc"]
-[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/button.tres" id="3_e631i"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_e631i"]
 
 [node name="Profile" type="Panel" unique_id=1172396901]
 size_flags_horizontal = 3

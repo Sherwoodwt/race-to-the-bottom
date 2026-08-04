@@ -97,17 +97,16 @@ text = "[name]'s presentation raised concerns about the necessity of their role"
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [node name="InitiativesScene" type="VBoxContainer" unique_id=1445267729]
-offset_right = 1128.0
-offset_bottom = 424.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 8
-theme_override_constants/separation = 8
+theme_override_constants/separation = 2
 script = ExtResource("1_lr42v")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2126000138]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="TestInitiative2" parent="PanelContainer" unique_id=1228964180 instance=ExtResource("1_xkr2h")]
+[node name="TestInitiative2" parent="." unique_id=1228964180 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
 attributes = SubResource("Resource_kvpfn")
 wait_time = 20.0
@@ -116,11 +115,7 @@ description = "Ensure employees have a sufficient understanding of their respons
 picture = SubResource("CompressedTexture2D_iywne")
 demerit = SubResource("Resource_f1lpg")
 
-[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=324308117]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="TestInitiative2" parent="PanelContainer2" unique_id=1097056427 instance=ExtResource("1_xkr2h")]
+[node name="TestInitiative3" parent="." unique_id=1097056427 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
 attributes = SubResource("Resource_dinhu")
 wait_time = 20.0
@@ -129,11 +124,7 @@ description = "Each employee must have a mandatory One-on-One check-in with thei
 picture = SubResource("CompressedTexture2D_p57ef")
 demerit = SubResource("Resource_73ebn")
 
-[node name="PanelContainer3" type="PanelContainer" parent="." unique_id=357081978]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="TestInitiative2" parent="PanelContainer3" unique_id=1033629588 instance=ExtResource("1_xkr2h")]
+[node name="TestInitiative4" parent="." unique_id=1033629588 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
 attributes = SubResource("Resource_kvuet")
 wait_time = 20.0
@@ -142,11 +133,7 @@ description = "Employees must be trained to use the new system"
 picture = SubResource("CompressedTexture2D_u5sy4")
 demerit = SubResource("Resource_jdupo")
 
-[node name="PanelContainer4" type="PanelContainer" parent="." unique_id=1971609817]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="TestInitiative2" parent="PanelContainer4" unique_id=1505605917 instance=ExtResource("1_xkr2h")]
+[node name="TestInitiative5" parent="." unique_id=1505605917 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
 attributes = SubResource("Resource_ca42v")
 wait_time = 20.0
@@ -155,11 +142,7 @@ description = "Employees must provide a detailed list of all programs and equipm
 picture = SubResource("CompressedTexture2D_gee14")
 demerit = SubResource("Resource_6jmia")
 
-[node name="PanelContainer5" type="PanelContainer" parent="." unique_id=132477448]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="TestInitiative2" parent="PanelContainer5" unique_id=450355591 instance=ExtResource("1_xkr2h")]
+[node name="TestInitiative6" parent="." unique_id=450355591 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
 attributes = SubResource("Resource_0tnpc")
 wait_time = 20.0
@@ -168,11 +151,7 @@ description = "Additional morning meeting to verify attendance and reiterate com
 picture = SubResource("CompressedTexture2D_vtaks")
 demerit = SubResource("Resource_fphh8")
 
-[node name="PanelContainer6" type="PanelContainer" parent="." unique_id=40874630]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="TestInitiative2" parent="PanelContainer6" unique_id=57251312 instance=ExtResource("1_xkr2h")]
+[node name="TestInitiative7" parent="." unique_id=57251312 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
 attributes = SubResource("Resource_trtic")
 wait_time = 20.0

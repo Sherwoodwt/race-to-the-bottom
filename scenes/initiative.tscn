@@ -1,48 +1,72 @@
 [gd_scene format=3 uid="uid://clalyvjgy5an4"]
 
 [ext_resource type="Script" uid="uid://dxgkyxcgythwa" path="res://scripts/initiative.gd" id="1_ecy2h"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_msxb5"]
 [ext_resource type="Texture2D" uid="uid://c6u258uplcwtx" path="res://assets/test.png" id="2_msxb5"]
 [ext_resource type="Texture2D" uid="uid://cpi0vp3qq1oc4" path="res://assets/empty.png" id="3_ati8w"]
 [ext_resource type="Texture2D" uid="uid://dmhdp7dk64u5b" path="res://assets/progress.png" id="4_5g01m"]
 
 [node name="Initiative" type="Button" unique_id=1228964180]
+custom_minimum_size = Vector2(0, 76)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("1_msxb5")
 button_mask = 3
 script = ExtResource("1_ecy2h")
 
 [node name="Timer" type="Timer" parent="." unique_id=1036145594]
 wait_time = 20.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=359497323]
-layout_mode = 0
-offset_right = 1128.0
-offset_bottom = 64.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1780784400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=359497323]
+layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=925921893]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=925921893]
 layout_mode = 2
 texture = ExtResource("2_msxb5")
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=1166069651]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1166069651]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Qualifications"
 
-[node name="Space" type="Control" parent="HBoxContainer" unique_id=1707331411]
+[node name="Space" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1707331411]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.27
 mouse_filter = 2
 
-[node name="Label2" type="Label" parent="HBoxContainer" unique_id=1124797405]
-custom_minimum_size = Vector2(390, 0)
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1124797405]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
 text = "Qualifications test to see how long the text needs to go before it wraps around to the other side"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer" unique_id=1607850739]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1607850739]
 layout_mode = 2
 size_flags_horizontal = 10
 max_value = 1.0
@@ -50,7 +74,7 @@ step = 0.01
 texture_under = ExtResource("3_ati8w")
 texture_progress = ExtResource("4_5g01m")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/TextureProgressBar" unique_id=13254291]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/TextureProgressBar" unique_id=13254291]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,13 +88,15 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/TextureProgressBar/HBoxContainer" unique_id=138814584]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/TextureProgressBar/HBoxContainer" unique_id=138814584]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8007476, 0, 0.14075842, 1)
+theme_override_font_sizes/font_size = 24
 text = "Est. Effect: "
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer/TextureProgressBar/HBoxContainer" unique_id=1643740545]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/TextureProgressBar/HBoxContainer" unique_id=1643740545]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.10980392, 0.23137255, 1)
+theme_override_font_sizes/font_size = 24
 text = "6"

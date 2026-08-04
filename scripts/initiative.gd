@@ -4,12 +4,12 @@ extends Button
 signal initiative_finished(initiative: Initiative)
 signal initiative_started(initiative: Initiative)
 
-@onready var progress: TextureProgressBar = $HBoxContainer/TextureProgressBar
 @onready var timer: Timer = $Timer
-@onready var label: Label = $HBoxContainer/Label
-@onready var description_label: Label = $HBoxContainer/Label2
-@onready var sprite: TextureRect = $HBoxContainer/TextureRect
-@onready var effect_label: Label = $HBoxContainer/TextureProgressBar/HBoxContainer/Label2
+@onready var progress: TextureProgressBar = $MarginContainer/HBoxContainer/TextureProgressBar
+@onready var label: Label = $MarginContainer/HBoxContainer/Label
+@onready var description_label: Label = $MarginContainer/HBoxContainer/Label2
+@onready var sprite: TextureRect = $MarginContainer/HBoxContainer/TextureRect
+@onready var effect_label: Label = $MarginContainer/HBoxContainer/TextureProgressBar/HBoxContainer/Label2
 
 @export var attributes: Attributes
 @export var wait_time: float

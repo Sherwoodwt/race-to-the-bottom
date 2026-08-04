@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://b0ngi5j3o2o1s"]
 
 [ext_resource type="Script" uid="uid://cajwhknl0jsbx" path="res://scripts/organization.gd" id="1_a5w2d"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_bnk4x"]
 [ext_resource type="Script" uid="uid://frv888cne2ik" path="res://scripts/hierarchy.gd" id="2_ywb0v"]
-[ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role.tscn" id="3_bnk4x"]
+[ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role_button.tscn" id="3_bnk4x"]
+[ext_resource type="Texture2D" uid="uid://dy77hktflbrif" path="res://assets/arrow_up.png" id="5_hfxdp"]
+[ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_details.tscn" id="5_q63xy"]
+[ext_resource type="Texture2D" uid="uid://j22ea423dl1f" path="res://assets/arrow_left.png" id="6_xgnm6"]
+[ext_resource type="Texture2D" uid="uid://m3wps67cgm8r" path="res://assets/arrow_right.png" id="7_k6pdw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0q7g"]
 
 [node name="Organization" type="Control" unique_id=756527007]
 layout_mode = 3
@@ -21,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_bnk4x")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1897465113]
 layout_mode = 1
@@ -34,11 +42,13 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Hierarchy" type="Panel" parent="Panel/MarginContainer" unique_id=1798766368]
+[node name="Hierarchy" type="Panel" parent="Panel/MarginContainer" unique_id=1798766368 node_paths=PackedStringArray("profile_modal")]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_k0q7g")
 script = ExtResource("2_ywb0v")
 role_scene = ExtResource("3_bnk4x")
+profile_modal = NodePath("../../../ProfileModal")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Hierarchy" unique_id=1897650107]
 layout_mode = 1
@@ -55,7 +65,32 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Boss" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/Control" unique_id=1119417338 instance=ExtResource("3_bnk4x")]
+[node name="UpButton" type="Button" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/Control" unique_id=1038920271]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("5_hfxdp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=336482061]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer" unique_id=303201020]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftButton" type="Button" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control3" unique_id=1014910649]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,36 +103,13 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=336482061]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control3" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer" unique_id=303201020]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LeftNeighbor" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control3" unique_id=428958156 instance=ExtResource("3_bnk4x")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -15.5
-offset_right = 22.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+icon = ExtResource("6_xgnm6")
 
 [node name="Control2" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1527656419]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Selected" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2" unique_id=1345156442 instance=ExtResource("3_bnk4x")]
+[node name="Selected" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2" unique_id=1345156442 node_paths=PackedStringArray("profile") instance=ExtResource("3_bnk4x")]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = 8
@@ -111,24 +123,27 @@ offset_right = 48.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+profile = NodePath("../../../../../../../../ProfileModal")
 
 [node name="Control4" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1426259304]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RightNeighbor" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control4" unique_id=344046786 instance=ExtResource("3_bnk4x")]
+[node name="RightButton" type="Button" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control4" unique_id=1185445006]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -15.5
-offset_right = 22.0
-offset_bottom = 15.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+icon = ExtResource("7_k6pdw")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=482284261]
 layout_mode = 2
@@ -140,6 +155,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 theme_override_constants/separation = 24
 alignment = 1
+
+[node name="ProfileModal" parent="." unique_id=340555002 instance=ExtResource("5_q63xy")]
+visible = false
+layout_mode = 1
+offset_left = 665.0
+offset_top = 40.0
+offset_right = -125.0
+offset_bottom = -72.0
 
 [connection signal="focus_changed" from="Panel/MarginContainer/Hierarchy" to="." method="_on_hierarchy_focus_changed"]
 [connection signal="initiative_pressed" from="Panel/MarginContainer/Hierarchy" to="." method="_on_hierarchy_initiative_pressed"]

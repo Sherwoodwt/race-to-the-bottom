@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://siwoebadpl3d"]
+
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_kvmpf"]
+[ext_resource type="Script" uid="uid://bqj2yknun0naa" path="res://scripts/portrait_button.gd" id="2_8htfl"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="3_0mkcc"]
+
+[node name="PortraitButton" type="Button" unique_id=1687615875]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("1_kvmpf")
+script = ExtResource("2_8htfl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1490626015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Portrait" parent="MarginContainer" unique_id=1529899193 instance=ExtResource("3_0mkcc")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
