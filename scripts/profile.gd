@@ -1,8 +1,6 @@
 class_name Profile
 extends Control
 
-signal initiative_selected(employee: Employee)
-
 @onready var employee_name: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Name
 @onready var role_name: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Role
 @onready var salary: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Salary
@@ -51,7 +49,7 @@ func _on_hierarchy_focus_changed(role: Role) -> void:
 
 
 func _on_initiatives_button_pressed() -> void:
-	initiative_selected.emit(employee)
+	SignalBus.initiative_selected.emit(employee)
 
 
 func _on_fire_button_pressed() -> void:

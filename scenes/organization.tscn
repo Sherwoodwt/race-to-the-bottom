@@ -163,6 +163,3 @@ offset_left = 665.0
 offset_top = 40.0
 offset_right = -125.0
 offset_bottom = -72.0
-
-[connection signal="focus_changed" from="Panel/MarginContainer/Hierarchy" to="." method="_on_hierarchy_focus_changed"]
-[connection signal="initiative_pressed" from="Panel/MarginContainer/Hierarchy" to="." method="_on_hierarchy_initiative_pressed"]

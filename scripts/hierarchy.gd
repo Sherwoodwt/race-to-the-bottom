@@ -1,8 +1,5 @@
 extends Control
 
-signal focus_changed(role: Role)
-signal initiative_pressed(employee: Employee)
-
 @onready var boss_button: Button = $MarginContainer/VBoxContainer/Control/UpButton
 @onready var neighbor_left: Button = $MarginContainer/VBoxContainer/HBoxContainer/Control3/LeftButton
 @onready var neighbor_right: Button = $MarginContainer/VBoxContainer/HBoxContainer/Control4/RightButton
@@ -16,7 +13,7 @@ var role: Role
 
 func _ready():
 	set_focus(OrgData.top)
-	focus_changed.connect(set_focus)
+	SignalBus.focus_changed.connect(set_focus)
 
 func set_focus(role: Role):
 	clear_pressed(boss_button)
@@ -28,17 +25,17 @@ func set_focus(role: Role):
 	
 	if role.boss:
 		boss_button.disabled = false
-		boss_button.pressed.connect(func(): focus_changed.emit(role.boss))
+		boss_button.pressed.connect(func(): SignalBus.focus_changed.emit(role.boss))
 		var prev = role.boss.find_neighbor(role, true)
 		if prev:
 			neighbor_left.disabled = false
-			neighbor_left.pressed.connect(func(): focus_changed.emit(prev))
+			neighbor_left.pressed.connect(func(): SignalBus.focus_changed.emit(prev))
 		else:
 			neighbor_left.disabled = true
 		var next = role.boss.find_neighbor(role)
 		if next:
 			neighbor_right.disabled = false
-			neighbor_right.pressed.connect(func(): focus_changed.emit(next))
+			neighbor_right.pressed.connect(func(): SignalBus.focus_changed.emit(next))
 		else:
 			neighbor_right.disabled = true
 	else:
@@ -53,7 +50,7 @@ func set_focus(role: Role):
 	for child in role.team:
 		var button = role_scene.instantiate() as PortraitButton
 		if child.employee:
-			button.pressed.connect(func(): focus_changed.emit(child))
+			button.pressed.connect(func(): SignalBus.focus_changed.emit(child))
 		else:
 			button.disabled = true
 		if child.team.size() == 0:
@@ -68,11 +65,11 @@ func clear_pressed(button: Button):
 
 
 func _on_initiatives_pressed() -> void:
-	initiative_pressed.emit(role.employee)
+	SignalBus.initiative_pressed.emit(role.employee)
 
 
 func _focus_boss() -> void:
-	focus_changed.emit(role.boss)
+	SignalBus.focus_changed.emit(role.boss)
 
 func _focus_neighbor(left: bool):
 	var index = role.boss.team.find(role)
