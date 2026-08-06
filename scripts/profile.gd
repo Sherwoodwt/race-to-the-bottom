@@ -19,10 +19,12 @@ extends Control
 var employee: Employee
 
 func _ready():
-	_on_hierarchy_focus_changed(OrgData.top)
+	SignalBus.highlight.connect(_on_hierarchy_focus_changed)
 
-# only run on roles with employees
-func _on_hierarchy_focus_changed(role: Role) -> void:
+func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
+	var role = target.role
+	if not role.employee:
+		return
 	employee = role.employee
 	portrait.set_portrait(employee.portrait)
 	for child in demerits.get_children():
@@ -49,7 +51,7 @@ func _on_hierarchy_focus_changed(role: Role) -> void:
 
 
 func _on_initiatives_button_pressed() -> void:
-	SignalBus.initiative_selected.emit(employee)
+	SignalBus.initiative_pressed.emit(employee)
 
 
 func _on_fire_button_pressed() -> void:

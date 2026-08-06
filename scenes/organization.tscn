@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://frv888cne2ik" path="res://scripts/hierarchy.gd" id="2_ywb0v"]
 [ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role_button.tscn" id="3_bnk4x"]
 [ext_resource type="Texture2D" uid="uid://dy77hktflbrif" path="res://assets/arrow_up.png" id="5_hfxdp"]
-[ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_details.tscn" id="5_q63xy"]
+[ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_modal.tscn" id="5_q63xy"]
 [ext_resource type="Texture2D" uid="uid://j22ea423dl1f" path="res://assets/arrow_left.png" id="6_xgnm6"]
 [ext_resource type="Texture2D" uid="uid://m3wps67cgm8r" path="res://assets/arrow_right.png" id="7_k6pdw"]
 
@@ -109,7 +109,7 @@ icon = ExtResource("6_xgnm6")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Selected" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2" unique_id=1345156442 node_paths=PackedStringArray("profile") instance=ExtResource("3_bnk4x")]
+[node name="Selected" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2" unique_id=1345156442 instance=ExtResource("3_bnk4x")]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = 8
@@ -123,7 +123,6 @@ offset_right = 48.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-profile = NodePath("../../../../../../../../ProfileModal")
 
 [node name="Control4" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1426259304]
 layout_mode = 2

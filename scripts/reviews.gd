@@ -1,3 +1,4 @@
+class_name Reviews
 extends Control
 
 @onready var score: Label = $HBoxContainer/RatingScore
@@ -7,10 +8,12 @@ extends Control
 @export var review_scene: PackedScene
 
 func _ready():
-	_on_hierarchy_focus_changed(OrgData.top)
+	SignalBus.highlight.connect(_on_hierarchy_focus_changed)
 
-# can't focus if they're fired
-func _on_hierarchy_focus_changed(role: Role) -> void:
+func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
+	var role = target.role
+	if not role.employee:
+		return
 	reviews_label.text = "What people say about %s:" % role.employee.name
 	for child in reviews.get_children():
 		reviews.remove_child(child)

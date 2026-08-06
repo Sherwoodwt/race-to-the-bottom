@@ -1,3 +1,0 @@
-- signal bus, modal update is currently separate between profile and 
-review
-- modal position with mouse

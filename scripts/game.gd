@@ -6,6 +6,7 @@ extends Control
 
 func _ready():
 	organization_tab.pressed.emit()
+	SignalBus.team_initiatives.connect(_on_organization_team_initiatives)
 
 
 func _on_organization_team_initiatives(employee: Employee) -> void:

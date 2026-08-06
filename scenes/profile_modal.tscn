@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bn057oo1dvaay"]
+
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_rn2ur"]
+[ext_resource type="Script" uid="uid://b5areqijobubp" path="res://scripts/profile_modal.gd" id="2_gp5r2"]
+[ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="3_hiwmo"]
+[ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="4_6voaj"]
+
+[node name="ProfileModal" type="PanelContainer" unique_id=340555002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -571.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rn2ur")
+script = ExtResource("2_gp5r2")
+
+[node name="ProfileDetails" type="VBoxContainer" parent="." unique_id=605685855]
+layout_mode = 2
+
+[node name="Profile" parent="ProfileDetails" unique_id=1172396901 instance=ExtResource("3_hiwmo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="ProfileDetails" unique_id=348353625]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reviews" parent="ProfileDetails/Panel" unique_id=394017895 instance=ExtResource("4_6voaj")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
