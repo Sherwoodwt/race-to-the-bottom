@@ -11,6 +11,7 @@ func _ready():
 	button.pressed.connect(to_main_menu)
 
 func set_label(text: String):
+	show()
 	result_label.text = text
 
 func to_main_menu():
