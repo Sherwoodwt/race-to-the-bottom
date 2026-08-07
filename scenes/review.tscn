@@ -1,35 +1,65 @@
 [gd_scene format=3 uid="uid://b3jd6f4xliww7"]
 
 [ext_resource type="Script" uid="uid://buphm1vocf57q" path="res://scripts/review_display.gd" id="1_vdqwh"]
+[ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="2_1826x"]
 [ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="2_vdqwh"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_3dqfc"]
 
-[node name="Review" type="HBoxContainer" unique_id=253360911]
-theme_override_constants/separation = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_65ffc"]
+texture = ExtResource("2_1826x")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1738220889]
+custom_minimum_size = Vector2(400, 0)
+custom_maximum_size = Vector2(-1, 64)
+offset_right = 400.0
+offset_bottom = 48.0
+theme = ExtResource("3_3dqfc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_65ffc")
 script = ExtResource("1_vdqwh")
 
-[node name="Control" type="Control" parent="." unique_id=1451396343]
-custom_minimum_size = Vector2(64, 64)
+[node name="Review" type="HBoxContainer" parent="." unique_id=253360911]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Portrait" parent="Review" unique_id=1529899193 instance=ExtResource("2_vdqwh")]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Review" unique_id=1777708999]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="Portrait" parent="Control" unique_id=1529899193 instance=ExtResource("2_vdqwh")]
-layout_mode = 0
-scale = Vector2(0.5, 0.5)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1777708999]
-layout_mode = 2
-
-[node name="Author" type="Label" parent="VBoxContainer" unique_id=148220804]
+[node name="Author" type="Label" parent="Review/VBoxContainer" unique_id=148220804]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Venky"
+theme = ExtResource("3_3dqfc")
+theme_override_font_sizes/font_size = 12
+text = "[NAME]"
 
-[node name="Score" type="Label" parent="VBoxContainer" unique_id=1676278942]
+[node name="Label3" type="Label" parent="Review/VBoxContainer" unique_id=1574541197]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 0
+theme = ExtResource("3_3dqfc")
+theme_override_font_sizes/font_size = 12
+text = "opinion"
+
+[node name="Score" type="Label" parent="Review/VBoxContainer" unique_id=1676278942]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_3dqfc")
+theme_override_font_sizes/font_size = 16
 text = "*****"
 
-[node name="Text" type="Label" parent="." unique_id=869381394]
+[node name="Text" type="Label" parent="Review" unique_id=869381394]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme = ExtResource("3_3dqfc")
 text = "SULLY HAS AN EXCELLENT SIGNING VOICE AND A WONDFUL ATTITUDE"
+autowrap_mode = 2

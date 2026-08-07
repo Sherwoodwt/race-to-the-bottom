@@ -1,18 +1,18 @@
 class_name Profile
 extends Control
 
-@onready var employee_name: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Name
-@onready var role_name: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Role
-@onready var salary: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Salary
-@onready var productivity: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Productivity
-@onready var reliability: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Reliability
-@onready var sociability: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Sociability
-@onready var competence: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
-@onready var technical: Label = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
-@onready var demerits: Control = $MarginContainer/VBoxContainer/VBoxContainer/ScrollContainer/Demerits
-@onready var initiative_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/InitiativesButton
-@onready var fire_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/FireButton
-@onready var portrait: PortraitDisplay = $MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Portrait
+@onready var employee_name: Label = $VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Name
+@onready var role_name: Label = $VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Role
+@onready var salary: Label = $VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Salary
+@onready var productivity: Label = $VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Productivity
+@onready var reliability: Label = $VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Reliability
+@onready var sociability: Label = $VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Sociability
+@onready var competence: Label = $VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
+@onready var technical: Label = $VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
+@onready var demerits: Control = $VBoxContainer/VBoxContainer/ScrollContainer/Demerits
+@onready var initiative_button: Button = $VBoxContainer/HBoxContainer/InitiativesButton
+@onready var fire_button: Button = $VBoxContainer/HBoxContainer/FireButton
+@onready var portrait: PortraitDisplay = $VBoxContainer/VBoxContainer/HBoxContainer/Portrait
 
 @export var demerit_scene: PackedScene
 
@@ -20,6 +20,8 @@ var employee: Employee
 
 func _ready():
 	SignalBus.highlight.connect(_on_hierarchy_focus_changed)
+	initiative_button.pressed.connect(func(): SignalBus.team_initiatives.emit(employee))
+	fire_button.pressed.connect(func(): employee.fire())
 
 func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	var role = target.role
@@ -48,11 +50,3 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 		var inst = demerit_scene.instantiate() as Label
 		inst.text = demerit.text
 		demerits.add_child(inst)
-
-
-func _on_initiatives_button_pressed() -> void:
-	SignalBus.initiative_pressed.emit(employee)
-
-
-func _on_fire_button_pressed() -> void:
-	employee.fire()

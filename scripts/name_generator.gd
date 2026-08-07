@@ -1,9 +1,18 @@
 extends Node
 
+func random_name() -> String:
+	var b = boy_names.pick_random()
+	var g = girl_names.pick_random()
+	var n = regular_names.pick_random()
+	var roll = randf()
+	if roll < .33:
+		return b
+	if roll < .67:
+		return g
+	return n
 
-
-#func random_name(gender: Gender) -> String:
-	#return names.pick_random()
+#func random_names(gender: Gender) -> String:
+	#return boy_names.pick_random()
 
 @export var boy_names := [
 	"Venky",

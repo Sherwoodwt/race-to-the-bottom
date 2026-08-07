@@ -3,13 +3,24 @@
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_rn2ur"]
 [ext_resource type="Script" uid="uid://b5areqijobubp" path="res://scripts/profile_modal.gd" id="2_gp5r2"]
 [ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="3_hiwmo"]
-[ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="4_6voaj"]
+[ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="4_gp5r2"]
+[ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="4_rn2ur"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwmo"]
+texture = ExtResource("4_gp5r2")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [node name="ProfileModal" type="PanelContainer" unique_id=340555002]
+custom_minimum_size = Vector2(472, 340)
+custom_maximum_size = Vector2(472, 340)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -571.0
+offset_right = -680.0
+offset_bottom = -362.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rn2ur")
@@ -22,14 +33,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="ProfileDetails" unique_id=348353625]
+[node name="PanelContainer" type="PanelContainer" parent="ProfileDetails" unique_id=979835571]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_hiwmo")
 
-[node name="Reviews" parent="ProfileDetails/Panel" unique_id=394017895 instance=ExtResource("4_6voaj")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="Reviews" parent="ProfileDetails/PanelContainer" unique_id=394017895 instance=ExtResource("4_rn2ur")]
+layout_mode = 2

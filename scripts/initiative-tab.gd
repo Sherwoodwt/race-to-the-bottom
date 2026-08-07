@@ -9,15 +9,12 @@ signal focused
 @export var employee: Employee # set this
 
 var initiatives: Initiatives
-var running: bool
 
 func _ready():
 	text = "%s's Team" % employee.name
 	initiatives = initiatives_scene.instantiate() as Initiatives
 	initiative_area.add_child(initiatives)
 	initiatives.employee = employee
-	initiatives.started.connect(func(): running = true)
-	initiatives.finished.connect(func(): running = false)
 	initiatives.visible = false
 	pressed.connect(focus_team)
 

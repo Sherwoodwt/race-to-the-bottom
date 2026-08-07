@@ -53,7 +53,7 @@ func clear_pressed(button: Button):
 
 
 func _on_initiatives_pressed() -> void:
-	SignalBus.initiative_pressed.emit(role.employee)
+	SignalBus.team_initiatives.emit(role.employee)
 
 
 func _focus_boss() -> void:

@@ -1,8 +1,8 @@
 class_name Initiative
 extends Button
 
-signal initiative_finished(initiative: Initiative)
-signal initiative_started(initiative: Initiative)
+signal started
+signal ended
 
 @onready var timer: Timer = $Timer
 @onready var progress: TextureProgressBar = $MarginContainer/HBoxContainer/TextureProgressBar
@@ -18,7 +18,7 @@ signal initiative_started(initiative: Initiative)
 @export var picture: Texture2D
 @export var demerit: Demerit
 
-var started: bool
+var running: bool
 
 func _ready():
 	label.text = title
@@ -29,21 +29,20 @@ func _ready():
 	pressed.connect(start_initiative)
 
 func _physics_process(delta: float) -> void:
-	if started:
+	if running:
 		progress.value = 1.0 - timer.time_left / timer.wait_time
 
 func start_initiative():
 	timer.start()
 	disabled = true
-	started = true
-	initiative_started.emit(self)
+	running = true
+	started.emit(self)
 
 func finish_initiative():
 	timer.stop()
-	disabled = false
-	started = false
+	running = false
 	progress.value = 0
-	initiative_finished.emit(self)
+	ended.emit(self)
 
 func check_employee(boss: Employee):
 	var val: int = 0

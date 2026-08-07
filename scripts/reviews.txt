@@ -20,9 +20,9 @@ any; 2; [NAME] is friendly but often smells like trash
 any; 4; [NAME] is sharp and witty but hates to be compared to their older siblings
 subordinate; 1; [NAME] consistantly misses project goals 
 any; 3; [NAME] is fun to work with for a while but long exposure wears thin
-subordinate; 2; hr suspects [NAME] may be working under the influence of alcohol though they have not been caught
-subordinate; 2; management has received several complaints that [NAME] has adjusted the ac in their department to unbearably hot temperatures
-any; 2; a rock has more personality than [NAME]
+subordinate; 2; HR suspects [NAME] may be working under the influence of alcohol though they have not been caught
+subordinate; 2; Management has received several complaints that [NAME] has adjusted the ac in their department to unbearably hot temperatures
+any; 2; A rock has more personality than [NAME]
 any; 1; [NAME] is often retalitory in nature, usualy striking back quickly
 any; 3; [NAME] has a strange fascination with the lord of the rings 
 any; 2; [NAME] is annoying and has a weird face
@@ -33,7 +33,7 @@ any; 3; [NAME]'s first reply to any employee to call them is "did you try turnin
 any; 2; [NAME] has a Raichu their desk and pretends it makes growling noises when people approach
 any; 2; [NAME] derives immense joy from finding bugs in code and breaking software right before release dates
 any; 2; [NAME] accidentally crashed the test server on her first day
-any; 4; no one is sure what [NAME] actually does around here
+any; 4; No one is sure what [NAME] actually does around here
 any; 3; [NAME] was once a customer support rep and brags about past calls to anyone who will listen
 boss; 1; [NAME] demands to be rewarded for every day they don't make somebody cry out of frustration
 any; 3; [NAME] claims to be bilingual but refuses to speak in any language other than Lithuanian on thursdays
@@ -58,12 +58,12 @@ any; 3; [NAME] always smells like bug spray and often leaves a trail of sand tha
 any; 1; [NAME] and me do not get along due to an incident involving a candy bar - hr has advised that I say no more
 subordinate; 3; [NAME] is known to take extra long restroom breaks due to a medical condition
 subordinate; 5; [NAME] single handedly saved the Johnson account
-subordinate; 3; coworkers find [NAME] pleasant but not too pleasant
+subordinate; 3; Coworkers find [NAME] pleasant but not too pleasant
 any; 3; [NAME] grows mushrooms at their desk and offers them to fellow coworkes
 subordinate; 4; [NAME] is a very successful go-getter with their eyes on higher positions within the company
 any; 1; [NAME] is left-handed 
 any; 3; [NAME] sometimes catches their nose ring on office equipment
-any; 4; lets just say[NAME] is the reason company parties are now held in the warehouse rather than off-site
+any; 4; Lets just say[NAME] is the reason company parties are now held in the warehouse rather than off-site
 any; 3; [NAME] has a pentactle tattoo in their neck and gets upset when others call it a pentagram
 any; 2; [NAME] over indulges and has been known to gossip about coworkers
 any; 2; [NAME] can often be found loitering outside the office for reasons unknown
@@ -109,7 +109,7 @@ any; 3; [NAME] fills their schedule with fake meetings to appear busier than the
 subordinate; 2; [NAME] is a huge proponent of the lack of drug testing at the company
 any; 1; [NAME] calls their water bottle "my precious" and growls when anyone gets near it
 any; 4; [NAME] always has chocolate on hand 
-any; 4; once [NAME] and I got into a heated verbal disagreement over a dungeons and dragons game
+any; 4; Once [NAME] and I got into a heated verbal disagreement over a dungeons and dragons game
 subordinate; 3; [NAME] has been know to extort snacks from coworkers
 any; 3; [NAME] once gave himself a concussion after trying to crush an energy drink can on his forehead
 any; 2; [NAME] has reported being followed  by sinister forces

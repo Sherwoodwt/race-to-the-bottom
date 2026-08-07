@@ -42,13 +42,12 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Hierarchy" type="Panel" parent="Panel/MarginContainer" unique_id=1798766368 node_paths=PackedStringArray("profile_modal")]
+[node name="Hierarchy" type="Panel" parent="Panel/MarginContainer" unique_id=1798766368]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_k0q7g")
 script = ExtResource("2_ywb0v")
 role_scene = ExtResource("3_bnk4x")
-profile_modal = NodePath("../../../ProfileModal")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Hierarchy" unique_id=1897650107]
 layout_mode = 1
@@ -157,8 +156,11 @@ alignment = 1
 
 [node name="ProfileModal" parent="." unique_id=340555002 instance=ExtResource("5_q63xy")]
 visible = false
-layout_mode = 1
-offset_left = 665.0
-offset_top = 40.0
-offset_right = -125.0
-offset_bottom = -72.0
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
