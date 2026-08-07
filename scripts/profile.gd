@@ -41,7 +41,7 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	role_name.text = role.name
 	productivity.text = "%d%%" % int(role.employee.get_productivity() * 100)
 	
-	salary.text = "$%s" % role.employee.salary
+	salary.text = "$%sK" % role.employee.salary
 	reliability.text = Attributes.attribute_stars(role.employee.attributes.reliability)
 	sociability.text = Attributes.attribute_stars(role.employee.attributes.sociability)
 	competence.text = Attributes.attribute_stars(role.employee.attributes.competence)

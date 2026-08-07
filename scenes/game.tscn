@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://lb80aqlgrnu4"]
 
 [ext_resource type="Script" uid="uid://bfkpfi4ix7g0q" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="2_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://dghg7te5g8xkt" path="res://sound/notification.mp3" id="2_gee14"]
 [ext_resource type="Script" uid="uid://b7kfs402xys1v" path="res://scripts/tab.gd" id="2_lnu2h"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
 
 [node name="Game" type="Control" unique_id=1521623346]
 layout_mode = 3
@@ -15,6 +18,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwrxv")
+lose_screen = ExtResource("2_0tnpc")
+
+[node name="Notification" type="AudioStreamPlayer" parent="." unique_id=598175814]
+stream = ExtResource("2_gee14")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1306882632]
 layout_mode = 1
@@ -77,10 +84,9 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Call" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=949817085]
+[node name="Call" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=795384170 instance=ExtResource("6_u5sy4")]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Assignment" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1926028782 instance=ExtResource("5_iywne")]
 visible = false

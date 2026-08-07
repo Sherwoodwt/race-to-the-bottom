@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://70o35bn0meuh"]
+
+[ext_resource type="Script" uid="uid://bpdibl60oumq0" path="res://scripts/call.gd" id="1_152ql"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_itvnj"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="2_r5xi3"]
+[ext_resource type="Texture2D" uid="uid://dqllddxrqq25n" path="res://assets/ui/mic_unmuted.png" id="3_nvu23"]
+[ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="3_qmkjd"]
+[ext_resource type="Texture2D" uid="uid://bgyny6wxw6i51" path="res://assets/ui/mic_muted.png" id="4_cdm5h"]
+[ext_resource type="Texture2D" uid="uid://bxil636srxcny" path="res://assets/empty-time-big.png" id="6_cncex"]
+[ext_resource type="Texture2D" uid="uid://d3e6xrlrv8cgj" path="res://assets/full-time-big.png" id="7_upcd5"]
+[ext_resource type="Texture2D" uid="uid://cpi0vp3qq1oc4" path="res://assets/empty.png" id="8_1ht6s"]
+[ext_resource type="Texture2D" uid="uid://dmhdp7dk64u5b" path="res://assets/progress.png" id="9_nvu23"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_shxte"]
+load_path = "res://.godot/imported/inlay_frame.png-6e856de696f6a8b3b8fb025fcb540c28.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ku4m2"]
+texture = SubResource("CompressedTexture2D_shxte")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nvu23"]
+load_path = "res://.godot/imported/inlay_frame.png-6e856de696f6a8b3b8fb025fcb540c28.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shxte"]
+texture = SubResource("CompressedTexture2D_nvu23")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cdm5h"]
+texture = ExtResource("3_qmkjd")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="Call" type="Control" unique_id=795384170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_152ql")
+mute_sprite = ExtResource("4_cdm5h")
+unmute_sprite = ExtResource("3_nvu23")
+unmuted_count = 60
+muted_count = 120
+min_time = 10.0
+max_time = 30.0
+
+[node name="Timer" type="Timer" parent="." unique_id=971810933]
+
+[node name="Panel" type="Panel" parent="." unique_id=1935004032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_itvnj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=424484956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1363449687]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1413098544]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_itvnj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ku4m2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=250475112]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Portrait" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1529899193 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait2" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=674443537 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait3" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=705237120 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait4" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=810747356 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait5" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=813816726 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait6" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=608686407 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait7" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=410892840 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait8" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1685442637 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait9" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1282500759 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait10" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1608893658 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="Portrait11" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=532119045 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=827156428]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.25
+theme = ExtResource("1_itvnj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_shxte")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/PanelContainer2" unique_id=1765382528]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Portrait" parent="MarginContainer/VBoxContainer/PanelContainer2/Control" unique_id=1839322228 instance=ExtResource("2_r5xi3")]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 0
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 450.0
+offset_bottom = 450.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1255016746]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = -200.0
+offset_right = 296.0
+offset_bottom = -45.0
+grow_vertical = 0
+theme = ExtResource("1_itvnj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cdm5h")
+
+[node name="Portrait" parent="PanelContainer" unique_id=1217548041 instance=ExtResource("2_r5xi3")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 0
+
+[node name="MuteButton" type="Button" parent="." unique_id=1954951024]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 404.0
+offset_right = 1034.0
+offset_bottom = 452.0
+theme = ExtResource("1_itvnj")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("4_cdm5h")
+
+[node name="TalkProgress" type="TextureProgressBar" parent="." unique_id=1682501754]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -164.99994
+offset_top = -290.0
+offset_right = -37.0
+offset_bottom = -162.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+max_value = 300.0
+step = 0.2
+fill_mode = 5
+texture_under = ExtResource("6_cncex")
+texture_progress = ExtResource("7_upcd5")
+
+[node name="LoseProgress" type="TextureProgressBar" parent="." unique_id=253251271]
+layout_mode = 0
+offset_left = 47.000004
+offset_top = 287.0
+offset_right = 303.0
+offset_bottom = 351.0
+scale = Vector2(0.960001, 0.48000115)
+max_value = 1000.0
+step = 0.2
+texture_under = ExtResource("8_1ht6s")
+texture_progress = ExtResource("9_nvu23")

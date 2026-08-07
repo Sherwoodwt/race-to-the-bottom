@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bv1rbie0agffh"]
+
+[ext_resource type="Script" uid="uid://dl6j58ildtr8h" path="res://scripts/lose_screen.gd" id="1_1n1m7"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_1n1m7"]
+[ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/main_menu.tscn" id="2_73mov"]
+
+[node name="LoseScreen" type="Control" unique_id=709844159]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1n1m7")
+menu = ExtResource("2_73mov")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=222847025]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1n1m7")
+
+[node name="Label" type="Label" parent="." unique_id=1882727238]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -106.0
+offset_right = 546.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1n1m7")
+theme_override_font_sizes/font_size = 64
+text = "You no longer have access to this device!
+
+Please return this device to the address printed on the label in 5 business days. Failure to do so will be considered theft."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Result" type="Label" parent="." unique_id=1173044161]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -275.0
+offset_right = 546.0
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1n1m7")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="." unique_id=158785903]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -136.0
+offset_right = 72.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_1n1m7")
+text = "Sounds great,
+can do!"

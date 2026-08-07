@@ -12,11 +12,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e70hn")
-target_budget = 35000
+target_budget_diff = 500
 target_productivity = 0.25
 
 [node name="DayTimer" type="Timer" parent="." unique_id=2040148004]
-wait_time = 4.0
+wait_time = 3.0
 autostart = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1472478823]
