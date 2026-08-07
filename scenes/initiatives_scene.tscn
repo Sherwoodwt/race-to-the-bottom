@@ -2,99 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dwr7juwu6cyda" path="res://scripts/initiatives.gd" id="1_lr42v"]
 [ext_resource type="PackedScene" uid="uid://clalyvjgy5an4" path="res://scenes/initiative.tscn" id="1_xkr2h"]
-[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="2_lr42v"]
-[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="4_73ebn"]
-
-[sub_resource type="Resource" id="Resource_kvpfn"]
-script = ExtResource("2_lr42v")
-reliability = 1
-competence = 3
-technical = 1
-metadata/_custom_type_script = "uid://b2xthiyd8ququ"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iywne"]
-load_path = "res://.godot/imported/test.png-9345e8a13a5ffc7f7c123bcf8dce3547.ctex"
-
-[sub_resource type="Resource" id="Resource_f1lpg"]
-script = ExtResource("4_73ebn")
-text = "[name] has failed to demonstrate they meet minimum qualifications"
-metadata/_custom_type_script = "uid://v0k7fj2etlt0"
-
-[sub_resource type="Resource" id="Resource_dinhu"]
-script = ExtResource("2_lr42v")
-reliability = 2
-sociability = 3
-competence = 2
-metadata/_custom_type_script = "uid://b2xthiyd8ququ"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p57ef"]
-load_path = "res://.godot/imported/eye.png-a84d27eb76574b804de06889c29718a8.ctex"
-
-[sub_resource type="Resource" id="Resource_73ebn"]
-script = ExtResource("4_73ebn")
-text = "Red flags have been raised in [name]'s One-on-One meeting"
-metadata/_custom_type_script = "uid://v0k7fj2etlt0"
-
-[sub_resource type="Resource" id="Resource_kvuet"]
-script = ExtResource("2_lr42v")
-reliability = 1
-sociability = 2
-competence = 1
-technical = 3
-metadata/_custom_type_script = "uid://b2xthiyd8ququ"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u5sy4"]
-load_path = "res://.godot/imported/training.png-d71dea35125cab3630d2c1e2f21a7606.ctex"
-
-[sub_resource type="Resource" id="Resource_jdupo"]
-script = ExtResource("4_73ebn")
-text = "[name] failed to complete a required training course"
-metadata/_custom_type_script = "uid://v0k7fj2etlt0"
-
-[sub_resource type="Resource" id="Resource_ca42v"]
-script = ExtResource("2_lr42v")
-reliability = 1
-competence = 2
-technical = 4
-metadata/_custom_type_script = "uid://b2xthiyd8ququ"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gee14"]
-load_path = "res://.godot/imported/report.png-00667459f58d90c5f728979c1a8e17d5.ctex"
-
-[sub_resource type="Resource" id="Resource_6jmia"]
-script = ExtResource("4_73ebn")
-text = "[name] has not provided an accurate list of programs and equipment"
-metadata/_custom_type_script = "uid://v0k7fj2etlt0"
-
-[sub_resource type="Resource" id="Resource_0tnpc"]
-script = ExtResource("2_lr42v")
-reliability = 3
-sociability = 2
-competence = 1
-metadata/_custom_type_script = "uid://b2xthiyd8ququ"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vtaks"]
-load_path = "res://.godot/imported/meeting.png-a614556b283a17d184375ead68ad8939.ctex"
-
-[sub_resource type="Resource" id="Resource_fphh8"]
-script = ExtResource("4_73ebn")
-text = "[name] has not been present and engaged for the morning meeting"
-metadata/_custom_type_script = "uid://v0k7fj2etlt0"
-
-[sub_resource type="Resource" id="Resource_trtic"]
-script = ExtResource("2_lr42v")
-sociability = 4
-competence = 2
-technical = 2
-metadata/_custom_type_script = "uid://b2xthiyd8ququ"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ir15t"]
-load_path = "res://.godot/imported/presentation.png-4ed1ab8087b6d82001f2cb3302387541.ctex"
-
-[sub_resource type="Resource" id="Resource_fn5gl"]
-script = ExtResource("4_73ebn")
-text = "[name]'s presentation raised concerns about the necessity of their role"
-metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+[ext_resource type="Resource" uid="uid://buf5okjpob8o8" path="res://scripts/Initiatives/report.tres" id="3_fn5gl"]
+[ext_resource type="Resource" uid="uid://ddrsr6ueex1va" path="res://scripts/Initiatives/training.tres" id="4_46i4u"]
+[ext_resource type="Resource" uid="uid://mepx2a17w6rt" path="res://scripts/Initiatives/attendance.tres" id="5_w1fy0"]
+[ext_resource type="Resource" uid="uid://bhs1kug3cf0ow" path="res://scripts/Initiatives/one_on_one.tres" id="6_6e844"]
+[ext_resource type="Resource" uid="uid://cx6tr82f32erh" path="res://scripts/Initiatives/presentation.tres" id="7_u0gik"]
+[ext_resource type="Resource" uid="uid://be6pj3qgsqpqv" path="res://scripts/Initiatives/qualifications.tres" id="8_0xuie"]
 
 [node name="InitiativesScene" type="VBoxContainer" unique_id=1445267729]
 anchors_preset = 15
@@ -108,54 +21,24 @@ script = ExtResource("1_lr42v")
 
 [node name="TestInitiative2" parent="." unique_id=1228964180 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
-attributes = SubResource("Resource_kvpfn")
-wait_time = 20.0
-title = "Verify Qualifications"
-description = "Ensure employees have a sufficient understanding of their responsibilities"
-picture = SubResource("CompressedTexture2D_iywne")
-demerit = SubResource("Resource_f1lpg")
+initiative = ExtResource("3_fn5gl")
 
 [node name="TestInitiative3" parent="." unique_id=1097056427 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
-attributes = SubResource("Resource_dinhu")
-wait_time = 20.0
-title = "One-on-Ones"
-description = "Each employee must have a mandatory One-on-One check-in with their manager"
-picture = SubResource("CompressedTexture2D_p57ef")
-demerit = SubResource("Resource_73ebn")
+initiative = ExtResource("4_46i4u")
 
 [node name="TestInitiative4" parent="." unique_id=1033629588 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
-attributes = SubResource("Resource_kvuet")
-wait_time = 20.0
-title = "Training"
-description = "Employees must be trained to use the new system"
-picture = SubResource("CompressedTexture2D_u5sy4")
-demerit = SubResource("Resource_jdupo")
+initiative = ExtResource("5_w1fy0")
 
 [node name="TestInitiative5" parent="." unique_id=1505605917 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
-attributes = SubResource("Resource_ca42v")
-wait_time = 20.0
-title = "Report"
-description = "Employees must provide a detailed list of all programs and equipment"
-picture = SubResource("CompressedTexture2D_gee14")
-demerit = SubResource("Resource_6jmia")
+initiative = ExtResource("6_6e844")
 
 [node name="TestInitiative6" parent="." unique_id=450355591 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
-attributes = SubResource("Resource_0tnpc")
-wait_time = 20.0
-title = "Attendance"
-description = "Additional morning meeting to verify attendance and reiterate company values"
-picture = SubResource("CompressedTexture2D_vtaks")
-demerit = SubResource("Resource_fphh8")
+initiative = ExtResource("7_u0gik")
 
 [node name="TestInitiative7" parent="." unique_id=57251312 instance=ExtResource("1_xkr2h")]
 layout_mode = 2
-attributes = SubResource("Resource_trtic")
-wait_time = 20.0
-title = "Presentation"
-description = "Employees will present what they've been working on"
-picture = SubResource("CompressedTexture2D_ir15t")
-demerit = SubResource("Resource_fn5gl")
+initiative = ExtResource("8_0xuie")

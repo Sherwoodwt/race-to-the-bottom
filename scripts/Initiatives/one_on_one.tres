@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Initiative" format=3 uid="uid://bhs1kug3cf0ow"]
+
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/initiative.gd" id="1_n2f2n"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_p55vd"]
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="2_20cf4"]
+[ext_resource type="Texture2D" uid="uid://t2o6i2pojx6y" path="res://assets/eye.png" id="3_ei8su"]
+
+[sub_resource type="Resource" id="Resource_01vjx"]
+script = ExtResource("1_p55vd")
+reliability = 2
+sociability = 3
+competence = 2
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_b70be"]
+script = ExtResource("2_20cf4")
+text = "Red flags have been raised in [NAME]'s One-on-One meetings"
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[resource]
+script = ExtResource("1_n2f2n")
+attributes = SubResource("Resource_01vjx")
+wait_time = 14.0
+title = "One-on-One"
+description = "Each employee must have a mandatory One-on-One check-in with their manager"
+picture = ExtResource("3_ei8su")
+demerit = SubResource("Resource_b70be")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

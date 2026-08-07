@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Initiative" format=3 uid="uid://be6pj3qgsqpqv"]
+
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="1_rx810"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_s5vq1"]
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/initiative.gd" id="1_si7yn"]
+[ext_resource type="Texture2D" uid="uid://c6u258uplcwtx" path="res://assets/test.png" id="2_s5vq1"]
+
+[sub_resource type="Resource" id="Resource_mayqs"]
+script = ExtResource("1_s5vq1")
+reliability = 1
+competence = 3
+technical = 1
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_w4xkr"]
+script = ExtResource("1_rx810")
+text = "[NAME] has failed to demonstrate that they meet the minimum qualifications of their role"
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[resource]
+script = ExtResource("1_si7yn")
+attributes = SubResource("Resource_mayqs")
+wait_time = 28.0
+title = "Verify Qualifications"
+description = "Ensure employees have a sufficient understanding of their responsibilities"
+picture = ExtResource("2_s5vq1")
+demerit = SubResource("Resource_w4xkr")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

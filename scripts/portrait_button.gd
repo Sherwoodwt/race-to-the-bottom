@@ -3,10 +3,15 @@ extends Button
 
 @onready var portrait: PortraitDisplay = $MarginContainer/Portrait
 
+@export var link_only: bool
+
 var role: Role
 
 func _ready():
-	mouse_entered.connect(_handle_enter)
+	if not link_only:
+		mouse_entered.connect(_handle_enter)
+	else:
+		pressed.connect(func(): SignalBus.focus_changed.emit(role))
 
 func _handle_enter():
 	SignalBus.highlight.emit(self)

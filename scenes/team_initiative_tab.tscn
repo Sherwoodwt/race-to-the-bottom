@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://c00myajhbt2iv"]
 
 [ext_resource type="Script" uid="uid://xmy7c3oayb6b" path="res://scripts/initiative-tab.gd" id="1_1usig"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_t1pb0"]
 [ext_resource type="PackedScene" uid="uid://dxlfbu58p3sn1" path="res://scenes/initiatives_scene.tscn" id="2_6vh6m"]
+[ext_resource type="Texture2D" uid="uid://dnufn7rqho8qo" path="res://assets/ui/x.png" id="4_leiwh"]
 
 [node name="TeamInitiativeTab" type="Button" unique_id=65452084]
 custom_minimum_size = Vector2(140, 64)
+theme = ExtResource("1_t1pb0")
 button_mask = 3
 text = "Org-Wide"
 script = ExtResource("1_1usig")
 initiatives_scene = ExtResource("2_6vh6m")
+
+[node name="XButton" type="Button" parent="." unique_id=1875193540]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.0
+offset_top = 6.0
+offset_right = 55.0
+offset_bottom = 82.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("4_leiwh")

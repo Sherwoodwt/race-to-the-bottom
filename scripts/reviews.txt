@@ -86,7 +86,7 @@ any; 3; [NAME] knows all the big players in the industry and has dated most of t
 boss; 1; [NAME] once fired someone for touching the thermostat but they were not even and employee
 any; 5; [NAME] used their personal money to buy a foosball table for the breakroom
 subordinate; 4; [NAME] has a photographic memory of most company machinery
-any; 2; everyone knows when [NAME] is in a bad mood
+any; 2; Everyone knows when [NAME] is in a bad mood
 any; 1; [NAME] always represents the company in a positive manner no matter what
 any; 3; [NAME] is lactose intolerant so birthday parties are more complicated
 any; 3; [NAME] has a lovely voice but always whispers

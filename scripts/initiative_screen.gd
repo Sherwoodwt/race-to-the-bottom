@@ -1,7 +1,7 @@
 class_name InitiativeScreen
 extends Control
 
-@onready var tab_area: Control = $Panel/MarginContainer/VBoxContainer/HBoxContainer
+@onready var tab_area: Control = $Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer
 
 @export var initiative_tab_scene: PackedScene
 
@@ -28,6 +28,7 @@ func add_team(employee: Employee):
 	inst.focused.connect(func(): team_focused(inst))
 	tab_area.add_child(inst)
 	tabs.append(inst)
+	inst.closed.connect(func(): tabs.remove_at(tabs.find_custom(func(t): return t.employee == inst.employee)))
 	inst.focus_team()
 
 func team_focused(tab: InitiativeTab):

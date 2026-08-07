@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Initiative" format=3 uid="uid://mepx2a17w6rt"]
+
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_5ay8t"]
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/initiative.gd" id="1_iyt31"]
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="1_m1diq"]
+[ext_resource type="Texture2D" uid="uid://btp1m47kp6d30" path="res://assets/meeting.png" id="2_qgt2l"]
+
+[sub_resource type="Resource" id="Resource_0x306"]
+script = ExtResource("1_5ay8t")
+reliability = 3
+sociability = 2
+competence = 1
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_qgt2l"]
+script = ExtResource("1_m1diq")
+text = "[NAME] has not been present and engaged for the morning meetings"
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[resource]
+script = ExtResource("1_iyt31")
+attributes = SubResource("Resource_0x306")
+wait_time = 21.0
+title = "Attendance"
+description = "Additional morning meeting to verify attendance and reiterate company values"
+picture = ExtResource("2_qgt2l")
+demerit = SubResource("Resource_qgt2l")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

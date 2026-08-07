@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://bn057oo1dvaay"]
 
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_rn2ur"]
+[ext_resource type="Texture2D" uid="uid://b1p7im52vwxrl" path="res://assets/ui/window.png" id="2_6voaj"]
 [ext_resource type="Script" uid="uid://b5areqijobubp" path="res://scripts/profile_modal.gd" id="2_gp5r2"]
 [ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="3_hiwmo"]
 [ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="4_gp5r2"]
 [ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="4_rn2ur"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xigre"]
+content_margin_top = 0.0
+texture = ExtResource("2_6voaj")
+texture_margin_left = 8.0
+texture_margin_top = 24.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwmo"]
 texture = ExtResource("4_gp5r2")
@@ -23,20 +32,27 @@ offset_right = -680.0
 offset_bottom = -362.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_rn2ur")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xigre")
 script = ExtResource("2_gp5r2")
 
-[node name="ProfileDetails" type="VBoxContainer" parent="." unique_id=605685855]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1475087078]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="ProfileDetails" type="VBoxContainer" parent="MarginContainer" unique_id=605685855]
 layout_mode = 2
 
-[node name="Profile" parent="ProfileDetails" unique_id=1172396901 instance=ExtResource("3_hiwmo")]
+[node name="Profile" parent="MarginContainer/ProfileDetails" unique_id=1172396901 instance=ExtResource("3_hiwmo")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="ProfileDetails" unique_id=979835571]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/ProfileDetails" unique_id=979835571]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_hiwmo")
 
-[node name="Reviews" parent="ProfileDetails/PanelContainer" unique_id=394017895 instance=ExtResource("4_rn2ur")]
+[node name="Reviews" parent="MarginContainer/ProfileDetails/PanelContainer" unique_id=394017895 instance=ExtResource("4_rn2ur")]
 layout_mode = 2

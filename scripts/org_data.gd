@@ -10,8 +10,6 @@ const MIN_TEAM_SIZE = 6 # just initial
 
 var top: Role
 var fired_employees: Array[Employee]
-# { initiative.title -> bool }
-var initiatives_ran: Dictionary
 
 func load_all(path: String):
 	var roles: Array[Role]

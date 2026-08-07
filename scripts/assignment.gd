@@ -38,6 +38,7 @@ func _on_day_timer_timeout() -> void:
 			print("LOSER")
 		progress.value = progress.max_value
 		quarter_counter += 1
+		SignalBus.quarter_end.emit()
 	
 	if quarter_counter % 10 == 1:
 		quarter_label.text = "%dst Quarter" % quarter_counter

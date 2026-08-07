@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Initiative" format=3 uid="uid://buf5okjpob8o8"]
+
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="1_53d76"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_g1be6"]
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/initiative.gd" id="1_xw1f2"]
+[ext_resource type="Texture2D" uid="uid://c3v3kxydxn51u" path="res://assets/report.png" id="2_g1be6"]
+
+[sub_resource type="Resource" id="Resource_s3h2n"]
+script = ExtResource("1_g1be6")
+reliability = 1
+competence = 2
+technical = 4
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_jjjd1"]
+script = ExtResource("1_53d76")
+text = "[NAME] has not provided an accurate list of programs and equipment"
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[resource]
+script = ExtResource("1_xw1f2")
+attributes = SubResource("Resource_s3h2n")
+wait_time = 7.0
+title = "Report"
+description = "Employees must provide a detailed list of all programs and equipment"
+picture = ExtResource("2_g1be6")
+demerit = SubResource("Resource_jjjd1")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

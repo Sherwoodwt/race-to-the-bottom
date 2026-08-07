@@ -1,4 +1,4 @@
-class_name Initiative
+class_name InitiativeButton
 extends Button
 
 signal started
@@ -11,22 +11,19 @@ signal ended
 @onready var sprite: TextureRect = $MarginContainer/HBoxContainer/TextureRect
 @onready var effect_label: Label = $MarginContainer/HBoxContainer/TextureProgressBar/HBoxContainer/Label2
 
-@export var attributes: Attributes
-@export var wait_time: float
-@export var title: String
-@export_multiline() var description: String
-@export var picture: Texture2D
-@export var demerit: Demerit
+@export var initiative: Initiative
 
 var running: bool
 
 func _ready():
-	label.text = title
-	description_label.text = description
-	sprite.texture = picture
-	timer.wait_time = wait_time
+	label.text = initiative.title
+	description_label.text = initiative.description
+	sprite.texture = initiative.picture
+	timer.wait_time = initiative.wait_time
 	timer.timeout.connect(finish_initiative)
 	pressed.connect(start_initiative)
+	SignalBus.quarter_end.connect(reset)
+	SignalBus.initiative_started.connect(check_disabled)
 
 func _physics_process(delta: float) -> void:
 	if running:
@@ -36,19 +33,26 @@ func start_initiative():
 	timer.start()
 	disabled = true
 	running = true
-	started.emit(self)
+	started.emit()
 
 func finish_initiative():
 	timer.stop()
 	running = false
 	progress.value = 0
-	ended.emit(self)
+	ended.emit()
+
+func reset():
+	disabled = false
+
+func check_disabled(initiative: Initiative):
+	if initiative.title == self.initiative.title:
+		disabled = true
 
 func check_employee(boss: Employee):
 	var val: int = 0
 	for employee in boss.role.worker_team():
 		var fails: int = 0
-		var dif = employee.attributes.diff(attributes)
+		var dif = employee.attributes.diff(initiative.attributes)
 		for d in dif:
 			if d < 0:
 				fails += 1
