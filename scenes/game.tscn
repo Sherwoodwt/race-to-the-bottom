@@ -142,6 +142,7 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+<<<<<<< Updated upstream
 
 [node name="PauseMenu" type="Control" parent="." unique_id=135118304]
 layout_mode = 1
@@ -185,3 +186,5 @@ offset_bottom = 215.0
 theme_override_font_sizes/font_size = 128
 text = "Paused"
 horizontal_alignment = 1
+=======
+>>>>>>> Stashed changes
