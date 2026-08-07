@@ -6,12 +6,15 @@ extends Control
 @onready var notification: AudioStreamPlayer = $Notification
 
 @export var lose_screen: PackedScene
+@export var pause_menu: Control
 
 func _ready():
 	organization_tab.pressed.emit()
 	SignalBus.team_initiatives.connect(_on_organization_team_initiatives)
 	SignalBus.call_alert.connect(func(): notification.play())
 	SignalBus.lose.connect(lose)
+	SignalBus.pause.connect(_handle_pause.bind(true))
+	SignalBus.unpause.connect(_handle_pause.bind(false))
 
 func _on_organization_team_initiatives(employee: Employee) -> void:
 	initiatives.add_team(employee)
@@ -22,3 +25,11 @@ func lose(reason: String):
 	add_sibling(inst)
 	inst.set_label(reason)
 	queue_free.call_deferred()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		SignalBus.pause.emit()
+
+func _handle_pause(paused: bool):
+	get_tree().paused = !get_tree().paused
+	pause_menu.visible = !get_tree().paused

@@ -1,14 +1,64 @@
 [gd_scene format=3 uid="uid://lb80aqlgrnu4"]
 
 [ext_resource type="Script" uid="uid://bfkpfi4ix7g0q" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="2_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://dghg7te5g8xkt" path="res://sound/notification.mp3" id="2_gee14"]
+[ext_resource type="Script" uid="uid://dl6j58ildtr8h" path="res://scripts/lose_screen.gd" id="2_kvpfn"]
 [ext_resource type="Script" uid="uid://b7kfs402xys1v" path="res://scripts/tab.gd" id="2_lnu2h"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_p57ef"]
+[ext_resource type="Script" uid="uid://bnxdljg8yutg5" path="res://scripts/main_menu.gd" id="3_dinhu"]
 [ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://caw3saafvajk2" path="res://assets/ui/button_disabled.png" id="5_kvuet"]
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://bdky5draekrl7" path="res://scripts/pause_menu.gd" id="12_dinhu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+texture = ExtResource("5_kvuet")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="PackedScene" id="PackedScene_v2sw8"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("MainMenu", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "game", "Control", "PanelContainer", "theme", "Label", "offset_left", "offset_top", "offset_right", "offset_bottom", "size_flags_vertical", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "Panel", "theme_override_styles/panel", "Label2", "custom_maximum_size", "autowrap_mode", "Start", "anchor_left", "anchor_top", "Button", "Exit"),
+"node_count": 7,
+"node_ids": PackedInt32Array(537983958, 1880358363, 804047371, 185283692, 325256259, 1459222279, 1235166702),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 10, 10, -1, 7, 1, 6, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 11, 7, 0, 0, 0, 12, 12, -1, 10, 1, 8, 13, 9, 14, 10, 15, 11, 16, 12, 17, 8, 11, 7, 18, 13, 19, 14, 20, 6, 0, 0, 0, 21, 21, -1, 7, 1, 8, 13, 15, 14, 16, 15, 17, 16, 18, 11, 7, 22, 19, 0, 0, 0, 12, 23, -1, 16, 24, 20, 1, 6, 2, 1, 3, 2, 4, 2, 13, 21, 14, 22, 15, 23, 16, 24, 5, 3, 6, 3, 17, 8, 11, 7, 18, 25, 19, 26, 25, 0, 0, 0, 0, 29, 26, -1, 14, 1, 6, 2, 0, 27, 2, 28, 2, 3, 2, 4, 2, 13, 27, 14, 28, 15, 29, 16, 30, 5, 8, 6, 8, 11, 7, 19, 31, 0, 0, 0, 29, 30, -1, 14, 1, 6, 2, 0, 27, 2, 28, 2, 3, 2, 4, 2, 13, 32, 14, 28, 15, 33, 16, 30, 5, 8, 6, 8, 11, 7, 19, 34, 0),
+"variants": [3, 15, 1.0, 2, ExtResource("3_dinhu"), null, 1, ExtResource("2_p57ef"), 0, 176.0, 36.0, 992.0, 138.0, 128, "Race to the Bottom", 9.0, 164.0, 1145.0, 545.0, SubResource("StyleBoxTexture_bqqt6"), Vector2(1100, -1), 26.0, 169.0, -26.0, -113.0, 28, "Welcome to Malantir, where people value our innovation.
+To continue striving toward efficiency our company has committed to an ambitious goal of decreasing our budget each quarter.
+By the end of each quarter ensure your department has met its budget goals while maintaining an acceptable productivity. Each quarter you may choose teams to volunteer for one of our quarterly initiatives. Any demerits your employees receive may be used as justification to fire them, though firing them will leave their role temporarily empty and may disturb the mood or productivity of the team. Managers can be fired if they have enough employees with low productivity.
+
+We know everyone is struggling right now, and we appreciate your cooperation through this tough time, however with stakes so high any failures to meet projected goals may be sufficient cause for termination. Department managers must still be present and engaged in the daily meetings.
+
+Thank you - Richard Smalls Jr, CEO of Malantir", -236.0, -78.0, -48.0, -14.0, "Sounds great,
+lets get started!", -1135.0, -947.0, "Maybe later..."],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_trtic"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("LoseScreen", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "menu", "Control", "PanelContainer", "theme", "Label", "custom_minimum_size", "anchor_left", "anchor_top", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "autowrap_mode", "Result", "Button"),
+"node_count": 5,
+"node_ids": PackedInt32Array(709844159, 222847025, 1882727238, 1173044161, 158785903),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 10, 10, -1, 7, 1, 6, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 11, 7, 0, 0, 0, 12, 12, -1, 18, 13, 8, 1, 6, 2, 9, 14, 10, 15, 10, 3, 10, 4, 10, 16, 11, 17, 12, 18, 13, 19, 14, 5, 3, 6, 3, 11, 7, 20, 15, 21, 16, 22, 6, 23, 0, 0, 0, 0, 12, 24, -1, 17, 13, 8, 1, 6, 2, 9, 14, 10, 15, 10, 3, 10, 4, 10, 16, 11, 17, 17, 18, 13, 19, 18, 5, 3, 6, 3, 11, 7, 20, 15, 22, 6, 23, 0, 0, 0, 0, 25, 25, -1, 14, 1, 6, 2, 19, 14, 10, 15, 2, 3, 10, 4, 2, 16, 20, 17, 21, 18, 22, 19, 23, 5, 3, 6, 24, 11, 7, 21, 25, 0),
+"variants": [3, 15, 1.0, 2, ExtResource("2_kvpfn"), SubResource("PackedScene_v2sw8"), 1, ExtResource("2_p57ef"), Vector2(1100, 0), 8, 0.5, -554.0, -106.0, 546.0, 161.0, 64, "You no longer have access to this device!
+
+Please return this device to the address printed on the label in 5 business days. Failure to do so will be considered theft.", -275.0, -224.0, 7, -84.0, -136.0, 72.0, -72.0, 0, "Sounds great,
+can do!"],
+"version": 3
+}
 
 [node name="Game" type="Control" unique_id=1521623346]
 layout_mode = 3
@@ -18,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwrxv")
-lose_screen = ExtResource("2_0tnpc")
+lose_screen = SubResource("PackedScene_trtic")
 
 [node name="Notification" type="AudioStreamPlayer" parent="." unique_id=598175814]
 stream = ExtResource("2_gee14")
@@ -92,3 +142,46 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="PauseMenu" type="Control" parent="." unique_id=135118304]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_p57ef")
+script = ExtResource("12_dinhu")
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=1137777495]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="PauseMenu" unique_id=1237804273]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = 76.0
+offset_right = 31.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+
+[node name="Label" type="Label" parent="PauseMenu" unique_id=2034277287]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 113.0
+offset_right = 1144.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 128
+text = "Paused"
+horizontal_alignment = 1

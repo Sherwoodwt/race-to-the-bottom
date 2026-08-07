@@ -8,6 +8,7 @@ extends Control
 @onready var budget_label: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer2/Budget
 @onready var target_productivity_label: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer/TargetProductivity
 @onready var productivity_label: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer2/Productivity
+@onready var pause_button: Button = $Pause
 
 @export var target_budget_diff: int
 @export var target_productivity: float
@@ -20,6 +21,7 @@ var target_budget: int
 func _ready() -> void:
 	quarter_counter = 1
 	OrgData.productivity_changed.connect(update_productivity)
+	pause_button.pressed.connect(func(): SignalBus.pause.emit())
 	update_productivity()
 
 func _physics_process(delta: float) -> void:

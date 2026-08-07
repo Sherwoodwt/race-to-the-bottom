@@ -10,3 +10,5 @@ signal initiative_started(initiative: Initiative)
 signal quarter_end
 signal call_alert
 signal lose(reason: String)
+signal pause
+signal unpause
