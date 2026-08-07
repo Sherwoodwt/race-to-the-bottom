@@ -1,18 +1,18 @@
 class_name LoseScreen
-extends Node
+extends Control
 
 @onready var button: Button = $Button
 @onready var result_label: Label = $Result
 
-@export var menu: PackedScene
+@export var menu: Control
 
 func _ready():
+	SignalBus.lose.connect(set_label)
 	button.pressed.connect(to_main_menu)
 
 func set_label(text: String):
 	result_label.text = text
 
 func to_main_menu():
-	var inst = menu.instantiate()
-	add_sibling(inst)
-	queue_free.call_deferred()
+	hide()
+	menu.show()

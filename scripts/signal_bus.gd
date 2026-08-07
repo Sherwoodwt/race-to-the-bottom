@@ -12,3 +12,4 @@ signal call_alert
 signal lose(reason: String)
 signal pause
 signal unpause
+signal quit_to_menu

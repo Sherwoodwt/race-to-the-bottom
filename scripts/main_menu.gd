@@ -3,16 +3,17 @@ extends Control
 @onready var start_button: Button = $Start
 @onready var exit_button: Button = $Exit
 
-@export var game: PackedScene
+@export var game_scene: PackedScene
 
 func _ready():
 	start_button.pressed.connect(start)
 	exit_button.pressed.connect(exit)
+	SignalBus.quit_to_menu.connect(show)
 
 func start():
-	var inst = game.instantiate()
+	var inst = game_scene.instantiate()
 	add_sibling(inst)
-	queue_free.call_deferred()
+	hide()
 	
 func exit():
 	get_tree().quit()

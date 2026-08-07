@@ -3,31 +3,8 @@
 [ext_resource type="Script" uid="uid://bnxdljg8yutg5" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://caw3saafvajk2" path="res://assets/ui/button_disabled.png" id="2_ekxnf"]
-[ext_resource type="Script" uid="uid://bfkpfi4ix7g0q" path="res://scripts/game.gd" id="2_lgwnu"]
-[ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="3_flqon"]
-[ext_resource type="AudioStream" uid="uid://dghg7te5g8xkt" path="res://sound/notification.mp3" id="4_rcqid"]
-[ext_resource type="Script" uid="uid://b7kfs402xys1v" path="res://scripts/tab.gd" id="6_1ajci"]
-[ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="7_7b55j"]
-[ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="8_5pajh"]
-[ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="9_j7ex8"]
-[ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="10_a8gd2"]
 
-[sub_resource type="PackedScene" id="PackedScene_hstxw"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [],
-"names": PackedStringArray("Game", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "lose_screen", "Control", "Notification", "stream", "AudioStreamPlayer", "PanelContainer", "theme", "MarginContainer", "VBoxContainer", "Tabs", "size_flags_vertical", "size_flags_stretch_ratio", "HBoxContainer", "Call", "size_flags_horizontal", "text", "tab_scene", "Button", "Organization", "Initiatives", "Assignment", "visible"),
-"node_count": 14,
-"node_ids": PackedInt32Array(1521623346, 598175814, 1306882632, 644177641, 142270613, 1979272856, 1096196656, 226917574, 527917310, 683884214, 756527007, 759931945, 795384170, 1926028782),
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 12, 10, -1, 1, 11, 6, 0, 0, 0, 13, 13, -1, 7, 1, 7, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 14, 8, 0, 2, 0, 15, 15, -1, 1, 1, 3, 0, 3, 0, 16, 16, -1, 1, 1, 3, 0, 4, 0, 20, 17, -1, 3, 1, 3, 18, 0, 19, 9, 0, 5, 0, 25, 21, -1, 6, 1, 3, 22, 0, 14, 8, 23, 10, 7, 11, 1073741848, 12, 0, 5, 0, 25, 26, -1, 6, 1, 3, 22, 0, 14, 8, 23, 13, 7, 11, 1073741848, 14, 0, 5, 0, 25, 27, -1, 6, 1, 3, 22, 0, 14, 8, 23, 15, 7, 11, 1073741848, 16, 0, 5, 0, 25, 28, -1, 6, 1, 3, 22, 0, 14, 8, 23, 17, 7, 11, 1073741848, 18, 0, 4, 0, 2147483647, 26, 19, 2, 1, 3, 18, 0, 0, 4, 0, 2147483647, 27, 20, 3, 29, 21, 1, 3, 18, 0, 0, 4, 0, 2147483647, 21, 22, 2, 29, 21, 1, 3, 0, 4, 0, 2147483647, 28, 23, 3, 29, 21, 1, 3, 18, 0, 0),
-"variants": [3, 15, 1.0, 2, ExtResource("2_lgwnu"), ExtResource("3_flqon"), ExtResource("4_rcqid"), 1, ExtResource("1_l6cm7"), 0.1, "Telecall", ExtResource("6_1ajci"), NodePath("../../Call"), "Organization", NodePath("../../Organization"), "Initiatives", NodePath("../../Initiatives"), "Assignment", NodePath("../../Assignment"), ExtResource("7_7b55j"), ExtResource("8_5pajh"), false, ExtResource("9_j7ex8"), ExtResource("10_a8gd2")],
-"version": 3
-}
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
 texture = ExtResource("2_ekxnf")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
@@ -42,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
-game = SubResource("PackedScene_hstxw")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1880358363]
 layout_mode = 1
@@ -72,7 +48,7 @@ offset_top = 164.0
 offset_right = 1145.0
 offset_bottom = 545.0
 theme = ExtResource("1_l6cm7")
-theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_7b55j")
 
 [node name="Label2" type="Label" parent="." unique_id=325256259]
 custom_minimum_size = Vector2(1100, 0)
