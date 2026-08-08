@@ -5,7 +5,6 @@
 
 [sub_resource type="Resource" id="Resource_ci7f2"]
 script = ExtResource("1_aq6jn")
-reliablility = 3.0
 sociability = 2.0
 competence = 3.0
 technical = 2.0
@@ -15,4 +14,5 @@ metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 script = ExtResource("2_x50rw")
 name = "QA Engineer"
 attributes = SubResource("Resource_ci7f2")
+salary_range = Vector2i(80, 100)
 metadata/_custom_type_script = "uid://dxee0nmyj4vtd"
