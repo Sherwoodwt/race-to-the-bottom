@@ -7,9 +7,10 @@
 
 [sub_resource type="Resource" id="Resource_s3h2n"]
 script = ExtResource("1_g1be6")
-reliability = 1
-competence = 2
-technical = 4
+reliability = 2
+sociability = 1
+competence = 4
+technical = 5
 metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
 [sub_resource type="Resource" id="Resource_jjjd1"]
@@ -20,7 +21,7 @@ metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 [resource]
 script = ExtResource("1_xw1f2")
 attributes = SubResource("Resource_s3h2n")
-wait_time = 7.0
+wait_time = 21.0
 title = "Report"
 description = "Employees must provide a detailed list of all programs and equipment"
 picture = ExtResource("2_g1be6")

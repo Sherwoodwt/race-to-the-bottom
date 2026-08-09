@@ -18,6 +18,10 @@ target_budget_diff = 500
 wait_time = 3.0
 autostart = true
 
+[node name="DayTimer2" type="Timer" parent="." unique_id=2028709840]
+wait_time = 3.0
+autostart = true
+
 [node name="Panel" type="Panel" parent="." unique_id=1472478823]
 layout_mode = 1
 anchors_preset = 15
@@ -177,3 +181,4 @@ offset_bottom = 48.0
 text = "Pause"
 
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
+[connection signal="timeout" from="DayTimer2" to="." method="_on_day_timer_timeout"]

@@ -29,14 +29,17 @@ static func generate(role: Role) -> Employee:
 	employee.portrait = PortraitGenerator.generate_portrait()
 	return employee
 
+func check_initiative(initiative: Initiative) -> bool:
+	var ini := initiative.attributes
+	var rel = attributes.reliability - ini.reliability
+	var soc = attributes.sociability - ini.sociability
+	var com = attributes.competence - ini.competence
+	var tec = attributes.technical - ini.technical
+	return rel + soc + com + tec < 0
+
 func apply_initiative(initiative: Initiative):
 	if role.team.size() == 0:
-		var ini := initiative.attributes
-		var rel = attributes.reliability - ini.reliability
-		var soc = attributes.sociability - ini.sociability
-		var com = attributes.competence - ini.competence
-		var tec = attributes.technical - ini.technical
-		if rel + soc + com + tec < 0:
+		if role.employee.check_initiative(initiative):
 			demerits.append(initiative.demerit.duplicate())
 			productivity_changed.emit()
 	else:

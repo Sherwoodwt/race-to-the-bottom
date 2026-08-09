@@ -7,9 +7,10 @@
 
 [sub_resource type="Resource" id="Resource_mayqs"]
 script = ExtResource("1_s5vq1")
-reliability = 1
-competence = 3
-technical = 1
+reliability = 3
+sociability = 1
+competence = 5
+technical = 3
 metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
 [sub_resource type="Resource" id="Resource_w4xkr"]
@@ -20,7 +21,7 @@ metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 [resource]
 script = ExtResource("1_si7yn")
 attributes = SubResource("Resource_mayqs")
-wait_time = 28.0
+wait_time = 84.0
 title = "Verify Qualifications"
 description = "Ensure employees have a sufficient understanding of their responsibilities"
 picture = ExtResource("2_s5vq1")

@@ -51,11 +51,6 @@ func check_disabled(initiative: Initiative):
 func check_employee(boss: Employee):
 	var val: int = 0
 	for employee in boss.role.worker_team():
-		var fails: int = 0
-		var dif = employee.attributes.diff(initiative.attributes)
-		for d in dif:
-			if d < 0:
-				fails += 1
-		if fails > 1:
+		if employee.check_initiative(initiative):
 			val += 1
 	effect_label.text = "%d" % val
