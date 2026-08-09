@@ -20,4 +20,4 @@ func _handle_enter():
 func set_role(role: Role):
 	self.role = role
 	if role.employee:
-		portrait.set_portrait(role.employee.portrait)
+		portrait.set_employee(role.employee)

@@ -11,5 +11,5 @@ func setup(review: Review):
 	author.text = "%s's" % review.author.name
 	score.text = Attributes.attribute_stars(review.stars)
 	text.text = review.description
-	#portrait.set_portrait(review.author.portrait)
+	#portrait.set_employee(review.author)
 	portrait.set_role(review.author.role)

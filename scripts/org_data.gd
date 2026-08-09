@@ -21,8 +21,15 @@ func load_all(path: String):
 	return roles
 
 func _ready():
+	SignalBus.quarter_end.connect(func(): reset(top))
 	top = make_tree(0)
 	make_comments(top)
+
+func reset(role: Role):
+	role.employee.demerits.clear()
+	role.employee.productivity_changed.emit()
+	for r in role.team:
+		reset(r)
 
 func make_tree(level: int) -> Role:
 	var top: Role
