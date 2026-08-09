@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_t1pb0"]
 [ext_resource type="PackedScene" uid="uid://dxlfbu58p3sn1" path="res://scenes/initiatives_scene.tscn" id="2_6vh6m"]
 [ext_resource type="Texture2D" uid="uid://dnufn7rqho8qo" path="res://assets/ui/x.png" id="4_leiwh"]
+[ext_resource type="Texture2D" uid="uid://m3wps67cgm8r" path="res://assets/arrow_right.png" id="5_leiwh"]
 
 [node name="TeamInitiativeTab" type="Button" unique_id=65452084]
 custom_minimum_size = Vector2(140, 64)
@@ -25,3 +26,19 @@ offset_bottom = 82.0
 grow_horizontal = 0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("4_leiwh")
+
+[node name="OrgButton" type="Button" parent="." unique_id=103251054]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -22.0
+offset_right = 59.0
+offset_bottom = 62.999985
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("5_leiwh")

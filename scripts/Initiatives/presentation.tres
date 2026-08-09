@@ -13,17 +13,18 @@ competence = 4
 technical = 4
 metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
-[sub_resource type="Resource" id="Resource_0luuf"]
+[sub_resource type="Resource" id="Resource_nccr0"]
 script = ExtResource("1_dcu2l")
+value = 0.3
 text = "[NAME]'s presentation raised concerns about the necessity of their role"
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [resource]
 script = ExtResource("1_fkftx")
 attributes = SubResource("Resource_uwnao")
-wait_time = 42.0
+wait_time = 21.0
 title = "Presentation"
 description = "Employees will present what they've been working on"
 picture = ExtResource("3_evys2")
-demerit = SubResource("Resource_0luuf")
+demerit = SubResource("Resource_nccr0")
 metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

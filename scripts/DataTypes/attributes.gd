@@ -16,7 +16,7 @@ static func make_comperable(other: Attributes) -> Attributes:
 
 static func generate() -> Attributes:
 	var att = Attributes.new()
-	for i in randi_range(10, 20):
+	for i in randi_range(10, 17):
 		var roll := randf()
 		if roll <= .25 and att.reliability < 5:
 			att.reliability += 1

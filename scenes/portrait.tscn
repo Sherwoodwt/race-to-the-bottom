@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfd55t3b64bcn" path="res://assets/profile_default.png" id="1_k07cr"]
 [ext_resource type="Script" uid="uid://tiy133p0k8ll" path="res://scripts/portrait_display.gd" id="2_31ep3"]
+[ext_resource type="Texture2D" uid="uid://b4dub8cadgbdt" path="res://assets/empty_portrait.png" id="3_efsuh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 
@@ -12,6 +13,8 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_k07cr")
 expand_mode = 2
 script = ExtResource("2_31ep3")
+normal_sprite = ExtResource("1_k07cr")
+empty_sprite = ExtResource("3_efsuh")
 
 [node name="Accessory" type="TextureRect" parent="." unique_id=295504679]
 layout_mode = 1

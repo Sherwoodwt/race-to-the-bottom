@@ -2,6 +2,7 @@ class_name Game
 extends Control
 
 @onready var initiatives: InitiativeScreen = $PanelContainer/MarginContainer/VBoxContainer/Initiatives
+@onready var organization: Organization = $PanelContainer/MarginContainer/VBoxContainer/Organization
 @onready var organization_tab: Tab = $PanelContainer/MarginContainer/VBoxContainer/Tabs/Organization
 @onready var initiatives_tab: Tab = $PanelContainer/MarginContainer/VBoxContainer/Tabs/Initiatives
 @onready var notification: AudioStreamPlayer = $Notification
@@ -10,6 +11,7 @@ extends Control
 func _ready():
 	organization_tab.pressed.emit()
 	SignalBus.team_initiatives.connect(_on_organization_team_initiatives)
+	SignalBus.team_org.connect(_on_team_org)
 	SignalBus.call_alert.connect(func(): notification.play())
 	SignalBus.lose.connect(lose)
 	SignalBus.pause.connect(_handle_pause.bind(true))
@@ -19,6 +21,10 @@ func _ready():
 func _on_organization_team_initiatives(employee: Employee) -> void:
 	initiatives.add_team(employee)
 	initiatives_tab.change_tab()
+
+func _on_team_org(employee: Employee) -> void:
+	organization.set_role(employee.role)
+	organization_tab.change_tab()
 
 func lose(reason: String):
 	queue_free.call_deferred()

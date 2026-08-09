@@ -6,6 +6,9 @@ extends TextureRect
 @onready var accessory_sprite: TextureRect = $Accessory
 @onready var filter: TextureRect = $Filter
 
+@export var normal_sprite: Texture2D
+@export var empty_sprite: Texture2D
+
 #can be null, but needed for color filter update
 var _employee: Employee
 var _portrait: Portrait
@@ -14,12 +17,19 @@ var start_g: float
 func _ready():
 	OrgData.productivity_changed.connect(update_color)
 	start_g = filter.modulate.g
+	SignalBus.fired.connect(check_empty)
+
+func check_empty(employee: Employee):
+	if employee == self._employee:
+		texture = empty_sprite
+		hair_sprite.texture = null
+		accessory_sprite.texture = null
+		facial_hair_sprite.texture = null
 
 func set_employee(employee: Employee):
 	_employee = employee
 	set_portrait(_employee.portrait)
-	if employee != OrgData.top.employee:
-		update_color()
+	update_color()
 
 func set_portrait(portrait: Portrait):
 	_portrait = portrait
@@ -28,7 +38,9 @@ func set_portrait(portrait: Portrait):
 	accessory_sprite.texture = portrait.accessory
 
 func update_color():
-	if not _employee:
+	if not _employee or _employee == OrgData.top.employee:
+		filter.modulate.a = 0
+		filter.modulate.g = start_g * .1
 		return
 	var prod = _employee.get_productivity()
 	filter.modulate.a = 1 - prod

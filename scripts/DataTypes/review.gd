@@ -11,4 +11,4 @@ extends Resource
 
 # returns formatted description
 func format_name(target: Employee) -> String:
-	return description.replace("[NAME]", target.name)
+	return target.format_text(description)

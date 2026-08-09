@@ -9,6 +9,8 @@ signal productivity_changed
 @export var attributes: Attributes
 
 var demerits: Array[Demerit]
+var productivity_demerit: Demerit
+var team_demerit: Demerit
 var reviews: Array[Review]
 var portrait: Portrait
 
@@ -27,6 +29,12 @@ static func generate(role: Role) -> Employee:
 	#employee.attributes = Attributes.make_comperable(role.attributes)
 	employee.attributes = Attributes.generate()
 	employee.portrait = PortraitGenerator.generate_portrait()
+	employee.productivity_demerit = Demerit.new()
+	employee.productivity_demerit.text = "incapatability with role"
+	employee.team_demerit = Demerit.new()
+	employee.team_demerit.text = "failure of subordinates"
+	employee.demerits.append(employee.productivity_demerit)
+	employee.demerits.append(employee.team_demerit)
 	return employee
 
 func check_initiative(initiative: Initiative) -> bool:
@@ -61,14 +69,15 @@ func get_attribute_compatability():
 	return val
 
 func get_productivity() -> float:
-	var val = get_attribute_compatability()
-	for dem in demerits:
-		val -= .3
+	productivity_demerit.value = 1 - get_attribute_compatability()
 	if role.team.size() > 0:
 		var subs = 0.0
 		for e in role.employee_team():
 			subs += e.get_productivity()
-		val *= subs / float(role.team.size())
+		team_demerit.value = 1 - snappedf(subs / float(role.team.size()), .1)
+	var val = 1.0
+	for dem in demerits:
+		val -= dem.value
 	return val
 
 func get_budget() -> int:
@@ -112,9 +121,5 @@ func _make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool
 	review.author = self
 	return review
 
-func fire():
-	var i = role.boss.team.find(role)
-	role.boss.team.remove_at(i)
-	role.boss.employee.productivity_changed.emit()
-	role.employee = null
-	OrgData.fired_employees.append(self)
+func format_text(text: String):
+	return text.replace("[NAME]", name)

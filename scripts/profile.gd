@@ -21,7 +21,7 @@ var employee: Employee
 func _ready():
 	SignalBus.highlight.connect(_on_hierarchy_focus_changed)
 	initiative_button.pressed.connect(func(): SignalBus.team_initiatives.emit(employee))
-	fire_button.pressed.connect(func(): employee.fire())
+	fire_button.pressed.connect(func(): SignalBus.fired.emit(employee))
 
 func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	var role = target.role
@@ -34,7 +34,7 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	initiative_button.disabled = OrgData.top == role or role.team.size() == 0
 	fire_button.disabled = OrgData.top == role \
 		or role.employee.demerits.size() == 0 \
-		or role.employee.get_productivity() < OrgData.PRODUCTIVITY_MIN \
+		or role.employee.get_productivity() >= OrgData.PRODUCTIVITY_MIN \
 		or role.boss.team.size() == 1
 	employee_name.text = role.employee.name
 	if role == OrgData.top:
@@ -48,6 +48,7 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	competence.text = Attributes.attribute_stars(role.employee.attributes.competence)
 	technical.text = Attributes.attribute_stars(role.employee.attributes.technical)
 	for demerit in role.employee.demerits:
-		var inst = demerit_scene.instantiate() as Label
-		inst.text = demerit.text
-		demerits.add_child(inst)
+		if demerit.value != 0:
+			var inst = demerit_scene.instantiate() as Label
+			inst.text = "-%d : %s" % [int(round(demerit.value / .1)), role.employee.format_text(demerit.text)]
+			demerits.add_child(inst)

@@ -22,11 +22,13 @@ func load_all(path: String):
 
 func _ready():
 	SignalBus.quarter_end.connect(func(): reset(top))
+	SignalBus.fired.connect(handle_fired)
 	top = make_tree(0)
 	make_comments(top)
 
 func reset(role: Role):
 	role.employee.demerits.clear()
+	role.employee.get_productivity()
 	role.employee.productivity_changed.emit()
 	for r in role.team:
 		reset(r)
@@ -62,3 +64,21 @@ func make_comments(role: Role):
 
 func get_total_budget() -> int:
 	return top.employee.get_budget()
+
+func handle_fired(employee: Employee):
+	employee.role.employee = null
+	fired_employees.append(self)
+	# promote next person
+	handle_promotions(employee.role)
+
+func handle_promotions(role: Role):
+	if role.team.size() == 0:
+		return
+	var promotee: Role
+	for r in role.team:
+		if not promotee or r.employee.salary > promotee.employee.salary:
+			promotee = r
+	role.employee = promotee.employee
+	promotee.employee = null
+	if promotee.team.size() > 0:
+		handle_promotions(promotee)

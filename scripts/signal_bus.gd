@@ -1,8 +1,10 @@
 extends Node
 
 signal focus_changed(role: Role)
-signal team_initiatives(employee: Employee)
 signal highlight(target: PortraitButton)
+signal team_initiatives(employee: Employee)
+signal team_org(employee: Employee)
+signal fired(employee: Employee)
 
 signal initiative_finished(initiative: Initiative)
 signal initiative_started(initiative: Initiative)

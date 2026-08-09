@@ -18,3 +18,6 @@ func reset():
 
 func start_initiative(initiative: Initiative):
 	used_initiatives[initiative.title] = true
+
+func get_used_initiatives() -> Array[Initiative]:
+	return used_initiatives.keys().filter(func(k): return used_initiatives[k])

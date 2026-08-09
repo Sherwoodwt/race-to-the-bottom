@@ -24,6 +24,8 @@ func _ready():
 	pressed.connect(start_initiative)
 	SignalBus.quarter_end.connect(reset)
 	SignalBus.initiative_started.connect(check_disabled)
+	if InitiativeData.used_initiatives[initiative.title]:
+		check_disabled(initiative)
 
 func _physics_process(delta: float) -> void:
 	if running:

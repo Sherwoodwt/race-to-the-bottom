@@ -13,17 +13,18 @@ competence = 2
 technical = 1
 metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
-[sub_resource type="Resource" id="Resource_qgt2l"]
+[sub_resource type="Resource" id="Resource_5ay8t"]
 script = ExtResource("1_m1diq")
+value = 0.3
 text = "[NAME] has not been present and engaged for the morning meetings"
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [resource]
 script = ExtResource("1_iyt31")
 attributes = SubResource("Resource_0x306")
-wait_time = 63.0
+wait_time = 31.0
 title = "Attendance"
 description = "Additional morning meeting to verify attendance and reiterate company values"
 picture = ExtResource("2_qgt2l")
-demerit = SubResource("Resource_qgt2l")
+demerit = SubResource("Resource_5ay8t")
 metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

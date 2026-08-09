@@ -10,6 +10,11 @@ extends Control
 func setup(review: Review):
 	author.text = "%s's" % review.author.name
 	score.text = Attributes.attribute_stars(review.stars)
+	if review.stars < 3:
+		score.add_theme_color_override("font_color", Color.DARK_RED)
+	else:
+		score.add_theme_color_override("font_color", Color.WEB_GREEN)
+		
 	text.text = review.description
 	#portrait.set_employee(review.author)
 	portrait.set_role(review.author.role)

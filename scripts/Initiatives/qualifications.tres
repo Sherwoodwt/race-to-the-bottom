@@ -13,17 +13,18 @@ competence = 5
 technical = 3
 metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
-[sub_resource type="Resource" id="Resource_w4xkr"]
+[sub_resource type="Resource" id="Resource_s5vq1"]
 script = ExtResource("1_rx810")
+value = 0.3
 text = "[NAME] has failed to demonstrate that they meet the minimum qualifications of their role"
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [resource]
 script = ExtResource("1_si7yn")
 attributes = SubResource("Resource_mayqs")
-wait_time = 84.0
+wait_time = 42.0
 title = "Verify Qualifications"
 description = "Ensure employees have a sufficient understanding of their responsibilities"
 picture = ExtResource("2_s5vq1")
-demerit = SubResource("Resource_w4xkr")
+demerit = SubResource("Resource_s5vq1")
 metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

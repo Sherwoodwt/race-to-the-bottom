@@ -20,6 +20,7 @@ var target_budget: int
 func _ready() -> void:
 	quarter_counter = 1
 	OrgData.productivity_changed.connect(update_productivity)
+	SignalBus.fired.connect(func(_e): update_productivity())
 	pause_button.pressed.connect(func(): SignalBus.pause.emit())
 	update_productivity()
 

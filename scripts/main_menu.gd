@@ -12,6 +12,8 @@ func _ready():
 
 func start():
 	var inst = game_scene.instantiate()
+	InitiativeData.reset()
+	OrgData.reset(OrgData.top)
 	add_sibling(inst)
 	hide()
 	

@@ -6,6 +6,7 @@ signal closed
 
 @onready var initiative_area: Control = $"../../../InitiativeArea"
 @onready var x_button: Button = $XButton
+@onready var org_button: Button = $OrgButton
 
 @export var initiatives_scene: PackedScene
 @export var employee: Employee # set this
@@ -14,6 +15,7 @@ var initiatives: Initiatives
 
 func _ready():
 	x_button.pressed.connect(close)
+	org_button.pressed.connect(func(): SignalBus.team_org.emit(employee))
 	if employee.role == OrgData.top:
 		x_button.visible = false
 		x_button.disabled = false
@@ -24,6 +26,7 @@ func _ready():
 	initiatives.visible = false
 	pressed.connect(focus_team)
 	SignalBus.initiative_finished.connect(func(_i): check_closable())
+	SignalBus.fired.connect(func(e): if e == employee: queue_free.call_deferred())
 
 func focus_team():
 	x_button.visible = false
