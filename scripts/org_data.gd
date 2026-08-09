@@ -4,6 +4,7 @@ signal productivity_changed
 
 const MAX_TEAM_SIZE = 10
 const MIN_TEAM_SIZE = 6 # just initial
+const PRODUCTIVITY_MIN := .5
 
 @onready var leadership_roles: Array[Role] = load_all("res://scripts/Roles/leadership/")
 @onready var worker_roles: Array[Role] = load_all("res://scripts/Roles/workers/")

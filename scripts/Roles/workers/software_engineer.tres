@@ -5,8 +5,9 @@
 
 [sub_resource type="Resource" id="Resource_x2xsh"]
 script = ExtResource("1_5emxf")
-competence = 2.0
-technical = 4.0
+reliability = 1
+competence = 1
+technical = 5
 metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 
 [resource]

@@ -11,7 +11,6 @@ extends Control
 @onready var pause_button: Button = $Pause
 
 @export var target_budget_diff: int
-@export var target_productivity: float
 
 var quarter_counter: int
 var productivity: float
@@ -27,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	target_budget_label.text = "$%dK" % target_budget
 	budget_label.text = "$%dK" % budget
-	target_productivity_label.text = "%d%%" % int(target_productivity * 100)
+	target_productivity_label.text = "%d%%" % int(OrgData.PRODUCTIVITY_MIN * 100)
 	productivity_label.text = "%d%%" % int(productivity * 100)
 
 func update_productivity():
@@ -38,7 +37,7 @@ func update_productivity():
 func _on_day_timer_timeout() -> void:
 	progress.value -= 1
 	if progress.value <= progress.min_value:
-		if budget > target_budget or productivity < target_productivity:
+		if budget > target_budget or productivity < OrgData.PRODUCTIVITY_MIN:
 			SignalBus.lose.emit("You've failed to meet the quarterly budget and productivity goals. You've been terminated.")
 		progress.value = progress.max_value
 		quarter_counter += 1

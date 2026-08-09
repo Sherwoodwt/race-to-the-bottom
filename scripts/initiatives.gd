@@ -15,7 +15,7 @@ func handle_start(initiative: Initiative):
 	InitiativeData.start_initiative(initiative)
 
 func handle_finish(initiative: Initiative):
-	employee.roll_for_demerit(initiative)
+	employee.apply_initiative(initiative)
 	SignalBus.initiative_finished.emit(initiative)
 
 func is_running() -> bool:

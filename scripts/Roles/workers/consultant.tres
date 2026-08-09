@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Role" format=3 uid="uid://8s071hk6prjh"]
+
+[ext_resource type="Script" uid="uid://dxee0nmyj4vtd" path="res://scripts/DataTypes/role.gd" id="1_i3hgk"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_v551y"]
+
+[sub_resource type="Resource" id="Resource_subxh"]
+script = ExtResource("1_v551y")
+reliability = 1
+sociability = 4
+competence = 1
+technical = 1
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("1_i3hgk")
+name = "Consultant"
+attributes = SubResource("Resource_subxh")
+salary_range = Vector2i(140, 200)
+metadata/_custom_type_script = "uid://dxee0nmyj4vtd"

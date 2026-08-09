@@ -24,23 +24,24 @@ static func generate(role: Role) -> Employee:
 	employee.name = NameGenerator.random_name()
 	employee.role = role
 	employee.salary = randf_range(role.salary_range.x, role.salary_range.y)
-	employee.attributes = Attributes.make_comperable(role.attributes)
+	#employee.attributes = Attributes.make_comperable(role.attributes)
+	employee.attributes = Attributes.generate()
 	employee.portrait = PortraitGenerator.generate_portrait()
 	return employee
 
-func roll_for_demerit(initiative: Initiative):
+func apply_initiative(initiative: Initiative):
 	if role.team.size() == 0:
-		var ini = initiative.attributes
-		var rel = randf_range(0, ini.reliability) > attributes.reliability
-		var soc = randf_range(0, ini.sociability) > attributes.sociability
-		var com = randf_range(0, ini.competence) > attributes.competence
-		var tec = randf_range(0, ini.technical) > attributes.technical
-		if rel or soc or com or tec:
+		var ini := initiative.attributes
+		var rel = attributes.reliability - ini.reliability
+		var soc = attributes.sociability - ini.sociability
+		var com = attributes.competence - ini.competence
+		var tec = attributes.technical - ini.technical
+		if rel + soc + com + tec < 0:
 			demerits.append(initiative.demerit.duplicate())
 			productivity_changed.emit()
 	else:
 		for member in role.employee_team():
-			member.roll_for_demerit(initiative)
+			member.apply_initiative(initiative)
 
 # returns percentage
 func get_attribute_compatability():
@@ -57,9 +58,9 @@ func get_attribute_compatability():
 	return val
 
 func get_productivity() -> float:
-	var val = 1.0 * get_attribute_compatability()
+	var val = get_attribute_compatability()
 	for dem in demerits:
-		val -= .1
+		val -= .3
 	if role.team.size() > 0:
 		var subs = 0.0
 		for e in role.employee_team():
