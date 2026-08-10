@@ -33,3 +33,12 @@ func worker_team() -> Array[Employee]:
 	for t in team:
 		all.append_array(t.worker_team())
 	return all
+
+# return all manager employees in hierarchy (have team size > 0)
+func manager_team() -> Array[Employee]:
+	if team.size() == 0:
+		return []
+	var all: Array[Employee] = [employee]
+	for t in team:
+		all.append_array(t.manager_team())
+	return all

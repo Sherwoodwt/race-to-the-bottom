@@ -75,6 +75,9 @@ func get_productivity() -> float:
 		for e in role.employee_team():
 			subs += e.get_productivity()
 		team_demerit.value = 1 - snappedf(subs / float(role.team.size()), .1)
+		if team_demerit.value > .1:
+			print("oww")
+		team_demerit.value = snappedf(team_demerit.value / 2, .1)
 	var val = 1.0
 	for dem in demerits:
 		val -= dem.value
@@ -100,23 +103,30 @@ func compare(other: Employee):
 	return dif
 
 # look at boss, neighbors, and team and make opinions to add to them
-func generate_reviews() -> void:
+# for new hires also generate reviews of self on those empoyees
+func generate_reviews(new_hire: bool = false) -> void:
 	if role.boss:
 		# handle boss
 		if role.boss != OrgData.top and randf() > .8:
-			role.boss.employee.reviews.append(_make_review(role.boss.employee, false, true))
+			role.boss.employee.reviews.append(make_review(role.boss.employee, false, true))
+			if new_hire:
+				reviews.append(role.boss.employee.make_review(self, true, false))
 	
 		# handle neighbors
 		for neighbor in role.boss.employee_team():
 			if neighbor != self and randf() > .5:
-				neighbor.reviews.append(_make_review(neighbor, false, false))
+				neighbor.reviews.append(make_review(neighbor, false, false))
+				if new_hire:
+					reviews.append(neighbor.make_review(self, false, false))
 	
 	# handle team
 	for sub in role.employee_team():
 		if randf() > .6 or sub.get_attribute_compatability() < .6:
-			sub.reviews.append(_make_review(sub, true, false))
+			sub.reviews.append(make_review(sub, true, false))
+			if new_hire:
+				reviews.append(sub.make_review(self, false, true))
 
-func _make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool):
+func make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool):
 	var ability = int(other.get_attribute_compatability() * 5)
 	var min = clampi(ability - 2, 0, 5)
 	var max = clampi(ability, 0, 5)

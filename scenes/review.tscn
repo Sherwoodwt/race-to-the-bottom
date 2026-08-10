@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://buphm1vocf57q" path="res://scripts/review_display.gd" id="1_vdqwh"]
 [ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="2_1826x"]
-[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="2_vdqwh"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_3dqfc"]
 [ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role_button.tscn" id="4_65ffc"]
 
@@ -14,10 +13,10 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
 [node name="PanelContainer" type="PanelContainer" unique_id=1738220889]
-custom_minimum_size = Vector2(400, 0)
-custom_maximum_size = Vector2(-1, 64)
+custom_minimum_size = Vector2(400, 84)
+custom_maximum_size = Vector2(-1, 84)
 offset_right = 400.0
-offset_bottom = 48.0
+offset_bottom = 64.0
 theme = ExtResource("3_3dqfc")
 theme_override_styles/panel = SubResource("StyleBoxTexture_65ffc")
 script = ExtResource("1_vdqwh")
@@ -26,48 +25,47 @@ script = ExtResource("1_vdqwh")
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="PortraitButton" parent="Review" unique_id=1687615875 instance=ExtResource("4_65ffc")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Review" unique_id=1766218013]
+layout_mode = 2
+
+[node name="PortraitButton" parent="Review/VBoxContainer2" unique_id=1687615875 instance=ExtResource("4_65ffc")]
 custom_minimum_size = Vector2(52, 52)
 custom_maximum_size = Vector2(52, 52)
 layout_mode = 2
 link_only = true
 
-[node name="Portrait" parent="Review" unique_id=1529899193 instance=ExtResource("2_vdqwh")]
-visible = false
+[node name="Author" type="Label" parent="Review/VBoxContainer2" unique_id=148220804]
 layout_mode = 2
-size_flags_vertical = 3
-expand_mode = 3
+size_flags_vertical = 0
+theme = ExtResource("3_3dqfc")
+theme_override_font_sizes/font_size = 16
+text = "[AUTHOR]"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Review" unique_id=1777708999]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="Author" type="Label" parent="Review/VBoxContainer" unique_id=148220804]
-layout_mode = 2
-size_flags_vertical = 0
-theme = ExtResource("3_3dqfc")
-theme_override_font_sizes/font_size = 12
-text = "[AUTHOR]"
-
 [node name="Label3" type="Label" parent="Review/VBoxContainer" unique_id=1574541197]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_3dqfc")
-theme_override_font_sizes/font_size = 8
-text = "[NAME]'s [ROLE]"
+theme_override_font_sizes/font_size = 16
+text = "[NAME]'s
+[ROLE]"
 
 [node name="Label4" type="Label" parent="Review/VBoxContainer" unique_id=328750934]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 10
 theme = ExtResource("3_3dqfc")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "opinion"
 
 [node name="Score" type="Label" parent="Review/VBoxContainer" unique_id=1676278942]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 2
 theme = ExtResource("3_3dqfc")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "*****"
 
 [node name="Text" type="Label" parent="Review" unique_id=869381394]
@@ -76,5 +74,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("3_3dqfc")
+theme_override_font_sizes/font_size = 24
 text = "SULLY HAS AN EXCELLENT SIGNING VOICE AND A WONDFUL ATTITUDE"
 autowrap_mode = 2

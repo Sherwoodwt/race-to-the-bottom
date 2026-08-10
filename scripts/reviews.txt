@@ -93,7 +93,7 @@ any; 3; [NAME] has a lovely voice but always whispers
 any; 1; [NAME] is a weirdo
 any; 1; [NAME] cheats
 any; 5; [NAME] has an excellent singing voice and a wondful attitude
-any; 4; [NAME] is kind of a flirt but their teeth are too shiney
+any; 4; [NAME]'s kind of a flirt but their teeth are too shiney
 any; 2; [NAME] once met a celebrity and won’t stop talking about it
 any; 4; [NAME] can often be found holding a jar of peanut butter
 any; 5; [NAME] always operates the bbq at company picnics

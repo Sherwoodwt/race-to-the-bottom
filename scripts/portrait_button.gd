@@ -9,11 +9,11 @@ var role: Role
 
 func _ready():
 	if not link_only:
-		mouse_entered.connect(_handle_enter)
+		mouse_entered.connect(_mouse_entered)
 	else:
 		pressed.connect(func(): SignalBus.focus_changed.emit(role))
 
-func _handle_enter():
+func _mouse_entered():
 	SignalBus.highlight.emit(self)
 
 # used to modify existing button

@@ -67,7 +67,17 @@ func get_total_budget() -> int:
 
 func new_quarter():
 	reset(top)
-	randi_range(0, MAX_REHIRE_AMOUNT)
+	var sorted_managers := top.manager_team()
+	sorted_managers.sort_custom(func(a, b): return a.role.team.size() < b.role.team.size())
+	for i in randi_range(0, MAX_REHIRE_AMOUNT):
+		var top = sorted_managers.pop_front()
+		if top != null:
+			var newb := worker_roles.pick_random().duplicate(true) as Role
+			newb.employee = Employee.generate(newb)
+			newb.employee.productivity_changed.connect(func(): productivity_changed.emit())
+			top.role.team.append(newb)
+			newb.employee.generate_reviews(true)
+	SignalBus.refresh_tree.emit()
 
 func handle_fired(employee: Employee):
 	fired_employees.append(employee)
