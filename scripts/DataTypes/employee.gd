@@ -81,7 +81,7 @@ func get_productivity() -> float:
 	return val
 
 func reset_demerits():
-	demerits = demerits.filter(func(d): return d == team_demerit or d == productivity_demerit)
+	demerits = demerits.filter(func(d): return !d.temporary)
 
 func get_budget() -> int:
 	var budget = salary

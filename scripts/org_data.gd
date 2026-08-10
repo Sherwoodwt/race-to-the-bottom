@@ -70,8 +70,14 @@ func new_quarter():
 	randi_range(0, MAX_REHIRE_AMOUNT)
 
 func handle_fired(employee: Employee):
-	var i = employee.role.boss.team.find(employee.role)
 	fired_employees.append(employee)
+	# apply changes to acquaintances
+	for review in employee.reviews:
+		if review.stars >= 3:
+			var demerit = Demerit.new()
+			demerit.value = (review.stars - 2) * .1
+			demerit.text = "Someone they like was fired"
+			review.author.demerits.append(demerit)
 	# promote next person and adjust hierarchy recursively
 	handle_replacement(employee.role)
 	SignalBus.refresh_tree.emit()

@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 script = ExtResource("2_hywvh")
 value = 0.3
 text = "[NAME] failed to complete a required training course"
+temporary = true
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [resource]

@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 script = ExtResource("1_rx810")
 value = 0.3
 text = "[NAME] has failed to demonstrate that they meet the minimum qualifications of their role"
+temporary = true
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [resource]

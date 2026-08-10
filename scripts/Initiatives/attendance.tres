@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://b2xthiyd8ququ"
 script = ExtResource("1_m1diq")
 value = 0.3
 text = "[NAME] has not been present and engaged for the morning meetings"
+temporary = true
 metadata/_custom_type_script = "uid://v0k7fj2etlt0"
 
 [resource]
