@@ -27,8 +27,7 @@ func _ready():
 	make_comments(top)
 
 func reset(role: Role):
-	role.employee.demerits.clear()
-	role.employee.get_productivity()
+	role.employee.reset_demerits()
 	role.employee.productivity_changed.emit()
 	for r in role.team:
 		reset(r)
@@ -66,19 +65,19 @@ func get_total_budget() -> int:
 	return top.employee.get_budget()
 
 func handle_fired(employee: Employee):
-	employee.role.employee = null
-	fired_employees.append(self)
-	# promote next person
-	handle_promotions(employee.role)
+	var i = employee.role.boss.team.find(employee.role)
+	fired_employees.append(employee)
+	# promote next person and adjust hierarchy recursively
+	handle_replacement(employee.role)
 
-func handle_promotions(role: Role):
-	if role.team.size() == 0:
-		return
+# either promote and pass down or remove if nobody to pass to
+func handle_replacement(role: Role):
 	var promotee: Role
 	for r in role.team:
 		if not promotee or r.employee.salary > promotee.employee.salary:
 			promotee = r
 	role.employee = promotee.employee
-	promotee.employee = null
 	if promotee.team.size() > 0:
-		handle_promotions(promotee)
+		handle_replacement(promotee)
+	else:
+		role.team.remove_at(role.team.find(promotee))

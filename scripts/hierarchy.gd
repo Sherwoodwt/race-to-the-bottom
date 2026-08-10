@@ -6,6 +6,7 @@ extends Control
 @onready var neighbor_right: Button = $MarginContainer/VBoxContainer/HBoxContainer/Control4/RightButton
 @onready var selected_button: PortraitButton = $MarginContainer/VBoxContainer/HBoxContainer/Control2/Selected
 @onready var team: Control = $MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer2
+@onready var name_tag: Label = $MarginContainer/VBoxContainer/NameTag
 
 @export var role_scene: PackedScene
 @export var profile_modal: ProfileModal
@@ -37,6 +38,7 @@ func set_focus(role: Role):
 	selected_button.disabled = true
 	selected_button.set_role(role)
 	self.role = role
+	name_tag.text = role.employee.name
 	
 	for child in role.team:
 		var button = role_scene.instantiate() as PortraitButton
