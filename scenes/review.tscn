@@ -47,20 +47,27 @@ layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_3dqfc")
 theme_override_font_sizes/font_size = 12
-text = "[NAME]"
+text = "[AUTHOR]"
 
 [node name="Label3" type="Label" parent="Review/VBoxContainer" unique_id=1574541197]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_3dqfc")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 8
+text = "[NAME]'s [ROLE]"
+
+[node name="Label4" type="Label" parent="Review/VBoxContainer" unique_id=328750934]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_3dqfc")
+theme_override_font_sizes/font_size = 8
 text = "opinion"
 
 [node name="Score" type="Label" parent="Review/VBoxContainer" unique_id=1676278942]
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("3_3dqfc")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "*****"
 
 [node name="Text" type="Label" parent="Review" unique_id=869381394]

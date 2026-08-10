@@ -8,6 +8,7 @@ extends Resource
 @export_multiline() var description: String
 
 @export var author: Employee
+var target: Employee
 
 # returns formatted description
 func format_name(target: Employee) -> String:

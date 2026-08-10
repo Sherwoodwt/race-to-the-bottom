@@ -57,7 +57,8 @@ func make_tree(level: int) -> Role:
 
 # mutates hierarchy to add reviews
 func make_comments(role: Role):
-	role.employee.generate_reviews()
+	if role != top:
+		role.employee.generate_reviews()
 	for child in role.team:
 		make_comments(child)
 

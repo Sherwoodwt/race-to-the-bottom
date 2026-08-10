@@ -28,4 +28,5 @@ func random_review(target: Employee, min: int, max: int, exclude_boss: bool, exc
 		.pick_random() \
 		.duplicate()
 	review.description = review.format_name(target)
+	review.target = target
 	return review
