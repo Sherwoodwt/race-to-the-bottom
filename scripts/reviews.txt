@@ -2,7 +2,7 @@ boss; 5; [NAME] is a tough no-nonsense leader with a stoic demeanor and take-no-
 any; 5; [NAME] is easy going and pleasant
 boss; 4; [NAME] is a good leader but sometimes lacks confidence
 boss; 2; [NAME] is a proficient leader but can be gruff and hard to approach
-subordinate; 2; [NAME] makes up songs and sings them to her coworkers distracting them
+subordinate; 2; [NAME] makes up songs and sings them to their coworkers distracting them
 any; 2; [NAME] is quiet and it's sometimes hard to tell when they are in the room
 any; 3; [NAME]'s real name is Sam but because they watch the Social Exchange Theory religiously they demand to be called [NAME] after one of the characters on the show
 any; 3; [NAME] sometimes goes on long rants about anime
@@ -32,7 +32,7 @@ any; 2; [NAME]'s out of office message is "gone phishing"
 any; 3; [NAME]'s first reply to any employee to call them is "did you try turning it off and on again?"
 any; 2; [NAME] has a Raichu their desk and pretends it makes growling noises when people approach
 any; 2; [NAME] derives immense joy from finding bugs in code and breaking software right before release dates
-any; 2; [NAME] accidentally crashed the test server on her first day
+any; 2; [NAME] accidentally crashed the test server on their first day
 any; 4; No one is sure what [NAME] actually does around here
 any; 3; [NAME] was once a customer support rep and brags about past calls to anyone who will listen
 boss; 1; [NAME] demands to be rewarded for every day they don't make somebody cry out of frustration
@@ -92,14 +92,14 @@ any; 3; [NAME] is lactose intolerant so birthday parties are more complicated
 any; 3; [NAME] has a lovely voice but always whispers
 any; 1; [NAME] is a weirdo
 any; 1; [NAME] cheats
-any; 5; [NAME] has an excellent signing voice and a wondful attitude
+any; 5; [NAME] has an excellent singing voice and a wondful attitude
 any; 4; [NAME] is kind of a flirt but their teeth are too shiney
 any; 2; [NAME] once met a celebrity and won’t stop talking about it
 any; 4; [NAME] can often be found holding a jar of peanut butter
 any; 5; [NAME] always operates the bbq at company picnics
 any; 3; [NAME] has some peculiar connections that may be tied to a secret government agency
 subordinate; 2; [NAME] has been reprimanded by hr for stealing food from the refridgerator
-subordinate; 2; [NAME] makes chittering noises that sometime scare his fellow colleagues
+subordinate; 2; [NAME] makes chittering noises that sometime scare their fellow colleagues
 subordinate; 3; [NAME] often quotes lines from the their favorite movie to their coworkers
 subordinate; 1; [NAME] once mis-spelled their own name on an important company report
 subordinate; 2; [NAME] has a keen eye for detail except when it comes to their own work. 

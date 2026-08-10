@@ -5,6 +5,7 @@ signal productivity_changed
 const MAX_TEAM_SIZE = 10
 const MIN_TEAM_SIZE = 6 # just initial
 const PRODUCTIVITY_MIN := .5
+const MAX_REHIRE_AMOUNT := 4
 
 @onready var leadership_roles: Array[Role] = load_all("res://scripts/Roles/leadership/")
 @onready var worker_roles: Array[Role] = load_all("res://scripts/Roles/workers/")
@@ -21,7 +22,7 @@ func load_all(path: String):
 	return roles
 
 func _ready():
-	SignalBus.quarter_end.connect(func(): reset(top))
+	SignalBus.quarter_end.connect(new_quarter)
 	SignalBus.fired.connect(handle_fired)
 	top = make_tree(0)
 	make_comments(top)
@@ -42,7 +43,6 @@ func make_tree(level: int) -> Role:
 			child.boss = top
 			top.team.append(child)
 	else:
-		# TODO: pick a certain amount of each
 		top = worker_roles.pick_random().duplicate(true)
 	if level != 0:
 		top.employee = Employee.generate(top)
@@ -64,20 +64,27 @@ func make_comments(role: Role):
 func get_total_budget() -> int:
 	return top.employee.get_budget()
 
+func new_quarter():
+	reset(top)
+	randi_range(0, MAX_REHIRE_AMOUNT)
+
 func handle_fired(employee: Employee):
 	var i = employee.role.boss.team.find(employee.role)
 	fired_employees.append(employee)
 	# promote next person and adjust hierarchy recursively
 	handle_replacement(employee.role)
+	SignalBus.refresh_tree.emit()
 
-# either promote and pass down or remove if nobody to pass to
+# promote subordinate up, or if no subordinates just remove from hierarchy
 func handle_replacement(role: Role):
+	if role.team.size() == 0:
+		role.boss.team.remove_at(role.boss.team.find(role))
+		return
+	
 	var promotee: Role
 	for r in role.team:
 		if not promotee or r.employee.salary > promotee.employee.salary:
 			promotee = r
 	role.employee = promotee.employee
-	if promotee.team.size() > 0:
-		handle_replacement(promotee)
-	else:
-		role.team.remove_at(role.team.find(promotee))
+	promotee.employee.role = role
+	handle_replacement(promotee)

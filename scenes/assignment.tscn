@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b76psx0vah5sv" path="res://scripts/assignment.gd" id="1_e70hn"]
 [ext_resource type="Texture2D" uid="uid://bxil636srxcny" path="res://assets/empty-time-big.png" id="1_xurij"]
 [ext_resource type="Texture2D" uid="uid://d3e6xrlrv8cgj" path="res://assets/full-time-big.png" id="2_e70hn"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="2_wq4el"]
 
 [node name="Assignment" type="Control" unique_id=1926028782]
 layout_mode = 3
@@ -12,13 +13,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e70hn")
-target_budget_diff = 500
+target_budget_diff = 150
+portrait_scene = ExtResource("2_wq4el")
 
 [node name="DayTimer" type="Timer" parent="." unique_id=2040148004]
-wait_time = 3.0
-autostart = true
-
-[node name="DayTimer2" type="Timer" parent="." unique_id=2028709840]
 wait_time = 3.0
 autostart = true
 
@@ -50,17 +48,40 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1218478019]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1679879224]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2069996531]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1093581472]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Total Saved: "
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2079331704]
+layout_mode = 2
+size_flags_vertical = 2
+text = "$0"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1997318059]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1218478019]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Quarter" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1410910465]
+[node name="Quarter" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1410910465]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "1st Quarter"
 horizontal_alignment = 1
 
-[node name="QuarterTimer" type="TextureProgressBar" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=569828704]
+[node name="QuarterTimer" type="TextureProgressBar" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=569828704]
 layout_mode = 2
 size_flags_horizontal = 4
 max_value = 90.0
@@ -70,10 +91,30 @@ fill_mode = 5
 texture_under = ExtResource("1_xurij")
 texture_progress = ExtResource("2_e70hn")
 
-[node name="Days" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1289750415]
+[node name="Days" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1289750415]
 layout_mode = 2
 text = "90 Days"
 horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1951170240]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1887642491]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 32
+text = "Total Fired: 0"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=486183338]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ScrollContainer" unique_id=840693837]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1226023877]
 layout_mode = 2
@@ -120,6 +161,20 @@ size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 32
 text = "$12345"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget" unique_id=462790427]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer3" unique_id=64007546]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Diff: "
+
+[node name="Budget" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Budget/HBoxContainer3" unique_id=1518206235]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 32
+text = "$12345"
+
 [node name="Control" type="Control" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=971474584]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -141,7 +196,7 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer" unique_id=1558517967]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Target: "
+text = "Minimum: "
 
 [node name="TargetProductivity" type="Label" parent="Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Productivity/HBoxContainer" unique_id=1193083065]
 layout_mode = 2
@@ -181,4 +236,3 @@ offset_bottom = 48.0
 text = "Pause"
 
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
-[connection signal="timeout" from="DayTimer2" to="." method="_on_day_timer_timeout"]

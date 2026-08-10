@@ -19,7 +19,7 @@ func _ready():
 	neighbor_right.pressed.connect(_focus_neighbor.bind(false))
 	set_focus(OrgData.top)
 	SignalBus.focus_changed.connect(set_focus)
-	SignalBus.fired.connect(func(_e): set_focus(role))
+	SignalBus.refresh_tree.connect(func(): set_focus(role))
 
 func set_focus(role: Role):
 	clear_pressed(selected_button)

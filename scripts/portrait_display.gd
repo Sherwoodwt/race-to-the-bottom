@@ -17,14 +17,13 @@ var start_g: float
 func _ready():
 	OrgData.productivity_changed.connect(update_color)
 	start_g = filter.modulate.g
-	SignalBus.fired.connect(check_empty)
 
-func check_empty(employee: Employee):
-	if employee == self._employee:
-		texture = empty_sprite
-		hair_sprite.texture = null
-		accessory_sprite.texture = null
-		facial_hair_sprite.texture = null
+#func check_empty(employee: Employee):
+	#if employee == self._employee:
+		#texture = empty_sprite
+		#hair_sprite.texture = null
+		#accessory_sprite.texture = null
+		#facial_hair_sprite.texture = null
 
 func set_employee(employee: Employee):
 	_employee = employee
