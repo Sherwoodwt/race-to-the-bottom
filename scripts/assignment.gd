@@ -26,9 +26,10 @@ var budget_total: int
 func _ready() -> void:
 	quarter_counter = 1
 	OrgData.productivity_changed.connect(update_productivity)
-	SignalBus.fired.connect(func(_e): update_productivity())
+	SignalBus.refresh_tree.connect(update_productivity)
 	pause_button.pressed.connect(func(): SignalBus.pause.emit())
 	update_productivity()
+	target_budget = budget - target_budget_diff
 
 func _physics_process(delta: float) -> void:
 	target_budget_label.text = "$%dK" % target_budget
@@ -42,7 +43,6 @@ func _physics_process(delta: float) -> void:
 func update_productivity():
 	productivity = OrgData.top.employee.get_productivity()
 	budget = OrgData.get_total_budget()
-	target_budget = (budget - target_budget_diff)
 	fired_count_label.text = "Total Fired: %d" % OrgData.fired_employees.size()
 	for e in OrgData.fired_employees:
 		var vbox = VBoxContainer.new()
@@ -72,6 +72,7 @@ func _on_day_timer_timeout() -> void:
 		quarter_counter += 1
 		SignalBus.quarter_end.emit()
 		target_budget_diff += 5
+		target_budget = budget - target_budget_diff
 		update_productivity()
 		SignalBus.alert.emit("It is now Quarter %d" % quarter_counter)
 	
