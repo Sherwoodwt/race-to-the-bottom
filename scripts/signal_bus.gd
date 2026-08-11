@@ -1,5 +1,7 @@
 extends Node
 
+signal alert(text: String)
+
 signal focus_changed(role: Role)
 signal highlight(target: PortraitButton)
 signal team_initiatives(employee: Employee)

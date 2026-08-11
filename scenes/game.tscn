@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://ho2o66uciyfb" path="res://scripts/alert.gd" id="9_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="9_vtaks"]
 [ext_resource type="Script" uid="uid://bdky5draekrl7" path="res://scripts/pause_menu.gd" id="12_dinhu"]
 
 [node name="Game" type="Control" unique_id=1532242427]
@@ -91,6 +93,86 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Alert" type="Control" parent="." unique_id=1172318797]
+process_mode = 2
+visible = false
+anchors_preset = 0
+offset_left = 312.0
+offset_top = 126.0
+offset_right = 812.0
+offset_bottom = 526.0
+script = ExtResource("9_kvpfn")
+
+[node name="PanelContainer" type="PanelContainer" parent="Alert" unique_id=1734875946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Alert/PanelContainer" unique_id=582202050]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="Alert/PanelContainer/VBoxContainer" unique_id=520467296]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Alert/PanelContainer/VBoxContainer" unique_id=34344612]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_position = Vector2(0, 18.17)
+
+[node name="MarginContainer" type="MarginContainer" parent="Alert/PanelContainer/VBoxContainer/Panel" unique_id=1717680107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="Alert/PanelContainer/VBoxContainer/Panel/MarginContainer" unique_id=906771501]
+custom_maximum_size = Vector2(376, 258)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Alert text example that the stuff will go here"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button2" type="Button" parent="Alert/PanelContainer/VBoxContainer" unique_id=290001976]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Okay"
+
+[node name="Control2" type="Control" parent="Alert/PanelContainer/VBoxContainer" unique_id=1563143897]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Alert" unique_id=705736365]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -34.0
+offset_top = 11.0
+offset_right = -14.0
+offset_bottom = 31.0
+grow_horizontal = 0
+scale = Vector2(1.2, 1.2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_p57ef")
+icon = ExtResource("9_vtaks")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=1956496537]
 process_mode = 2

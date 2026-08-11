@@ -104,4 +104,5 @@ func handle_replacement(role: Role):
 			promotee = r
 	role.employee = promotee.employee
 	promotee.employee.role = role
+	SignalBus.alert.emit("%s promoted to %s" % [promotee.employee.name, role.name])
 	handle_replacement(promotee)

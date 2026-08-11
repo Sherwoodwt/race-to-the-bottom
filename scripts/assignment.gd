@@ -73,6 +73,7 @@ func _on_day_timer_timeout() -> void:
 		SignalBus.quarter_end.emit()
 		target_budget_diff += 5
 		update_productivity()
+		SignalBus.alert.emit("It is now Quarter %d" % quarter_counter)
 	
 	if quarter_counter % 10 == 1:
 		quarter_label.text = "%dst Quarter" % quarter_counter

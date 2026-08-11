@@ -17,6 +17,7 @@ func handle_start(initiative: Initiative):
 func handle_finish(initiative: Initiative):
 	employee.apply_initiative(initiative)
 	SignalBus.initiative_finished.emit(initiative)
+	SignalBus.alert.emit("Finished %s initiative on %s's team" % [initiative.title, employee.name])
 
 func is_running() -> bool:
 	for b in start_initiatives:
