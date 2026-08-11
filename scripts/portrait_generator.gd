@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _load_textures(dir: String) -> Array[Texture2D]:
 	var textures: Array[Texture2D]
-	for file in DirAccess.get_files_at(dir):
+	for file in ResourceLoader.list_directory(dir):
 		if file.ends_with(".png"):
 			var pic = load(dir.path_join(file)) as Texture2D
 			textures.append(pic)

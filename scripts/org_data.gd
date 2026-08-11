@@ -15,7 +15,7 @@ var fired_employees: Array[Employee]
 
 func load_all(path: String):
 	var roles: Array[Role]
-	var files = DirAccess.get_files_at(path)
+	var files = ResourceLoader.list_directory(path)
 	for file in files:
 		var instance = load(path.path_join(file)) as Role
 		roles.append(instance)

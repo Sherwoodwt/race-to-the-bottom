@@ -7,7 +7,7 @@ var used_initiatives: Dictionary
 
 func _ready() -> void:
 	SignalBus.quarter_end.connect(reset)
-	for file in DirAccess.get_files_at(folder):
+	for file in ResourceLoader.list_directory(folder):
 		var res := load(folder.path_join(file)) as Initiative
 		used_initiatives[res.title] = false
 	reset()
