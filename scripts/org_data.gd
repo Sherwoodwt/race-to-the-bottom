@@ -71,7 +71,7 @@ func new_quarter():
 	sorted_managers.sort_custom(func(a, b): return a.role.team.size() < b.role.team.size())
 	for i in randi_range(0, MAX_REHIRE_AMOUNT):
 		var top = sorted_managers.pop_front()
-		if top != null:
+		if top != null and top.role.team.size() < MAX_TEAM_SIZE:
 			var newb := worker_roles.pick_random().duplicate(true) as Role
 			newb.employee = Employee.generate(newb)
 			newb.employee.productivity_changed.connect(func(): productivity_changed.emit())

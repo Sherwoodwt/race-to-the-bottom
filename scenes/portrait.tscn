@@ -11,7 +11,6 @@ offset_right = 128.0
 offset_bottom = 128.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_k07cr")
-expand_mode = 2
 script = ExtResource("2_31ep3")
 normal_sprite = ExtResource("1_k07cr")
 empty_sprite = ExtResource("3_efsuh")

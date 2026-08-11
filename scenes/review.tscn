@@ -32,7 +32,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(52, 52)
 custom_maximum_size = Vector2(52, 52)
 layout_mode = 2
-link_only = true
 
 [node name="Author" type="Label" parent="Review/VBoxContainer2" unique_id=148220804]
 layout_mode = 2

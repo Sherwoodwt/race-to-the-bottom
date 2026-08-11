@@ -75,8 +75,6 @@ func get_productivity() -> float:
 		for e in role.employee_team():
 			subs += e.get_productivity()
 		team_demerit.value = 1 - snappedf(subs / float(role.team.size()), .1)
-		if team_demerit.value > .1:
-			print("oww")
 		team_demerit.value = snappedf(team_demerit.value / 2, .1)
 	var val = 1.0
 	for dem in demerits:

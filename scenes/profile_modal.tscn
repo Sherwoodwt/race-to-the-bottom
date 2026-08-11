@@ -1,19 +1,11 @@
 [gd_scene format=3 uid="uid://bn057oo1dvaay"]
 
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_rn2ur"]
-[ext_resource type="Texture2D" uid="uid://b1p7im52vwxrl" path="res://assets/ui/window.png" id="2_6voaj"]
 [ext_resource type="Script" uid="uid://b5areqijobubp" path="res://scripts/profile_modal.gd" id="2_gp5r2"]
 [ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="3_hiwmo"]
+[ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="4_6voaj"]
 [ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="4_gp5r2"]
 [ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="4_rn2ur"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xigre"]
-content_margin_top = 0.0
-texture = ExtResource("2_6voaj")
-texture_margin_left = 8.0
-texture_margin_top = 24.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwmo"]
 texture = ExtResource("4_gp5r2")
@@ -23,24 +15,34 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
 [node name="ProfileModal" type="PanelContainer" unique_id=340555002]
-custom_minimum_size = Vector2(595, 453)
-custom_maximum_size = Vector2(595, 453)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -557.0
-offset_bottom = -195.0
+offset_right = -685.0
+offset_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_rn2ur")
-theme_override_styles/panel = SubResource("StyleBoxTexture_xigre")
 script = ExtResource("2_gp5r2")
+
+[node name="Control" type="Control" parent="." unique_id=1168191427]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="Control" unique_id=928873448]
+z_index = 2
+layout_mode = 0
+offset_left = -22.0
+offset_top = -29.0
+offset_right = -2.0
+offset_bottom = -9.0
+scale = Vector2(1.2, 1.2)
+icon = ExtResource("4_6voaj")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1475087078]
 layout_mode = 2
-theme_override_constants/margin_top = 24
 
 [node name="ProfileDetails" type="VBoxContainer" parent="MarginContainer" unique_id=605685855]
 layout_mode = 2
