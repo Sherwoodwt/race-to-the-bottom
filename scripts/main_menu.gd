@@ -2,8 +2,7 @@ extends Control
 
 @onready var start_button: Button = $Start
 @onready var exit_button: Button = $Exit
-
-@export var game_scene: PackedScene
+@onready var creator: Control = $"../CharacterCreator"
 
 func _ready():
 	start_button.pressed.connect(start)
@@ -11,10 +10,7 @@ func _ready():
 	SignalBus.quit_to_menu.connect(show)
 
 func start():
-	var inst = game_scene.instantiate()
-	InitiativeData.reset()
-	OrgData.reset(OrgData.top)
-	add_sibling(inst)
+	creator.show()
 	hide()
 	
 func exit():

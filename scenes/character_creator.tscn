@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bomnrmv1ccd7l"]
+
+[ext_resource type="Script" uid="uid://b2fepb4qomggm" path="res://scripts/character_creator.gd" id="1_xm6ha"]
+[ext_resource type="PackedScene" uid="uid://bf7hfrwhvxbcd" path="res://scenes/game.tscn" id="2_ucp7b"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_xm6ha"]
+[ext_resource type="Texture2D" uid="uid://j22ea423dl1f" path="res://assets/arrow_left.png" id="4_ucp7b"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="5_oy0w6"]
+[ext_resource type="Texture2D" uid="uid://m3wps67cgm8r" path="res://assets/arrow_right.png" id="6_f0wb7"]
+
+[node name="CharacterCreator" type="Control" unique_id=706435243]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xm6ha")
+game_scene = ExtResource("2_ucp7b")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1784540693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_xm6ha")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=132537644]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1958086815]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1017110752]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Create Profile"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1136841387]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=723617717]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=616856973]
+layout_mode = 2
+icon = ExtResource("4_ucp7b")
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1715008677]
+layout_mode = 2
+icon = ExtResource("4_ucp7b")
+
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=159380059]
+layout_mode = 2
+icon = ExtResource("4_ucp7b")
+
+[node name="Portrait" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1529899193 instance=ExtResource("5_oy0w6")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1940815665]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1598026154]
+layout_mode = 2
+icon = ExtResource("6_f0wb7")
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2096442904]
+layout_mode = 2
+icon = ExtResource("6_f0wb7")
+
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1749174603]
+layout_mode = 2
+icon = ExtResource("6_f0wb7")
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=826011005]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextEdit" type="TextEdit" parent="PanelContainer/MarginContainer/VBoxContainer/Control" unique_id=695302259]
+custom_minimum_size = Vector2(0, 60)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 0
+offset_left = -123.0
+offset_top = 8.0
+offset_right = 127.0
+offset_bottom = 68.0
+size_flags_vertical = 6
+theme = ExtResource("3_xm6ha")
+theme_override_font_sizes/font_size = 64
+placeholder_text = "Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1865647496]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=163545422]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Randomize"
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=610934606]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Confirm"

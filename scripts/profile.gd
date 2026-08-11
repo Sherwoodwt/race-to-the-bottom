@@ -12,7 +12,7 @@ extends Control
 @onready var demerits: Control = $VBoxContainer/VBoxContainer/ScrollContainer/Demerits
 @onready var initiative_button: Button = $VBoxContainer/HBoxContainer/InitiativesButton
 @onready var fire_button: Button = $VBoxContainer/HBoxContainer/FireButton
-@onready var portrait: PortraitDisplay = $VBoxContainer/VBoxContainer/HBoxContainer/Portrait
+@onready var portrait: PortraitButton = $VBoxContainer/VBoxContainer/HBoxContainer/PortraitButton
 
 @export var demerit_scene: PackedScene
 
@@ -28,7 +28,7 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	if not role.employee:
 		return
 	employee = role.employee
-	portrait.set_employee(employee)
+	portrait.set_role(employee.role)
 	for child in demerits.get_children():
 		demerits.remove_child(child)
 	initiative_button.disabled = OrgData.top == role or role.team.size() == 0

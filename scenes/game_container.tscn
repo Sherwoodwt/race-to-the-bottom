@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crw88pxd2ey15"]
 
-[ext_resource type="PackedScene" uid="uid://bf7hfrwhvxbcd" path="res://scenes/game.tscn" id="1_hmirm"]
+[ext_resource type="PackedScene" uid="uid://bomnrmv1ccd7l" path="res://scenes/character_creator.tscn" id="1_mqaqf"]
 [ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/main_menu.tscn" id="4_hhqt2"]
 [ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="5_kffvu"]
 
@@ -12,9 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CharacterCreator" parent="." unique_id=706435243 instance=ExtResource("1_mqaqf")]
+visible = false
+layout_mode = 1
+
 [node name="MainMenu" parent="." unique_id=537983958 instance=ExtResource("4_hhqt2")]
 layout_mode = 1
-game_scene = ExtResource("1_hmirm")
 
 [node name="LoseScreen" parent="." unique_id=709844159 node_paths=PackedStringArray("menu") instance=ExtResource("5_kffvu")]
 visible = false
