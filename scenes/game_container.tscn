@@ -2,7 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bomnrmv1ccd7l" path="res://scenes/character_creator.tscn" id="1_mqaqf"]
 [ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/main_menu.tscn" id="4_hhqt2"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="4_hmirm"]
+[ext_resource type="Texture2D" uid="uid://b1p7im52vwxrl" path="res://assets/ui/window.png" id="5_8sv01"]
 [ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="5_kffvu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3knfh"]
+texture = ExtResource("5_8sv01")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [node name="GameContainer" type="Control" unique_id=1795492096]
 layout_mode = 3
@@ -15,11 +24,26 @@ grow_vertical = 2
 [node name="CharacterCreator" parent="." unique_id=706435243 instance=ExtResource("1_mqaqf")]
 visible = false
 layout_mode = 1
+offset_bottom = -40.0
 
 [node name="MainMenu" parent="." unique_id=537983958 instance=ExtResource("4_hhqt2")]
 layout_mode = 1
+offset_bottom = -40.0
 
 [node name="LoseScreen" parent="." unique_id=709844159 node_paths=PackedStringArray("menu") instance=ExtResource("5_kffvu")]
 visible = false
 layout_mode = 1
+offset_bottom = -40.0
 menu = NodePath("../MainMenu")
+
+[node name="Panel" type="Panel" parent="." unique_id=766499070]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_hmirm")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3knfh")
