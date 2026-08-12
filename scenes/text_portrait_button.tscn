@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bqsdaqinxv22"]
+
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_gnwnn"]
+[ext_resource type="Script" uid="uid://dfjf25cv0ikqa" path="res://scripts/text_portrait_button.gd" id="2_gnwnn"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="3_0kgxi"]
+
+[node name="TextPortraitButton" type="Button" unique_id=1687615875]
+offset_right = 138.0
+offset_bottom = 138.0
+theme = ExtResource("1_gnwnn")
+button_mask = 3
+script = ExtResource("2_gnwnn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1490626015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Portrait" parent="MarginContainer" unique_id=1529899193 instance=ExtResource("3_0kgxi")]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1057835928]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_gnwnn")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "[NAME]
+[ROLE]"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

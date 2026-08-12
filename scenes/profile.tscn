@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="2_b4vjc"]
 [ext_resource type="PackedScene" uid="uid://b02exlcs43gta" path="res://scenes/demerit.tscn" id="2_e631i"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_e631i"]
-[ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/role_button.tscn" id="6_vpega"]
+[ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/portrait_button.tscn" id="6_vpega"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4vjc"]
 texture = ExtResource("2_b4vjc")

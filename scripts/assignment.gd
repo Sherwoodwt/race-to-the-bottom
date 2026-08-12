@@ -12,7 +12,6 @@ extends Control
 @onready var budget_total_label: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Label2
 @onready var fired_count_label: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Label
 @onready var fired_area: Control = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ScrollContainer/HBoxContainer
-@onready var pause_button: Button = $Pause
 
 @export var target_budget_diff: int
 @export var portrait_scene: PackedScene
@@ -27,7 +26,6 @@ func _ready() -> void:
 	quarter_counter = 1
 	OrgData.productivity_changed.connect(update_productivity)
 	SignalBus.refresh_tree.connect(update_productivity)
-	pause_button.pressed.connect(func(): SignalBus.pause.emit())
 	update_productivity()
 	target_budget = budget - target_budget_diff
 

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b3yehkl1ejret"]
+
+[ext_resource type="Script" uid="uid://bnxdljg8yutg5" path="res://scripts/tutorial.gd" id="1_bqqt6"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_8ho6b"]
+
+[node name="Tutorial" type="Control" unique_id=537983958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1847586891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8ho6b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=842709689]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="menu" type="Button" parent="PanelContainer/HBoxContainer" unique_id=46265132]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Back to Menu"
+
+[node name="next_page" type="Button" parent="PanelContainer/HBoxContainer" unique_id=2050431765]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Next Page"

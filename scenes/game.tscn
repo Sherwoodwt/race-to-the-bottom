@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
 [ext_resource type="Script" uid="uid://ho2o66uciyfb" path="res://scripts/alert.gd" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="9_vtaks"]
-[ext_resource type="Script" uid="uid://bdky5draekrl7" path="res://scripts/pause_menu.gd" id="12_dinhu"]
 
 [node name="Game" type="Control" unique_id=1532242427]
 layout_mode = 3
@@ -173,63 +172,3 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_p57ef")
 icon = ExtResource("9_vtaks")
-
-[node name="PauseMenu" type="Control" parent="." unique_id=1956496537]
-process_mode = 2
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_p57ef")
-script = ExtResource("12_dinhu")
-
-[node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=840183547]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="PauseMenu" unique_id=521264741]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 104.0
-offset_top = 81.0
-offset_right = 184.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Return"
-
-[node name="Button2" type="Button" parent="PauseMenu" unique_id=1250383551]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = 82.0
-offset_right = -88.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Quit"
-
-[node name="Label" type="Label" parent="PauseMenu" unique_id=501417978]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 113.0
-offset_right = 1144.0
-offset_bottom = 215.0
-theme_override_font_sizes/font_size = 128
-text = "Paused"
-horizontal_alignment = 1

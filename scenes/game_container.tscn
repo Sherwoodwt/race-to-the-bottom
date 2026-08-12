@@ -1,13 +1,25 @@
 [gd_scene format=3 uid="uid://crw88pxd2ey15"]
 
+[ext_resource type="Script" uid="uid://decb8t258gscc" path="res://scripts/game_container.gd" id="1_kffvu"]
 [ext_resource type="PackedScene" uid="uid://bomnrmv1ccd7l" path="res://scenes/character_creator.tscn" id="1_mqaqf"]
-[ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/main_menu.tscn" id="4_hhqt2"]
+[ext_resource type="Texture2D" uid="uid://cj5sv6j0lit88" path="res://assets/ui/background.png" id="4_hhqt2"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="4_hmirm"]
-[ext_resource type="Texture2D" uid="uid://b1p7im52vwxrl" path="res://assets/ui/window.png" id="5_8sv01"]
+[ext_resource type="Texture2D" uid="uid://cbvw4gtrk4ao4" path="res://assets/ui/logo.png" id="5_af2yf"]
+[ext_resource type="Texture2D" uid="uid://bahv2pdcq6q3" path="res://assets/ui/button.png" id="5_hmirm"]
 [ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="5_kffvu"]
+[ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/tutorial.tscn" id="6_3knfh"]
+[ext_resource type="Texture2D" uid="uid://cwwdve6o3w6jh" path="res://assets/ui/pause.png" id="9_af2yf"]
+[ext_resource type="Script" uid="uid://bdky5draekrl7" path="res://scripts/pause_menu.gd" id="10_af2yf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3knfh"]
-texture = ExtResource("5_8sv01")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w821k"]
+texture = ExtResource("4_hhqt2")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8sv01"]
+texture = ExtResource("5_hmirm")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
@@ -20,15 +32,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kffvu")
 
 [node name="CharacterCreator" parent="." unique_id=706435243 instance=ExtResource("1_mqaqf")]
 visible = false
 layout_mode = 1
 offset_bottom = -40.0
 
-[node name="MainMenu" parent="." unique_id=537983958 instance=ExtResource("4_hhqt2")]
+[node name="MainMenu" type="Control" parent="." unique_id=537983958]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MainMenu" unique_id=227892311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_hmirm")
+theme_override_styles/panel = SubResource("StyleBoxTexture_w821k")
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Panel" unique_id=1305087256]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_af2yf")
+
+[node name="Label" type="Label" parent="MainMenu/Panel" unique_id=1675618398]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 38.0
+offset_right = 100.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_hmirm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "MALANTIR"
+horizontal_alignment = 1
 
 [node name="LoseScreen" parent="." unique_id=709844159 node_paths=PackedStringArray("menu") instance=ExtResource("5_kffvu")]
 visible = false
@@ -36,14 +99,109 @@ layout_mode = 1
 offset_bottom = -40.0
 menu = NodePath("../MainMenu")
 
+[node name="Tutorial" parent="." unique_id=1296299434 node_paths=PackedStringArray("creator") instance=ExtResource("6_3knfh")]
+visible = false
+layout_mode = 1
+creator = NodePath("../CharacterCreator")
+
 [node name="Panel" type="Panel" parent="." unique_id=766499070]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -44.0
+offset_top = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_hmirm")
-theme_override_styles/panel = SubResource("StyleBoxTexture_3knfh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8sv01")
+
+[node name="Pause" type="Button" parent="Panel" unique_id=699292385]
+layout_mode = 0
+offset_right = 137.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Pause" unique_id=1563174256]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Pause/MarginContainer" unique_id=1297898044]
+layout_mode = 2
+
+[node name="FakeStartButton" type="TextureRect" parent="Panel/Pause/MarginContainer/HBoxContainer" unique_id=235680565]
+layout_mode = 2
+texture = ExtResource("9_af2yf")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Pause/MarginContainer/HBoxContainer" unique_id=2114582311]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+
+[node name="PauseMenu" type="Control" parent="." unique_id=25031825]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_hmirm")
+script = ExtResource("10_af2yf")
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=1594030159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="PauseMenu" unique_id=430381445]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 104.0
+offset_top = 81.0
+offset_right = 184.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+
+[node name="Button2" type="Button" parent="PauseMenu" unique_id=1349693662]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = 82.0
+offset_right = -88.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="PauseMenu" unique_id=1625407151]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 113.0
+offset_right = 1144.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 128
+text = "Paused"
+horizontal_alignment = 1

@@ -227,12 +227,4 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Pause" type="Button" parent="." unique_id=2064411522]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 17.0
-offset_right = 66.0
-offset_bottom = 48.0
-text = "Pause"
-
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
