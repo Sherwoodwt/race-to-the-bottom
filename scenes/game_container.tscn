@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bahv2pdcq6q3" path="res://assets/ui/button.png" id="5_hmirm"]
 [ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="5_kffvu"]
 [ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/tutorial.tscn" id="6_3knfh"]
-[ext_resource type="Texture2D" uid="uid://3m7t32jyiu6u" path="res://assets/call_icon.png" id="6_bfm3p"]
+[ext_resource type="Texture2D" uid="uid://3m7t32jyiu6u" path="res://assets/ui/call_icon.png" id="6_bfm3p"]
 [ext_resource type="Texture2D" uid="uid://0eksn4vip84s" path="res://assets/ui/tutorial_icon.png" id="6_vbpxd"]
 [ext_resource type="Script" uid="uid://dfjf25cv0ikqa" path="res://scripts/text_portrait_button.gd" id="7_u3yvh"]
 [ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="8_u3yvh"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://c81ekyync5smh" path="res://assets/ui/button_pushed.png" id="10_w0i42"]
 [ext_resource type="Texture2D" uid="uid://xkqiqe1hvunh" path="res://assets/ui/continue_icon.png" id="11_0brqr"]
 [ext_resource type="Texture2D" uid="uid://btt4oi268ioy2" path="res://assets/ui/power_icon.png" id="12_i60xf"]
+[ext_resource type="Texture2D" uid="uid://d23mebsu72ri1" path="res://assets/ui/logo_small.png" id="13_f1bwm"]
+[ext_resource type="Texture2D" uid="uid://c6vutm3455pxx" path="res://assets/ui/call_icon-small.png" id="16_f1bwm"]
+[ext_resource type="Texture2D" uid="uid://udrjg7vcj6q3" path="res://assets/ui/tutorial_icon-small.png" id="17_caoku"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w821k"]
 texture = ExtResource("4_hhqt2")
@@ -232,22 +235,27 @@ layout_mode = 2
 
 [node name="FakeStartButton" type="TextureRect" parent="Panel/Pause/MarginContainer/HBoxContainer" unique_id=235680565]
 layout_mode = 2
-texture = ExtResource("9_af2yf")
+texture = ExtResource("13_f1bwm")
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="Panel/Pause/MarginContainer/HBoxContainer" unique_id=2114582311]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "OPTIONS"
+text = "START"
 
-[node name="OptionsMenu" type="Panel" parent="Panel" unique_id=1091324471]
+[node name="OptionsMenu" type="Panel" parent="Panel" unique_id=1091324471 node_paths=PackedStringArray("start_button_texture")]
 process_mode = 2
 visible = false
 layout_mode = 0
-offset_top = -94.0
+offset_top = -148.0
 offset_right = 231.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_w0i42")
 script = ExtResource("10_af2yf")
+start_button_texture = NodePath("../Pause/MarginContainer/HBoxContainer/FakeStartButton")
+start_icon = ExtResource("13_f1bwm")
+pause_icon = ExtResource("9_af2yf")
+play_icon = ExtResource("16_f1bwm")
+return_icon = ExtResource("11_0brqr")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/OptionsMenu" unique_id=1370537410]
 layout_mode = 1
@@ -264,13 +272,19 @@ theme_override_constants/margin_bottom = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/OptionsMenu/MarginContainer" unique_id=1555118422]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=302278414]
+[node name="ReturnButton" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=302278414]
 layout_mode = 2
-text = "RETURN"
-icon = ExtResource("11_0brqr")
+text = "NEW GAME"
+icon = ExtResource("16_f1bwm")
 alignment = 0
 
-[node name="Button3" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=285165549]
+[node name="TutorialButton" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=1920434069]
+layout_mode = 2
+text = "TUTORIAL"
+icon = ExtResource("17_caoku")
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=285165549]
 layout_mode = 2
 text = "QUIT GAME"
 icon = ExtResource("12_i60xf")
