@@ -6,7 +6,6 @@ extends Control
 @onready var organization_tab: Tab = $PanelContainer/MarginContainer/VBoxContainer/Tabs/Organization
 @onready var initiatives_tab: Tab = $PanelContainer/MarginContainer/VBoxContainer/Tabs/Initiatives
 @onready var notification: AudioStreamPlayer = $Notification
-@onready var pause_menu: Control = $PauseMenu
 
 func _ready():
 	organization_tab.pressed.emit()
@@ -14,9 +13,6 @@ func _ready():
 	SignalBus.team_org.connect(_on_team_org)
 	SignalBus.call_alert.connect(func(): notification.play())
 	SignalBus.lose.connect(lose)
-	SignalBus.pause.connect(_handle_pause.bind(true))
-	SignalBus.unpause.connect(_handle_pause.bind(false))
-	pause_menu.hide()
 
 func _on_organization_team_initiatives(employee: Employee) -> void:
 	initiatives.add_team(employee)
@@ -28,11 +24,3 @@ func _on_team_org(employee: Employee) -> void:
 
 func lose(reason: String):
 	queue_free.call_deferred()
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pause"):
-		SignalBus.pause.emit()
-
-func _handle_pause(paused: bool):
-	pause_menu.visible = !get_tree().paused
-	get_tree().paused = !get_tree().paused

@@ -8,8 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bahv2pdcq6q3" path="res://assets/ui/button.png" id="5_hmirm"]
 [ext_resource type="PackedScene" uid="uid://bv1rbie0agffh" path="res://scenes/lose_screen.tscn" id="5_kffvu"]
 [ext_resource type="PackedScene" uid="uid://b3yehkl1ejret" path="res://scenes/tutorial.tscn" id="6_3knfh"]
+[ext_resource type="Texture2D" uid="uid://3m7t32jyiu6u" path="res://assets/call_icon.png" id="6_bfm3p"]
+[ext_resource type="Texture2D" uid="uid://0eksn4vip84s" path="res://assets/ui/tutorial_icon.png" id="6_vbpxd"]
+[ext_resource type="Script" uid="uid://dfjf25cv0ikqa" path="res://scripts/text_portrait_button.gd" id="7_u3yvh"]
+[ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="8_u3yvh"]
 [ext_resource type="Texture2D" uid="uid://cwwdve6o3w6jh" path="res://assets/ui/pause.png" id="9_af2yf"]
 [ext_resource type="Script" uid="uid://bdky5draekrl7" path="res://scripts/pause_menu.gd" id="10_af2yf"]
+[ext_resource type="Texture2D" uid="uid://c81ekyync5smh" path="res://assets/ui/button_pushed.png" id="10_w0i42"]
+[ext_resource type="Texture2D" uid="uid://xkqiqe1hvunh" path="res://assets/ui/continue_icon.png" id="11_0brqr"]
+[ext_resource type="Texture2D" uid="uid://btt4oi268ioy2" path="res://assets/ui/power_icon.png" id="12_i60xf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w821k"]
 texture = ExtResource("4_hhqt2")
@@ -25,6 +32,13 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0i42"]
+texture = ExtResource("10_w0i42")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [node name="GameContainer" type="Control" unique_id=1795492096]
 layout_mode = 3
 anchors_preset = 15
@@ -33,11 +47,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kffvu")
-
-[node name="CharacterCreator" parent="." unique_id=706435243 instance=ExtResource("1_mqaqf")]
-visible = false
-layout_mode = 1
-offset_bottom = -40.0
 
 [node name="MainMenu" type="Control" parent="." unique_id=537983958]
 layout_mode = 1
@@ -93,16 +102,101 @@ theme_override_font_sizes/font_size = 64
 text = "MALANTIR"
 horizontal_alignment = 1
 
+[node name="TextPortraitButton" type="Button" parent="MainMenu" unique_id=1687615875]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 393.0
+offset_right = 389.0
+offset_bottom = 472.0
+theme = ExtResource("4_hmirm")
+button_mask = 3
+icon = ExtResource("6_bfm3p")
+script = ExtResource("7_u3yvh")
+
+[node name="Label" type="Label" parent="MainMenu/TextPortraitButton" unique_id=1057835928]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_hmirm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "START"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/TextPortraitButton" unique_id=1829673633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portrait" parent="MainMenu/TextPortraitButton/MarginContainer" unique_id=1529899193 instance=ExtResource("8_u3yvh")]
+visible = false
+layout_mode = 2
+
+[node name="TextPortraitButton2" type="Button" parent="MainMenu" unique_id=1359071219]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 45.0
+offset_right = 153.0
+offset_bottom = 124.0
+theme = ExtResource("4_hmirm")
+button_mask = 3
+icon = ExtResource("6_vbpxd")
+script = ExtResource("7_u3yvh")
+
+[node name="Label" type="Label" parent="MainMenu/TextPortraitButton2" unique_id=703015944]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_hmirm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "TUTORIAL"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/TextPortraitButton2" unique_id=307259235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portrait" parent="MainMenu/TextPortraitButton2/MarginContainer" unique_id=438727290 instance=ExtResource("8_u3yvh")]
+visible = false
+layout_mode = 2
+
+[node name="CharacterCreator" parent="." unique_id=706435243 instance=ExtResource("1_mqaqf")]
+visible = false
+layout_mode = 1
+offset_bottom = -40.0
+
+[node name="Tutorial" parent="." unique_id=1296299434 instance=ExtResource("6_3knfh")]
+visible = false
+layout_mode = 1
+offset_bottom = -40.0
+
 [node name="LoseScreen" parent="." unique_id=709844159 node_paths=PackedStringArray("menu") instance=ExtResource("5_kffvu")]
 visible = false
 layout_mode = 1
 offset_bottom = -40.0
 menu = NodePath("../MainMenu")
-
-[node name="Tutorial" parent="." unique_id=1296299434 node_paths=PackedStringArray("creator") instance=ExtResource("6_3knfh")]
-visible = false
-layout_mode = 1
-creator = NodePath("../CharacterCreator")
 
 [node name="Panel" type="Panel" parent="." unique_id=766499070]
 layout_mode = 1
@@ -146,62 +240,45 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "OPTIONS"
 
-[node name="PauseMenu" type="Control" parent="." unique_id=25031825]
+[node name="OptionsMenu" type="Panel" parent="Panel" unique_id=1091324471]
 process_mode = 2
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_hmirm")
+layout_mode = 0
+offset_top = -94.0
+offset_right = 231.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w0i42")
 script = ExtResource("10_af2yf")
 
-[node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=1594030159]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/OptionsMenu" unique_id=1370537410]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="Button" type="Button" parent="PauseMenu" unique_id=430381445]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 104.0
-offset_top = 81.0
-offset_right = 184.0
-offset_bottom = 119.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Return"
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/OptionsMenu/MarginContainer" unique_id=1555118422]
+layout_mode = 2
 
-[node name="Button2" type="Button" parent="PauseMenu" unique_id=1349693662]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = 82.0
-offset_right = -88.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Quit"
+[node name="Button2" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=302278414]
+layout_mode = 2
+text = "RETURN"
+icon = ExtResource("11_0brqr")
+alignment = 0
 
-[node name="Label" type="Label" parent="PauseMenu" unique_id=1625407151]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 113.0
-offset_right = 1144.0
-offset_bottom = 215.0
-theme_override_font_sizes/font_size = 128
-text = "Paused"
-horizontal_alignment = 1
+[node name="Button3" type="Button" parent="Panel/OptionsMenu/MarginContainer/VBoxContainer" unique_id=285165549]
+layout_mode = 2
+text = "QUIT GAME"
+icon = ExtResource("12_i60xf")
+alignment = 0
+
+[connection signal="mouse_entered" from="MainMenu/TextPortraitButton" to="MainMenu/TextPortraitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenu/TextPortraitButton" to="MainMenu/TextPortraitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="MainMenu/TextPortraitButton" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MainMenu/TextPortraitButton2" to="MainMenu/TextPortraitButton2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenu/TextPortraitButton2" to="MainMenu/TextPortraitButton2" method="_on_mouse_exited"]
+[connection signal="pressed" from="MainMenu/TextPortraitButton2" to="." method="_on_tutorial_pressed"]

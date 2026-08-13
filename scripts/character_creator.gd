@@ -22,6 +22,7 @@ var accessories: Array[Texture2D]
 var facial_hairs: Array[Texture2D]
 
 func _ready():
+	SignalBus.open_creator.connect(show)
 	portrait = Portrait.new()
 	hairs = [null]
 	hairs.append_array(PortraitGenerator.hairs.duplicate_deep())

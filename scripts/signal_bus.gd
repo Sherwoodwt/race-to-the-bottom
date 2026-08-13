@@ -16,5 +16,7 @@ signal quarter_end
 signal call_alert
 signal lose(reason: String)
 signal pause
-signal unpause
+signal toggle_pause
 signal quit_to_menu
+signal open_tutorial
+signal open_creator
