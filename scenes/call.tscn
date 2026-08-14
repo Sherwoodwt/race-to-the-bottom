@@ -116,15 +116,6 @@ layout_mode = 2
 [node name="Portrait8" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1685442637 instance=ExtResource("2_r5xi3")]
 layout_mode = 2
 
-[node name="Portrait9" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1282500759 instance=ExtResource("2_r5xi3")]
-layout_mode = 2
-
-[node name="Portrait10" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1608893658 instance=ExtResource("2_r5xi3")]
-layout_mode = 2
-
-[node name="Portrait11" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=532119045 instance=ExtResource("2_r5xi3")]
-layout_mode = 2
-
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=827156428]
 layout_mode = 2
 size_flags_vertical = 3
@@ -162,7 +153,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_cdm5h")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-expand_mode = 0
 
 [node name="MuteButton" type="Button" parent="." unique_id=1954951024]
 layout_mode = 0

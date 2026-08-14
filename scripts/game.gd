@@ -1,14 +1,15 @@
 class_name Game
 extends Control
 
-@onready var initiatives: InitiativeScreen = $PanelContainer/MarginContainer/VBoxContainer/Initiatives
-@onready var organization: Organization = $PanelContainer/MarginContainer/VBoxContainer/Organization
-@onready var organization_tab: Tab = $PanelContainer/MarginContainer/VBoxContainer/Tabs/Organization
-@onready var initiatives_tab: Tab = $PanelContainer/MarginContainer/VBoxContainer/Tabs/Initiatives
+@onready var initiatives: InitiativeScreen = $PanelContainer/MarginContainer/Initiatives
+@onready var organization: Organization = $PanelContainer/MarginContainer/Organization
+@onready var call_tab: Tab = $Tabs/Call
+@onready var organization_tab: Tab = $Tabs/Organization
+@onready var initiatives_tab: Tab = $Tabs/Initiatives
 @onready var notification: AudioStreamPlayer = $Notification
 
 func _ready():
-	organization_tab.pressed.emit()
+	call_tab.pressed.emit()
 	SignalBus.team_initiatives.connect(_on_organization_team_initiatives)
 	SignalBus.team_org.connect(_on_team_org)
 	SignalBus.call_alert.connect(func(): notification.play())

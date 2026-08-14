@@ -1,7 +1,7 @@
 extends Control
 
 @onready var timer: Timer = $Timer
-@onready var portraits: Array[PortraitDisplay] = [$MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait2, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait3, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait4, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait5, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait6, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait7, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait8, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait9, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait10, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait11]
+@onready var portraits: Array[PortraitDisplay] = [$MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait2, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait3, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait4, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait5, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait6, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait7, $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/Portrait8]
 @onready var main_portrait: PortraitDisplay = $MarginContainer/VBoxContainer/PanelContainer2/Control/Portrait
 @onready var you: PortraitDisplay = $PanelContainer/Portrait
 @onready var mute_button: Button = $MuteButton
