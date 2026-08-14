@@ -155,11 +155,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MuteButton" type="Button" parent="." unique_id=1954951024]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 404.0
-offset_right = 1034.0
-offset_bottom = 452.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_top = -162.0
+offset_right = -88.0
+offset_bottom = -86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("1_itvnj")
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
