@@ -1,8 +1,8 @@
 class_name Game
 extends Control
 
-@onready var initiatives: InitiativeScreen = $PanelContainer/MarginContainer/Initiatives
-@onready var organization: Organization = $PanelContainer/MarginContainer/Organization
+@onready var initiatives: InitiativeScreen = $PanelContainer3/MarginContainer/Initiatives
+@onready var organization: Organization = $PanelContainer2/MarginContainer/Organization
 @onready var call_tab: Tab = $Tabs/Call
 @onready var organization_tab: Tab = $Tabs/Organization
 @onready var initiatives_tab: Tab = $Tabs/Initiatives

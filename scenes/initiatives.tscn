@@ -8,7 +8,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ya1r")
@@ -46,6 +45,5 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="InitiativeArea" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1445235863]
-custom_maximum_size = Vector2(-1, 480)
 layout_mode = 2
 size_flags_vertical = 3
