@@ -29,7 +29,7 @@ func _ready() -> void:
 	update_productivity()
 	target_budget = budget - target_budget_diff
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	target_budget_label.text = "$%dK" % target_budget
 	budget_label.text = "$%dK" % budget
 	var dif = target_budget - budget

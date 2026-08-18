@@ -11,5 +11,5 @@ extends Resource
 var target: Employee
 
 # returns formatted description
-func format_name(target: Employee) -> String:
-	return target.format_text(description)
+func format_name(employee: Employee) -> String:
+	return employee.format_text(description)

@@ -1,5 +1,7 @@
 extends Node
 
+@warning_ignore_start("unused_signal")
+
 signal alert(text: String)
 
 signal focus_changed(role: Role)
@@ -20,3 +22,5 @@ signal toggle_pause
 signal quit_to_menu
 signal open_tutorial
 signal open_creator
+
+@warning_ignore_restore("unused_signal")

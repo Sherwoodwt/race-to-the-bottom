@@ -24,11 +24,11 @@ func _ready():
 	quit_button.pressed.connect(func(): get_tree().quit())
 	tutorial_button.pressed.connect(func(): SignalBus.open_tutorial.emit(); handle_pause(false))
 
-func handle_pause(paused: bool):
-	self.paused = paused
-	visible = paused
-	get_tree().paused = paused
-	start_button_texture.texture = pause_icon if paused else start_icon
+func handle_pause(is_paused: bool):
+	self.paused = is_paused
+	visible = is_paused
+	get_tree().paused = is_paused
+	start_button_texture.texture = pause_icon if is_paused else start_icon
 
 func handle_quit():
 	for c in return_button.pressed.get_connections():

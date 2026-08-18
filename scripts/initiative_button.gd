@@ -27,7 +27,7 @@ func _ready():
 	if InitiativeData.used_initiatives[initiative.title]:
 		check_disabled(initiative)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if running:
 		progress.value = 1.0 - timer.time_left / timer.wait_time
 
@@ -46,8 +46,8 @@ func finish_initiative():
 func reset():
 	disabled = false
 
-func check_disabled(initiative: Initiative):
-	if initiative.title == self.initiative.title:
+func check_disabled(check_initiative: Initiative):
+	if check_initiative.title == self.initiative.title:
 		disabled = true
 
 func check_employee(boss: Employee):

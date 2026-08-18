@@ -126,9 +126,9 @@ func generate_reviews(new_hire: bool = false) -> void:
 
 func make_review(other: Employee, exclude_boss: bool, exclude_subordinate: bool):
 	var ability = int(other.get_attribute_compatability() * 5)
-	var min = clampi(ability - 2, 0, 5)
-	var max = clampi(ability, 0, 5)
-	var review = ReviewGenerator.random_review(other, min, max, exclude_boss, exclude_subordinate)
+	var min_opinion = clampi(ability - 2, 0, 5)
+	var max_opinion = clampi(ability, 0, 5)
+	var review = ReviewGenerator.random_review(other, min_opinion, max_opinion, exclude_boss, exclude_subordinate)
 	review.author = self
 	return review
 

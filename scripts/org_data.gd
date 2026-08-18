@@ -34,26 +34,26 @@ func reset(role: Role):
 		reset(r)
 
 func make_tree(level: int) -> Role:
-	var top: Role
+	var cur: Role
 	if level < leadership_roles.size():
-		top = leadership_roles[level].duplicate(true)
+		cur = leadership_roles[level].duplicate(true)
 		var team_size = randi_range(MIN_TEAM_SIZE, MAX_TEAM_SIZE)
 		for i in range(team_size):
 			var child = make_tree(level + 1)
-			child.boss = top
-			top.team.append(child)
+			child.boss = cur
+			cur.team.append(child)
 	else:
-		top = worker_roles.pick_random().duplicate(true)
+		cur = worker_roles.pick_random().duplicate(true)
 	if level != 0:
-		top.employee = Employee.generate(top)
-		top.employee.productivity_changed.connect(func(): productivity_changed.emit())
+		cur.employee = Employee.generate(cur)
+		cur.employee.productivity_changed.connect(func(): productivity_changed.emit())
 	else:
-		top.employee = Employee.generate(top)
-		top.employee.attributes.reliability = 5
-		top.employee.attributes.sociability = 5
-		top.employee.attributes.competence = 5
-		top.employee.attributes.technical = 5
-	return top
+		cur.employee = Employee.generate(cur)
+		cur.employee.attributes.reliability = 5
+		cur.employee.attributes.sociability = 5
+		cur.employee.attributes.competence = 5
+		cur.employee.attributes.technical = 5
+	return cur
 
 # mutates hierarchy to add reviews
 func make_comments(role: Role):
@@ -70,12 +70,12 @@ func new_quarter():
 	var sorted_managers := top.manager_team()
 	sorted_managers.sort_custom(func(a, b): return a.role.team.size() < b.role.team.size())
 	for i in randi_range(0, MAX_REHIRE_AMOUNT):
-		var top = sorted_managers.pop_front()
-		if top != null and top.role.team.size() < MAX_TEAM_SIZE:
+		var smallest = sorted_managers.pop_front()
+		if smallest != null and smallest.role.team.size() < MAX_TEAM_SIZE:
 			var newb := worker_roles.pick_random().duplicate(true) as Role
 			newb.employee = Employee.generate(newb)
 			newb.employee.productivity_changed.connect(func(): productivity_changed.emit())
-			top.role.team.append(newb)
+			smallest.role.team.append(newb)
 			newb.employee.generate_reviews(true)
 	SignalBus.refresh_tree.emit()
 

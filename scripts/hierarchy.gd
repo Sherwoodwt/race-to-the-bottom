@@ -17,22 +17,22 @@ func _ready():
 	SignalBus.focus_changed.connect(set_focus)
 	SignalBus.refresh_tree.connect(func(): set_focus(role))
 
-func set_focus(role: Role):
+func set_focus(target: Role):
 	clear_pressed(selected_button)
 	for child in team.get_children():
 		team.remove_child(child)
 	
-	if role.boss:
+	if target.boss:
 		boss_button.disabled = false
 	else:
 		boss_button.disabled = true
 	
-	selected_button.set_role(role)
+	selected_button.set_role(target)
 	selected_button.pressed.connect(func(): SignalBus.highlight.emit(selected_button))
-	self.role = role
-	name_tag.text = role.employee.name
+	self.role = target
+	name_tag.text = target.employee.name
 	
-	for child in role.team:
+	for child in target.team:
 		var button = role_scene.instantiate() as PortraitButton
 		button.custom_minimum_size = Vector2(100, 100)
 		button.pressed.connect(func(): SignalBus.highlight.emit(button))

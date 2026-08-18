@@ -35,7 +35,7 @@ func _ready():
 	SignalBus.quarter_end.connect(func(): lose_progress.value = 0)
 	talk_progress.hide()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if talking:
 		if muted:
 			counter += 1

@@ -8,10 +8,10 @@ const HOLD_TIME: int = 60
 var role: Role
 
 # used to modify existing button
-func set_role(role: Role):
-	self.role = role
-	if role.employee:
-		portrait.set_employee(role.employee)
+func set_role(new_role: Role):
+	self.role = new_role
+	if new_role.employee:
+		portrait.set_employee(new_role.employee)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

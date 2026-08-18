@@ -6,13 +6,13 @@ extends Control
 @onready var call_tab: Tab = $Tabs/Call
 @onready var organization_tab: Tab = $Tabs/Organization
 @onready var initiatives_tab: Tab = $Tabs/Initiatives
-@onready var notification: AudioStreamPlayer = $Notification
+@onready var notification_sound: AudioStreamPlayer = $Notification
 
 func _ready():
-	call_tab.pressed.emit()
+	call_tab.button_pressed = true
 	SignalBus.team_initiatives.connect(_on_organization_team_initiatives)
 	SignalBus.team_org.connect(_on_team_org)
-	SignalBus.call_alert.connect(func(): notification.play())
+	SignalBus.call_alert.connect(func(): notification_sound.play())
 	SignalBus.lose.connect(lose)
 
 func _on_organization_team_initiatives(employee: Employee) -> void:
@@ -23,5 +23,5 @@ func _on_team_org(employee: Employee) -> void:
 	organization.set_role(employee.role)
 	organization_tab.change_tab()
 
-func lose(reason: String):
+func lose(_reason: String):
 	queue_free.call_deferred()

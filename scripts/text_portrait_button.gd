@@ -5,11 +5,11 @@ extends PortraitButton
 
 var clicked: bool
 
-func set_role(role: Role):
-	button_text.text = "%s\n%s" % [role.employee.name, role.name]
-	super(role)
+func set_role(new_role: Role):
+	button_text.text = "%s\n%s" % [new_role.employee.name, new_role.name]
+	super(new_role)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if clicked:
 		button_text.add_theme_color_override("font_color", Color.BLACK)
 	else:
