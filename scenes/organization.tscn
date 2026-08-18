@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_bnk4x"]
 [ext_resource type="Script" uid="uid://frv888cne2ik" path="res://scripts/hierarchy.gd" id="2_ywb0v"]
 [ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/portrait_button.tscn" id="3_bnk4x"]
-[ext_resource type="Texture2D" uid="uid://dy77hktflbrif" path="res://assets/arrow_up.png" id="5_hfxdp"]
+[ext_resource type="Texture2D" uid="uid://bhp4pssg8m2jl" path="res://assets/ui/up_icon.png" id="5_hfxdp"]
 [ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_modal.tscn" id="5_q63xy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0q7g"]
@@ -57,63 +57,37 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer" unique_id=1199322244]
 layout_mode = 2
+alignment = 1
 
-[node name="Control" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=1702170130]
+[node name="UpButton" type="Button" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=1038920271]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="UpButton" type="Button" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/Control" unique_id=1038920271]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -38.0
-offset_right = 38.0
-offset_bottom = 38.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.6, 0.6)
-pivot_offset = Vector2(38, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 6
 icon = ExtResource("5_hfxdp")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=336482061]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=312048803]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Control2" type="Control" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1527656419]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2" unique_id=312048803]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -66.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Selected" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2/VBoxContainer" unique_id=1345156442 instance=ExtResource("3_bnk4x")]
+[node name="Selected" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1345156442 instance=ExtResource("3_bnk4x")]
 custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="NameTag" type="Label" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/HBoxContainer/Control2/VBoxContainer" unique_id=1833645863]
+[node name="NameTag" type="Label" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1833645863]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "[NAME]"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer" unique_id=482284261]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/ScrollContainer" unique_id=70573213]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 theme_override_constants/separation = 12
 alignment = 1
 

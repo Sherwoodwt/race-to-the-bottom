@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xppbkievq600" path="res://scripts/initiative_screen.gd" id="1_8ya1r"]
 [ext_resource type="PackedScene" uid="uid://c00myajhbt2iv" path="res://scenes/team_initiative_tab.tscn" id="2_wv0d6"]
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_wv0d6"]
 
 [node name="Initiatives" type="Control" unique_id=759931945]
 layout_mode = 3
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_wv0d6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1140432118]
 layout_mode = 1
@@ -40,10 +42,43 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1171232013]
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2121800902]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_wv0d6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/Panel" unique_id=1490947379]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/Panel/MarginContainer" unique_id=1171232013]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InitiativeArea" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1445235863]
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer" unique_id=1537272113]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/Panel" unique_id=904009822]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="InitiativeArea" type="Control" parent="Panel/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=635316459]
+layout_mode = 2

@@ -1,10 +1,10 @@
 class_name Hierarchy
 extends Control
 
-@onready var boss_button: Button = $MarginContainer/VBoxContainer/Control/UpButton
-@onready var selected_button: PortraitButton = $MarginContainer/VBoxContainer/HBoxContainer/Control2/VBoxContainer/Selected
+@onready var boss_button: Button = $MarginContainer/VBoxContainer/UpButton
+@onready var selected_button: PortraitButton = $MarginContainer/VBoxContainer/VBoxContainer/Selected
 @onready var team: Control = $MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer2
-@onready var name_tag: Label = $MarginContainer/VBoxContainer/HBoxContainer/Control2/VBoxContainer/NameTag
+@onready var name_tag: Label = $MarginContainer/VBoxContainer/VBoxContainer/NameTag
 
 @export var role_scene: PackedScene
 @export var profile_modal: ProfileModal

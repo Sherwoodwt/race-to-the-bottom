@@ -1,7 +1,8 @@
 class_name InitiativeScreen
 extends Control
 
-@onready var tab_area: Control = $Panel/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer
+@onready var tab_area: Control = $Panel/MarginContainer/VBoxContainer/ScrollContainer/Panel/MarginContainer/HBoxContainer
+@onready var initiative_area: Control = $Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/InitiativeArea
 
 @export var initiative_tab_scene: PackedScene
 
@@ -10,6 +11,7 @@ var tabs: Array[InitiativeTab]
 func _ready():
 	# add first one org wide
 	var inst = initiative_tab_scene.instantiate() as InitiativeTab
+	inst.initiative_area = initiative_area
 	inst.employee = OrgData.top.employee
 	inst.focused.connect(func(): team_focused(inst))
 	tab_area.add_child(inst)

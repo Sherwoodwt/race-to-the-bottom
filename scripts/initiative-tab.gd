@@ -4,7 +4,6 @@ extends Button
 signal focused
 signal closed
 
-@onready var initiative_area: Control = $"../../../InitiativeArea"
 @onready var x_button: Button = $XButton
 @onready var org_button: Button = $OrgButton
 
@@ -12,6 +11,7 @@ signal closed
 @export var employee: Employee # set this
 
 var initiatives: Initiatives
+var initiative_area: Control
 
 func _ready():
 	x_button.pressed.connect(close)

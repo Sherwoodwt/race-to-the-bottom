@@ -47,15 +47,14 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="." unique_id=1174980934 node_paths=PackedStringArray("tab")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 58.0
 offset_top = 29.0
-offset_right = -285.0
-offset_bottom = -142.0
+offset_right = -473.53003
+offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

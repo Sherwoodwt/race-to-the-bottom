@@ -1,7 +1,7 @@
 class_name Initiatives
 extends Node
 
-@onready var start_initiatives: Array[InitiativeButton] = [$Scroll/Vbox/TestInitiative2, $Scroll/Vbox/TestInitiative3, $Scroll/Vbox/TestInitiative4, $Scroll/Vbox/TestInitiative5, $Scroll/Vbox/TestInitiative6, $Scroll/Vbox/TestInitiative7]
+@onready var start_initiatives: Array[InitiativeButton] = [$Scroll/MarginContainer/Vbox/TestInitiative2, $Scroll/MarginContainer/Vbox/TestInitiative3, $Scroll/MarginContainer/Vbox/TestInitiative4, $Scroll/MarginContainer/Vbox/TestInitiative5, $Scroll/MarginContainer/Vbox/TestInitiative6, $Scroll/MarginContainer/Vbox/TestInitiative7]
 
 var employee: Employee
 
