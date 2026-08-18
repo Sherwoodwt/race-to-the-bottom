@@ -13,6 +13,7 @@ func _ready():
 
 func handle_hide():
 	hide()
+	tab.button_pressed = false
 
 func _gui_input(event: InputEvent) -> void:
 	var e = event as InputEventMouseButton

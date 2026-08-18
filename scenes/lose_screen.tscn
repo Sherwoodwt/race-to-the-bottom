@@ -21,60 +21,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_1n1m7")
 
-[node name="Label" type="Label" parent="." unique_id=1882727238]
-custom_minimum_size = Vector2(1100, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -554.0
-offset_top = -106.0
-offset_right = 546.0
-offset_bottom = 161.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_1n1m7")
-theme_override_font_sizes/font_size = 64
-text = "You no longer have access to this device!
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1058050483]
+layout_mode = 2
 
-Please return this device to the address printed on the label in 5 business days. Failure to do so will be considered theft."
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Result" type="Label" parent="." unique_id=1173044161]
+[node name="Result" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1173044161]
 custom_minimum_size = Vector2(1100, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -554.0
-offset_top = -275.0
-offset_right = 546.0
-offset_bottom = -224.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_1n1m7")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="." unique_id=158785903]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -84.0
-offset_top = -136.0
-offset_right = 72.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1882727238]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+theme = ExtResource("2_1n1m7")
+theme_override_font_sizes/font_size = 64
+text = "You no longer have access to this device!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1611850582]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_1n1m7")
+theme_override_font_sizes/font_size = 64
+text = "Please return this device to the address printed on the label in 5 business days. Failure to do so will be considered theft."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=158785903]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme = ExtResource("2_1n1m7")
 text = "Sounds great,
 can do!"

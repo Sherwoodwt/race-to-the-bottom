@@ -26,6 +26,10 @@ func add_team(employee: Employee):
 		return
 	
 	var inst = initiative_tab_scene.instantiate() as InitiativeTab
+	# TODO: add something here after adding initiatives, this is to create the initiatives on a new
+	# tab for a selected team, but doesn't work because there's no reference and I'm not adding it because
+	# it'll be refactored anyway.
+	#inst.initiatives = 
 	inst.employee = employee
 	inst.focused.connect(func(): team_focused(inst))
 	tab_area.add_child(inst)

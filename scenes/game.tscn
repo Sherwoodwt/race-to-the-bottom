@@ -9,8 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="8_trtic"]
+[ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="9_ir15t"]
 [ext_resource type="Script" uid="uid://ho2o66uciyfb" path="res://scripts/alert.gd" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="10_ca42v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwmo"]
+texture = ExtResource("9_ir15t")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_kvpfn"]
 
@@ -27,7 +37,7 @@ script = ExtResource("1_uwrxv")
 [node name="Notification" type="AudioStreamPlayer" parent="." unique_id=281432699]
 stream = ExtResource("2_gee14")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1784540693 node_paths=PackedStringArray("tab")]
+[node name="CallWindow" type="PanelContainer" parent="." unique_id=1784540693 node_paths=PackedStringArray("tab")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,23 +49,23 @@ theme = ExtResource("2_p57ef")
 script = ExtResource("4_kvpfn")
 tab = NodePath("../Tabs/Call")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=132537644]
+[node name="MarginContainer" type="MarginContainer" parent="CallWindow" unique_id=132537644]
 layout_mode = 2
 
-[node name="Call" parent="PanelContainer/MarginContainer" unique_id=795384170 instance=ExtResource("6_u5sy4")]
+[node name="Call" parent="CallWindow/MarginContainer" unique_id=795384170 instance=ExtResource("6_u5sy4")]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=1174980934 node_paths=PackedStringArray("tab")]
+[node name="OrgChartWindow" type="PanelContainer" parent="." unique_id=1174980934 node_paths=PackedStringArray("tab")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 58.0
-offset_top = 29.0
-offset_right = -473.53003
-offset_bottom = -66.0
+offset_left = 56.0
+offset_top = 33.0
+offset_right = -475.53003
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -63,12 +73,12 @@ theme = ExtResource("2_p57ef")
 script = ExtResource("4_kvpfn")
 tab = NodePath("../Tabs/Organization")
 
-[node name="Control" type="Control" parent="PanelContainer2" unique_id=610867537]
+[node name="Control" type="Control" parent="OrgChartWindow" unique_id=610867537]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="PanelContainer2/Control" unique_id=1096161932]
+[node name="Button" type="Button" parent="OrgChartWindow/Control" unique_id=1096161932]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,25 +94,75 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource("9_vtaks")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2" unique_id=64690491]
+[node name="MarginContainer" type="MarginContainer" parent="OrgChartWindow" unique_id=64690491]
 layout_mode = 2
 
-[node name="Organization" parent="PanelContainer2/MarginContainer" unique_id=756527007 instance=ExtResource("3_lnu2h")]
+[node name="Organization" parent="OrgChartWindow/MarginContainer" unique_id=756527007 instance=ExtResource("3_lnu2h")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="." unique_id=721683216 node_paths=PackedStringArray("tab")]
+[node name="ProfileWindow" type="PanelContainer" parent="." unique_id=340555002 node_paths=PackedStringArray("tab")]
 visible = false
-custom_minimum_size = Vector2(1060, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 41.0
-offset_top = 79.0
-offset_right = -51.0
-offset_bottom = -50.0
+offset_left = 563.0
+offset_top = 71.0
+offset_right = -39.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_p57ef")
+script = ExtResource("4_kvpfn")
+tab = NodePath("../Tabs/Profile")
+
+[node name="Control" type="Control" parent="ProfileWindow" unique_id=1168191427]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="ProfileWindow/Control" unique_id=928873448]
+z_index = 2
+layout_mode = 0
+offset_left = -13.0
+offset_top = -34.0
+offset_right = 7.0
+offset_bottom = -14.0
+scale = Vector2(0.9, 0.9)
+icon = ExtResource("9_vtaks")
+
+[node name="MarginContainer" type="MarginContainer" parent="ProfileWindow" unique_id=1475087078]
+layout_mode = 2
+
+[node name="ProfileDetails" type="VBoxContainer" parent="ProfileWindow/MarginContainer" unique_id=605685855]
+layout_mode = 2
+
+[node name="Profile" parent="ProfileWindow/MarginContainer/ProfileDetails" unique_id=1172396901 instance=ExtResource("8_trtic")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="ProfileWindow/MarginContainer/ProfileDetails" unique_id=979835571]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hiwmo")
+
+[node name="Reviews" parent="ProfileWindow/MarginContainer/ProfileDetails/PanelContainer" unique_id=394017895 instance=ExtResource("10_ca42v")]
+layout_mode = 2
+
+[node name="TasksWindow" type="PanelContainer" parent="." unique_id=721683216 node_paths=PackedStringArray("tab")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 249.0
+offset_top = 73.0
+offset_right = -199.0
+offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -110,12 +170,12 @@ theme = ExtResource("2_p57ef")
 script = ExtResource("4_kvpfn")
 tab = NodePath("../Tabs/Initiatives")
 
-[node name="Control" type="Control" parent="PanelContainer3" unique_id=2024889188]
+[node name="Control" type="Control" parent="TasksWindow" unique_id=2024889188]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="PanelContainer3/Control" unique_id=2006447958]
+[node name="Button" type="Button" parent="TasksWindow/Control" unique_id=2006447958]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,24 +191,24 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource("9_vtaks")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3" unique_id=653070083]
+[node name="MarginContainer" type="MarginContainer" parent="TasksWindow" unique_id=653070083]
 layout_mode = 2
 
-[node name="Initiatives" parent="PanelContainer3/MarginContainer" unique_id=759931945 instance=ExtResource("4_lbhrr")]
+[node name="Initiatives" parent="TasksWindow/MarginContainer" unique_id=759931945 instance=ExtResource("4_lbhrr")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="PanelContainer4" type="PanelContainer" parent="." unique_id=33089468 node_paths=PackedStringArray("tab")]
+[node name="MetricsWindow" type="PanelContainer" parent="." unique_id=33089468 node_paths=PackedStringArray("tab")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 524.0
-offset_top = 40.0
-offset_right = -49.0
-offset_bottom = -81.0
+offset_left = 330.0
+offset_top = 153.0
+offset_right = -237.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -156,12 +216,12 @@ theme = ExtResource("2_p57ef")
 script = ExtResource("4_kvpfn")
 tab = NodePath("../Tabs/Assignment")
 
-[node name="Control" type="Control" parent="PanelContainer4" unique_id=453074777]
+[node name="Control" type="Control" parent="MetricsWindow" unique_id=453074777]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="PanelContainer4/Control" unique_id=615211538]
+[node name="Button" type="Button" parent="MetricsWindow/Control" unique_id=615211538]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,10 +237,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource("9_vtaks")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer4" unique_id=572591346]
+[node name="MarginContainer" type="MarginContainer" parent="MetricsWindow" unique_id=572591346]
 layout_mode = 2
 
-[node name="Assignment" parent="PanelContainer4/MarginContainer" unique_id=1926028782 instance=ExtResource("5_iywne")]
+[node name="Assignment" parent="MetricsWindow/MarginContainer" unique_id=1926028782 instance=ExtResource("5_iywne")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -210,7 +270,7 @@ button_group = SubResource("ButtonGroup_kvpfn")
 text = "CALL
 "
 script = ExtResource("2_lnu2h")
-tab_scene = NodePath("../../PanelContainer")
+tab_scene = NodePath("../../CallWindow")
 
 [node name="Organization" type="Button" parent="Tabs" unique_id=954762871 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
@@ -220,7 +280,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kvpfn")
 text = "ORG CHART"
 script = ExtResource("2_lnu2h")
-tab_scene = NodePath("../../PanelContainer2")
+tab_scene = NodePath("../../OrgChartWindow")
 
 [node name="Profile" type="Button" parent="Tabs" unique_id=1275627629 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
@@ -230,7 +290,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kvpfn")
 text = "PROFILE"
 script = ExtResource("2_lnu2h")
-tab_scene = NodePath("../../PanelContainer2")
+tab_scene = NodePath("../../ProfileWindow")
 
 [node name="Initiatives" type="Button" parent="Tabs" unique_id=151895642 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
@@ -240,7 +300,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kvpfn")
 text = "TASKS"
 script = ExtResource("2_lnu2h")
-tab_scene = NodePath("../../PanelContainer3")
+tab_scene = NodePath("../../TasksWindow")
 
 [node name="Assignment" type="Button" parent="Tabs" unique_id=769744901 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
@@ -250,7 +310,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kvpfn")
 text = "METRICS"
 script = ExtResource("2_lnu2h")
-tab_scene = NodePath("../../PanelContainer4")
+tab_scene = NodePath("../../MetricsWindow")
 
 [node name="Alert" type="Control" parent="." unique_id=1172318797]
 process_mode = 2

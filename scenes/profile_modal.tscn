@@ -28,15 +28,16 @@ script = ExtResource("2_hiwmo")
 [node name="Control" type="Control" parent="." unique_id=1168191427]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="Button" type="Button" parent="Control" unique_id=928873448]
 z_index = 2
 layout_mode = 0
-offset_left = -22.0
-offset_top = -29.0
-offset_right = -2.0
-offset_bottom = -9.0
-scale = Vector2(1.2, 1.2)
+offset_left = -13.0
+offset_top = -34.0
+offset_right = 7.0
+offset_bottom = -14.0
+scale = Vector2(0.9, 0.9)
 icon = ExtResource("4_6voaj")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1475087078]

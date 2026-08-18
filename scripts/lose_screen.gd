@@ -1,8 +1,8 @@
 class_name LoseScreen
 extends Control
 
-@onready var button: Button = $Button
-@onready var result_label: Label = $Result
+@onready var button: Button = $PanelContainer/VBoxContainer/Button
+@onready var result_label: Label = $PanelContainer/VBoxContainer/Result
 
 @export var menu: Control
 

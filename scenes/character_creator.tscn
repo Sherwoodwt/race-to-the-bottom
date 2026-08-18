@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://b2fepb4qomggm" path="res://scripts/character_creator.gd" id="1_xm6ha"]
 [ext_resource type="PackedScene" uid="uid://bf7hfrwhvxbcd" path="res://scenes/game.tscn" id="2_ucp7b"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_xm6ha"]
-[ext_resource type="Texture2D" uid="uid://j22ea423dl1f" path="res://assets/arrow_left.png" id="4_ucp7b"]
+[ext_resource type="Texture2D" uid="uid://b7cf4qlmtiglc" path="res://assets/ui/left_icon.png" id="4_ucp7b"]
+[ext_resource type="Texture2D" uid="uid://xkqiqe1hvunh" path="res://assets/ui/continue_icon.png" id="4_xm6ha"]
 [ext_resource type="PackedScene" uid="uid://2ufabb6o25a2" path="res://scenes/portrait.tscn" id="5_oy0w6"]
-[ext_resource type="Texture2D" uid="uid://m3wps67cgm8r" path="res://assets/arrow_right.png" id="6_f0wb7"]
 
 [node name="CharacterCreator" type="Control" unique_id=706435243]
 layout_mode = 3
@@ -45,17 +45,21 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=723617717]
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=616856973]
 layout_mode = 2
+size_flags_vertical = 6
 icon = ExtResource("4_ucp7b")
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1715008677]
 layout_mode = 2
+size_flags_vertical = 6
 icon = ExtResource("4_ucp7b")
 
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=159380059]
 layout_mode = 2
+size_flags_vertical = 6
 icon = ExtResource("4_ucp7b")
 
 [node name="Portrait" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1529899193 instance=ExtResource("5_oy0w6")]
@@ -67,18 +71,22 @@ size_flags_vertical = 4
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1940815665]
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1598026154]
 layout_mode = 2
-icon = ExtResource("6_f0wb7")
+size_flags_vertical = 6
+icon = ExtResource("4_xm6ha")
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2096442904]
 layout_mode = 2
-icon = ExtResource("6_f0wb7")
+size_flags_vertical = 6
+icon = ExtResource("4_xm6ha")
 
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1749174603]
 layout_mode = 2
-icon = ExtResource("6_f0wb7")
+size_flags_vertical = 6
+icon = ExtResource("4_xm6ha")
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=826011005]
 custom_minimum_size = Vector2(0, 80)

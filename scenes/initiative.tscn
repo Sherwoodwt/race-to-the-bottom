@@ -16,7 +16,6 @@ offset_top = -6.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 3
 theme = ExtResource("1_msxb5")
 button_mask = 3
@@ -48,19 +47,10 @@ texture = ExtResource("2_msxb5")
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1166069651]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.5
 theme_override_font_sizes/font_size = 32
 text = "Qualifications"
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1124797405]
-custom_minimum_size = Vector2(428, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 3.3
-theme_override_font_sizes/font_size = 24
-text = "Qualifications test to see how long the text needs to go before it wraps around to the other side"
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1607850739]
 layout_mode = 2

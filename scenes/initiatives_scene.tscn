@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://be6pj3qgsqpqv" path="res://scripts/Initiatives/qualifications.tres" id="8_0xuie"]
 
 [node name="InitiativeScene" type="Control" unique_id=1359222754]
-custom_minimum_size = Vector2(1042, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +19,6 @@ grow_vertical = 2
 script = ExtResource("1_lr42v")
 
 [node name="Scroll" type="ScrollContainer" parent="." unique_id=799445899]
-custom_minimum_size = Vector2(1040, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
