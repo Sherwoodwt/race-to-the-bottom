@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bn057oo1dvaay"]
 
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_rn2ur"]
-[ext_resource type="Script" uid="uid://b5areqijobubp" path="res://scripts/profile_modal.gd" id="2_gp5r2"]
+[ext_resource type="Script" uid="uid://cpocei8kf6n4n" path="res://scripts/window.gd" id="2_hiwmo"]
 [ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="3_hiwmo"]
 [ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="4_6voaj"]
 [ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="4_gp5r2"]
@@ -14,18 +14,16 @@ texture_margin_top = 6.0
 texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
-[node name="ProfileModal" type="PanelContainer" unique_id=340555002]
+[node name="ProfileWindow" type="PanelContainer" unique_id=340555002]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -685.0
-offset_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_rn2ur")
-script = ExtResource("2_gp5r2")
+script = ExtResource("2_hiwmo")
 
 [node name="Control" type="Control" parent="." unique_id=1168191427]
 layout_mode = 2

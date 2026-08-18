@@ -7,7 +7,6 @@ extends Control
 @onready var name_tag: Label = $MarginContainer/VBoxContainer/VBoxContainer/NameTag
 
 @export var role_scene: PackedScene
-@export var profile_modal: ProfileModal
 
 var role: Role
 
@@ -22,10 +21,7 @@ func set_focus(target: Role):
 	for child in team.get_children():
 		team.remove_child(child)
 	
-	if target.boss:
-		boss_button.disabled = false
-	else:
-		boss_button.disabled = true
+	boss_button.disabled = target.boss == null
 	
 	selected_button.set_role(target)
 	selected_button.pressed.connect(func(): SignalBus.highlight.emit(selected_button))

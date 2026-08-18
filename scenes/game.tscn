@@ -47,6 +47,7 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="." unique_id=1174980934 node_paths=PackedStringArray("tab")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,7 +218,17 @@ size_flags_horizontal = 3
 theme = ExtResource("2_p57ef")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kvpfn")
-text = "ORG"
+text = "ORG CHART"
+script = ExtResource("2_lnu2h")
+tab_scene = NodePath("../../PanelContainer2")
+
+[node name="Profile" type="Button" parent="Tabs" unique_id=1275627629 node_paths=PackedStringArray("tab_scene")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_p57ef")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kvpfn")
+text = "PROFILE"
 script = ExtResource("2_lnu2h")
 tab_scene = NodePath("../../PanelContainer2")
 
