@@ -1,3 +1,4 @@
+class_name WindowPanel
 extends PanelContainer
 
 @export var tab: Tab

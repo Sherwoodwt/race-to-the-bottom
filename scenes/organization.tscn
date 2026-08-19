@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://frv888cne2ik" path="res://scripts/hierarchy.gd" id="2_ywb0v"]
 [ext_resource type="PackedScene" uid="uid://siwoebadpl3d" path="res://scenes/portrait_button.tscn" id="3_bnk4x"]
 [ext_resource type="Texture2D" uid="uid://bhp4pssg8m2jl" path="res://assets/ui/up_icon.png" id="5_hfxdp"]
-[ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_modal.tscn" id="5_q63xy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0q7g"]
 
@@ -102,16 +101,3 @@ layout_mode = 2
 [node name="PortraitButton2" parent="Panel/MarginContainer/Hierarchy/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer2" unique_id=1439240757 instance=ExtResource("3_bnk4x")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-
-[node name="ProfileModal" parent="." unique_id=340555002 instance=ExtResource("5_q63xy")]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_bottom = 0.0
-offset_left = -490.0
-offset_top = 8.0
-offset_right = -18.0
-offset_bottom = 404.0
-grow_horizontal = 0
-grow_vertical = 1

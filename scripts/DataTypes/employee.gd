@@ -92,6 +92,7 @@ func get_budget() -> int:
 
 # what does self think of other
 func compare(other: Employee):
+	# TODO: Incorporate other person's personality maybe
 	var dif = [
 		abs(attributes.reliability - role.attributes.reliability),
 		abs(attributes.sociability - role.attributes.sociability),

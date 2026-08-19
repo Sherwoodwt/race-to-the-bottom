@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bn057oo1dvaay"]
+
+[ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_u4hhn"]
+[ext_resource type="Script" uid="uid://ipkwi3m3pk5x" path="res://scripts/window_panel_empty_state.gd" id="2_2q2xv"]
+[ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="3_icnjl"]
+[ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="4_nc4j3"]
+[ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="5_or274"]
+[ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="6_4hakv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwmo"]
+texture = ExtResource("5_or274")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="ProfileWindow" type="PanelContainer" unique_id=340555002 node_paths=PackedStringArray("empty", "not_empty")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_u4hhn")
+script = ExtResource("2_2q2xv")
+empty = NodePath("MarginContainer/Empty")
+not_empty = NodePath("MarginContainer/Profile")
+toggle_signal = "highlight"
+
+[node name="Control" type="Control" parent="." unique_id=1168191427]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="Control" unique_id=928873448]
+z_index = 2
+layout_mode = 0
+offset_left = -13.0
+offset_top = -34.0
+offset_right = 7.0
+offset_bottom = -14.0
+scale = Vector2(0.9, 0.9)
+icon = ExtResource("3_icnjl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1475087078]
+layout_mode = 2
+
+[node name="Profile" type="Control" parent="MarginContainer" unique_id=557348917]
+layout_mode = 2
+
+[node name="ProfileDetails" type="VBoxContainer" parent="MarginContainer/Profile" unique_id=605685855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Profile" parent="MarginContainer/Profile/ProfileDetails" unique_id=1172396901 instance=ExtResource("4_nc4j3")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Profile/ProfileDetails" unique_id=979835571]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hiwmo")
+
+[node name="Reviews" parent="MarginContainer/Profile/ProfileDetails/PanelContainer" unique_id=394017895 instance=ExtResource("6_4hakv")]
+layout_mode = 2
+
+[node name="Empty" type="Label" parent="MarginContainer" unique_id=772408077]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("1_u4hhn")
+theme_override_font_sizes/font_size = 64
+text = "No Employee Selected
+
+Select an employee in the Org Chart"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

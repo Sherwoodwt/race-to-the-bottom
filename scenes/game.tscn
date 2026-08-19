@@ -5,22 +5,13 @@
 [ext_resource type="Script" uid="uid://b7kfs402xys1v" path="res://scripts/tab.gd" id="2_lnu2h"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://cpocei8kf6n4n" path="res://scripts/window.gd" id="4_kvpfn"]
+[ext_resource type="Script" uid="uid://cpocei8kf6n4n" path="res://scripts/window_panel.gd" id="4_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://ckmq6lgbbalcy" path="res://scenes/profile.tscn" id="8_trtic"]
-[ext_resource type="Texture2D" uid="uid://dp3a6gw1fbaac" path="res://assets/ui/inlay_frame.png" id="9_ir15t"]
+[ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_window.tscn" id="8_dinhu"]
 [ext_resource type="Script" uid="uid://ho2o66uciyfb" path="res://scripts/alert.gd" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="9_vtaks"]
-[ext_resource type="PackedScene" uid="uid://bcfd6veyk5cmp" path="res://scenes/reviews.tscn" id="10_ca42v"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hiwmo"]
-texture = ExtResource("9_ir15t")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_kvpfn"]
 
@@ -62,10 +53,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 56.0
-offset_top = 33.0
-offset_right = -475.53003
-offset_bottom = -62.0
+offset_left = 36.0
+offset_top = 32.0
+offset_right = -495.53003
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -102,56 +93,15 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="ProfileWindow" type="PanelContainer" parent="." unique_id=340555002 node_paths=PackedStringArray("tab")]
+[node name="ProfileWindow" parent="." unique_id=340555002 node_paths=PackedStringArray("tab") instance=ExtResource("8_dinhu")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 563.0
-offset_top = 71.0
-offset_right = -39.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("2_p57ef")
-script = ExtResource("4_kvpfn")
+offset_left = 650.0
+offset_top = 94.0
+offset_right = -13.0
+offset_bottom = -42.0
+toggle_signal = "highlight"
 tab = NodePath("../Tabs/Profile")
-
-[node name="Control" type="Control" parent="ProfileWindow" unique_id=1168191427]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="Button" type="Button" parent="ProfileWindow/Control" unique_id=928873448]
-z_index = 2
-layout_mode = 0
-offset_left = -13.0
-offset_top = -34.0
-offset_right = 7.0
-offset_bottom = -14.0
-scale = Vector2(0.9, 0.9)
-icon = ExtResource("9_vtaks")
-
-[node name="MarginContainer" type="MarginContainer" parent="ProfileWindow" unique_id=1475087078]
-layout_mode = 2
-
-[node name="ProfileDetails" type="VBoxContainer" parent="ProfileWindow/MarginContainer" unique_id=605685855]
-layout_mode = 2
-
-[node name="Profile" parent="ProfileWindow/MarginContainer/ProfileDetails" unique_id=1172396901 instance=ExtResource("8_trtic")]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="ProfileWindow/MarginContainer/ProfileDetails" unique_id=979835571]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_hiwmo")
-
-[node name="Reviews" parent="ProfileWindow/MarginContainer/ProfileDetails/PanelContainer" unique_id=394017895 instance=ExtResource("10_ca42v")]
-layout_mode = 2
 
 [node name="TasksWindow" type="PanelContainer" parent="." unique_id=721683216 node_paths=PackedStringArray("tab")]
 visible = false
