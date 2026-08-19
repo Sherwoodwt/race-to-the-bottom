@@ -2,8 +2,12 @@ extends Node
 
 const folder := "res://scripts/Initiatives/"
 
-# initiative -> bool
+# are initiatives used up
+# title -> bool
 var used_initiatives: Dictionary
+
+# current assigned initiatives
+var initiative_pool: Array[Initiative]
 
 func _ready() -> void:
 	SignalBus.quarter_end.connect(reset)
