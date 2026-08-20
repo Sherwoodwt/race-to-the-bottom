@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cxbghx5n0reqh"]
 
-[ext_resource type="Script" uid="uid://xppbkievq600" path="res://scripts/initiative_screen.gd" id="1_8ya1r"]
+[ext_resource type="Script" uid="uid://xppbkievq600" path="res://scripts/task_screen.gd" id="1_8ya1r"]
 [ext_resource type="PackedScene" uid="uid://c00myajhbt2iv" path="res://scenes/team_initiative_tab.tscn" id="2_wv0d6"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="3_wv0d6"]
+[ext_resource type="PackedScene" uid="uid://dxlfbu58p3sn1" path="res://scenes/tasks_scene.tscn" id="4_q5qvr"]
 
-[node name="Initiatives" type="Control" unique_id=759931945]
+[node name="Tasks" type="Control" unique_id=759931945]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ya1r")
-initiative_tab_scene = ExtResource("2_wv0d6")
+task_tab_scene = ExtResource("2_wv0d6")
 
 [node name="Panel" type="Panel" parent="." unique_id=1021183276]
 layout_mode = 1
@@ -80,5 +81,8 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="InitiativeArea" type="Control" parent="Panel/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=635316459]
+[node name="TaskArea" type="Control" parent="Panel/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=635316459]
 layout_mode = 2
+
+[node name="TaskScene" parent="Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/TaskArea" unique_id=1359222754 instance=ExtResource("4_q5qvr")]
+layout_mode = 1

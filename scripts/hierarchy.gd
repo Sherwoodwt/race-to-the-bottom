@@ -39,8 +39,8 @@ func clear_pressed(button: Button):
 	for connection in button.pressed.get_connections():
 		button.pressed.disconnect(connection.callable)
 
-func _on_initiatives_pressed() -> void:
-	SignalBus.team_initiatives.emit(role.employee)
+func _on_tasks_pressed() -> void:
+	SignalBus.team_tasks.emit(role.employee)
 
 func _focus_boss() -> void:
 	SignalBus.focus_changed.emit(role.boss)

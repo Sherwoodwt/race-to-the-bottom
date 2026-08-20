@@ -51,7 +51,6 @@ func start_game():
 	OrgData.top.employee.portrait = portrait
 	OrgData.top.employee.name = name_label.text
 	OrgData.reset(OrgData.top)
-	InitiativeData.reset()
 	var inst = game_scene.instantiate()
 	add_sibling(inst)
 	hide()

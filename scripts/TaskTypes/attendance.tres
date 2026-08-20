@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="TaskType" format=3 uid="uid://mepx2a17w6rt"]
+
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_5ay8t"]
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/task_type.gd" id="1_iyt31"]
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="1_m1diq"]
+[ext_resource type="Texture2D" uid="uid://btp1m47kp6d30" path="res://assets/meeting.png" id="2_qgt2l"]
+
+[sub_resource type="Resource" id="Resource_5ay8t"]
+script = ExtResource("1_m1diq")
+value = 0.3
+text = "[NAME] has not been present and engaged for the morning meetings"
+temporary = true
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[sub_resource type="Resource" id="Resource_0x306"]
+script = ExtResource("1_5ay8t")
+reliability = 5
+sociability = 4
+competence = 3
+technical = 2
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_be65m"]
+script = ExtResource("1_5ay8t")
+reliability = 3
+sociability = 3
+competence = 2
+technical = 1
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("1_iyt31")
+min_attributes = SubResource("Resource_be65m")
+max_attributes = SubResource("Resource_0x306")
+min_wait_time = 21.0
+max_wait_time = 28.0
+titles = Array[String](["Attendance"])
+picture = ExtResource("2_qgt2l")
+demerit = SubResource("Resource_5ay8t")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

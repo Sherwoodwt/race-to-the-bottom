@@ -37,22 +37,22 @@ static func generate(role: Role) -> Employee:
 	employee.demerits.append(employee.team_demerit)
 	return employee
 
-func check_initiative(initiative: Initiative) -> bool:
-	var ini := initiative.attributes
+func check_task(task: Task) -> bool:
+	var ini := task.attributes
 	var rel = attributes.reliability - ini.reliability
 	var soc = attributes.sociability - ini.sociability
 	var com = attributes.competence - ini.competence
 	var tec = attributes.technical - ini.technical
 	return rel + soc + com + tec < 0
 
-func apply_initiative(initiative: Initiative):
+func apply_task(task: Task):
 	if role.team.size() == 0:
-		if role.employee.check_initiative(initiative):
-			demerits.append(initiative.demerit.duplicate())
+		if role.employee.check_task(task):
+			demerits.append(task.demerit.duplicate())
 			productivity_changed.emit()
 	else:
 		for member in role.employee_team():
-			member.apply_initiative(initiative)
+			member.apply_task(task)
 
 # returns percentage
 func get_attribute_compatability():

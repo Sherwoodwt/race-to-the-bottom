@@ -27,7 +27,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2034596628]
 layout_mode = 2
 
-[node name="InitiativesButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1618139479]
+[node name="TasksButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1618139479]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -1,23 +1,23 @@
-class_name InitiativeScreen
+class_name TaskScreen
 extends Control
 
 @onready var tab_area: Control = $Panel/MarginContainer/VBoxContainer/ScrollContainer/Panel/MarginContainer/HBoxContainer
-@onready var initiative_area: Control = $Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/InitiativeArea
+@onready var tasks: Tasks = $Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/TaskArea/TaskScene
 
-@export var initiative_tab_scene: PackedScene
+@export var task_tab_scene: PackedScene
 
-var tabs: Array[InitiativeTab]
+var tabs: Array[TaskTab]
 
 func _ready():
 	# add first one org wide
-	var inst = initiative_tab_scene.instantiate() as InitiativeTab
-	inst.initiative_area = initiative_area
+	var inst = task_tab_scene.instantiate() as TaskTab
+	inst.tasks = tasks
 	inst.employee = OrgData.top.employee
 	inst.focused.connect(func(): team_focused(inst))
 	tab_area.add_child(inst)
+	inst.focus_team()
 	inst.text = "Org-Wide"
 	tabs.append(inst)
-	inst.focus_team()
 
 func add_team(employee: Employee):
 	var index = tabs.find_custom(func(t): return t.employee == employee)
@@ -25,11 +25,8 @@ func add_team(employee: Employee):
 		tabs[index].focus_team()
 		return
 	
-	var inst = initiative_tab_scene.instantiate() as InitiativeTab
-	# TODO: add something here after adding initiatives, this is to create the initiatives on a new
-	# tab for a selected team, but doesn't work because there's no reference and I'm not adding it because
-	# it'll be refactored anyway.
-	#inst.initiatives = 
+	var inst = task_tab_scene.instantiate() as TaskTab
+	inst.tasks = tasks
 	inst.employee = employee
 	inst.focused.connect(func(): team_focused(inst))
 	tab_area.add_child(inst)
@@ -37,7 +34,7 @@ func add_team(employee: Employee):
 	inst.closed.connect(func(): tabs.remove_at(tabs.find_custom(func(t): return t.employee == inst.employee)))
 	inst.focus_team()
 
-func team_focused(tab: InitiativeTab):
+func team_focused(tab: TaskTab):
 	for t in tabs:
 		if t != tab:
 			t.unfocus_team()

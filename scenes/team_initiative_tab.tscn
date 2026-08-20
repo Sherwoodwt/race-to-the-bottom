@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://c00myajhbt2iv"]
 
-[ext_resource type="Script" uid="uid://xmy7c3oayb6b" path="res://scripts/initiative-tab.gd" id="1_1usig"]
+[ext_resource type="Script" uid="uid://xmy7c3oayb6b" path="res://scripts/task_tab.gd" id="1_1usig"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="1_t1pb0"]
-[ext_resource type="PackedScene" uid="uid://dxlfbu58p3sn1" path="res://scenes/initiatives_scene.tscn" id="2_6vh6m"]
 [ext_resource type="Texture2D" uid="uid://dnufn7rqho8qo" path="res://assets/ui/x.png" id="4_leiwh"]
 [ext_resource type="Texture2D" uid="uid://m3wps67cgm8r" path="res://assets/arrow_right.png" id="5_leiwh"]
 
@@ -12,7 +11,6 @@ theme = ExtResource("1_t1pb0")
 button_mask = 3
 text = "Org-Wide"
 script = ExtResource("1_1usig")
-initiatives_scene = ExtResource("2_6vh6m")
 
 [node name="XButton" type="Button" parent="." unique_id=1875193540]
 layout_mode = 1

@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bfkpfi4ix7g0q" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="AudioStream" uid="uid://dghg7te5g8xkt" path="res://sound/notification.mp3" id="2_gee14"]
+[ext_resource type="PackedScene" uid="uid://cwdfreybkwx6l" path="res://scenes/loops_manager.tscn" id="2_kvuet"]
 [ext_resource type="Script" uid="uid://b7kfs402xys1v" path="res://scripts/tab.gd" id="2_lnu2h"]
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://cpocei8kf6n4n" path="res://scripts/window_panel.gd" id="4_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/initiatives.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/tasks.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_window.tscn" id="8_dinhu"]
@@ -24,6 +25,9 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwrxv")
+
+[node name="LoopsManager" parent="." unique_id=1312822046 instance=ExtResource("2_kvuet")]
+layout_mode = 0
 
 [node name="Notification" type="AudioStreamPlayer" parent="." unique_id=281432699]
 stream = ExtResource("2_gee14")
@@ -100,7 +104,6 @@ offset_left = 650.0
 offset_top = 94.0
 offset_right = -13.0
 offset_bottom = -42.0
-toggle_signal = "highlight"
 tab = NodePath("../Tabs/Profile")
 
 [node name="TasksWindow" type="PanelContainer" parent="." unique_id=721683216 node_paths=PackedStringArray("tab")]
@@ -118,7 +121,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("2_p57ef")
 script = ExtResource("4_kvpfn")
-tab = NodePath("../Tabs/Initiatives")
+tab = NodePath("../Tabs/Tasks")
 
 [node name="Control" type="Control" parent="TasksWindow" unique_id=2024889188]
 layout_mode = 2
@@ -144,7 +147,7 @@ icon = ExtResource("9_vtaks")
 [node name="MarginContainer" type="MarginContainer" parent="TasksWindow" unique_id=653070083]
 layout_mode = 2
 
-[node name="Initiatives" parent="TasksWindow/MarginContainer" unique_id=759931945 instance=ExtResource("4_lbhrr")]
+[node name="Tasks" parent="TasksWindow/MarginContainer" unique_id=759931945 instance=ExtResource("4_lbhrr")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -242,7 +245,7 @@ text = "PROFILE"
 script = ExtResource("2_lnu2h")
 tab_scene = NodePath("../../ProfileWindow")
 
-[node name="Initiatives" type="Button" parent="Tabs" unique_id=151895642 node_paths=PackedStringArray("tab_scene")]
+[node name="Tasks" type="Button" parent="Tabs" unique_id=151895642 node_paths=PackedStringArray("tab_scene")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_p57ef")
@@ -311,10 +314,11 @@ theme_override_constants/margin_bottom = 12
 [node name="Label" type="Label" parent="Alert/PanelContainer/VBoxContainer/Panel/MarginContainer" unique_id=906771501]
 custom_maximum_size = Vector2(376, 258)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 32
 text = "Alert text example that the stuff will go here"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="Alert/PanelContainer/VBoxContainer" unique_id=290001976]

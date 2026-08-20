@@ -16,14 +16,14 @@ extends Control
 @export var target_budget_diff: int
 @export var portrait_scene: PackedScene
 
-var quarter_counter: int
 var productivity: float
 var budget: int
 var target_budget: int
 var budget_total: int
 
 func _ready() -> void:
-	quarter_counter = 1
+	SignalBus.quarter_end.connect(new_quarter)
+	SignalBus.day_end.connect(new_day)
 	OrgData.productivity_changed.connect(update_productivity)
 	SignalBus.refresh_tree.connect(update_productivity)
 	update_productivity()
@@ -55,33 +55,32 @@ func update_productivity():
 		fired_area.add_child(vbox)
 		inst.set_portrait(e.portrait)
 
-func _on_day_timer_timeout() -> void:
-	progress.value -= 1
-	if progress.value <= progress.min_value:
-		if budget > target_budget or productivity < OrgData.PRODUCTIVITY_MIN:
-			SignalBus.lose.emit("You've failed to meet the quarterly budget and productivity goals. You've been terminated.")
-		# save budget earned progress
-		budget_total = target_budget - budget
-		budget_total_label.text = "$%dK" % budget_total
-		budget_total_label.add_theme_color_override("font_color", Color.DARK_RED if budget_total < 0 else Color.WEB_GREEN)
-		
-		# reset values and start new quarter
-		progress.value = progress.max_value
-		quarter_counter += 1
-		SignalBus.quarter_end.emit()
-		target_budget_diff += 5
-		target_budget = budget - target_budget_diff
-		update_productivity()
-		SignalBus.alert.emit("It is now Quarter %d" % quarter_counter)
+func new_quarter(quarter: int):
+	if budget > target_budget or productivity < OrgData.PRODUCTIVITY_MIN:
+		SignalBus.lose.emit("You've failed to meet the quarterly budget and productivity goals. You've been terminated.")
+	# save budget earned progress
+	budget_total = target_budget - budget
+	budget_total_label.text = "$%dK" % budget_total
+	budget_total_label.add_theme_color_override("font_color", Color.DARK_RED if budget_total < 0 else Color.WEB_GREEN)
 	
-	if quarter_counter % 10 == 1:
-		quarter_label.text = "%dst Quarter" % quarter_counter
-	elif quarter_counter % 10 == 2:
-		quarter_label.text = "%dnd Quarter" % quarter_counter
-	elif quarter_counter % 10 == 3:
-		quarter_label.text = "%drd Quarter" % quarter_counter
+	# reset values and start new quarter
+	progress.value = progress.max_value
+	SignalBus.quarter_end.emit()
+	target_budget_diff += 5
+	target_budget = budget - target_budget_diff
+	update_productivity()
+	
+	if quarter % 10 == 1:
+		quarter_label.text = "%dst Quarter" % quarter
+	elif quarter % 10 == 2:
+		quarter_label.text = "%dnd Quarter" % quarter
+	elif quarter % 10 == 3:
+		quarter_label.text = "%drd Quarter" % quarter
 	else:
-		quarter_label.text = "%dth Quarter" % quarter_counter
+		quarter_label.text = "%dth Quarter" % quarter
+
+func new_day(day: int):
+	progress.value -= 1
 	day_label.text = "%d Days" % (progress.value)
 	if progress.value == 1:
 		day_label.text = "%d Day" % (progress.value)

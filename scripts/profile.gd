@@ -10,7 +10,7 @@ extends Control
 @onready var competence: Label = $VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Competence
 @onready var technical: Label = $VBoxContainer/VBoxContainer/HBoxContainer/AttributeVals/Intelligence
 @onready var demerits: Control = $VBoxContainer/VBoxContainer/ScrollContainer/Demerits
-@onready var initiative_button: Button = $VBoxContainer/HBoxContainer/InitiativesButton
+@onready var task_button: Button = $VBoxContainer/HBoxContainer/TasksButton
 @onready var fire_button: Button = $VBoxContainer/HBoxContainer/FireButton
 @onready var portrait: PortraitButton = $VBoxContainer/VBoxContainer/HBoxContainer/PortraitButton
 
@@ -20,7 +20,7 @@ var employee: Employee
 
 func _ready():
 	SignalBus.highlight.connect(_on_hierarchy_focus_changed)
-	initiative_button.pressed.connect(func(): SignalBus.team_initiatives.emit(employee))
+	task_button.pressed.connect(func(): SignalBus.team_tasks.emit(employee))
 	fire_button.pressed.connect(func(): SignalBus.fired.emit(employee))
 
 func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
@@ -31,7 +31,7 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	portrait.set_role(employee.role)
 	for child in demerits.get_children():
 		demerits.remove_child(child)
-	initiative_button.disabled = OrgData.top == role or role.team.size() == 0
+	task_button.disabled = OrgData.top == role or role.team.size() == 0
 	fire_button.disabled = OrgData.top == role \
 		or role.employee.demerits.size() == 0 \
 		or role.employee.get_productivity() >= OrgData.PRODUCTIVITY_MIN \

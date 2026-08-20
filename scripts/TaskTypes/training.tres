@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="TaskType" format=3 uid="uid://ddrsr6ueex1va"]
+
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_1begg"]
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/task_type.gd" id="1_hdfbt"]
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="2_hywvh"]
+[ext_resource type="Texture2D" uid="uid://h51sa4us7gmw" path="res://assets/training.png" id="3_h0kxl"]
+
+[sub_resource type="Resource" id="Resource_1begg"]
+script = ExtResource("2_hywvh")
+value = 0.3
+text = "[NAME] failed to complete a required training course"
+temporary = true
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[sub_resource type="Resource" id="Resource_hywvh"]
+script = ExtResource("1_1begg")
+reliability = 2
+sociability = 4
+competence = 3
+technical = 5
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_h0kxl"]
+script = ExtResource("1_1begg")
+reliability = 1
+sociability = 3
+competence = 2
+technical = 3
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("1_hdfbt")
+min_attributes = SubResource("Resource_h0kxl")
+max_attributes = SubResource("Resource_hywvh")
+min_wait_time = 14.0
+max_wait_time = 28.0
+titles = Array[String](["Training"])
+picture = ExtResource("3_h0kxl")
+demerit = SubResource("Resource_1begg")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

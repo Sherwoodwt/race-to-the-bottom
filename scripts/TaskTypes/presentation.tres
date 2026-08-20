@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="TaskType" format=3 uid="uid://cx6tr82f32erh"]
+
+[ext_resource type="Script" uid="uid://v0k7fj2etlt0" path="res://scripts/DataTypes/demerit.gd" id="1_dcu2l"]
+[ext_resource type="Script" uid="uid://dobm6yuaoj8fb" path="res://scripts/DataTypes/task_type.gd" id="1_fkftx"]
+[ext_resource type="Script" uid="uid://b2xthiyd8ququ" path="res://scripts/DataTypes/attributes.gd" id="1_nccr0"]
+[ext_resource type="Texture2D" uid="uid://cj37v2848fsu8" path="res://assets/presentation.png" id="3_evys2"]
+
+[sub_resource type="Resource" id="Resource_nccr0"]
+script = ExtResource("1_dcu2l")
+value = 0.3
+text = "[NAME]'s presentation raised concerns about the necessity of their role"
+temporary = true
+metadata/_custom_type_script = "uid://v0k7fj2etlt0"
+
+[sub_resource type="Resource" id="Resource_evys2"]
+script = ExtResource("1_nccr0")
+reliability = 2
+sociability = 5
+competence = 4
+technical = 4
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[sub_resource type="Resource" id="Resource_uwnao"]
+script = ExtResource("1_nccr0")
+reliability = 1
+sociability = 3
+competence = 3
+technical = 3
+metadata/_custom_type_script = "uid://b2xthiyd8ququ"
+
+[resource]
+script = ExtResource("1_fkftx")
+min_attributes = SubResource("Resource_uwnao")
+max_attributes = SubResource("Resource_evys2")
+min_wait_time = 14.0
+max_wait_time = 28.0
+titles = Array[String](["Presentation"])
+picture = ExtResource("3_evys2")
+demerit = SubResource("Resource_nccr0")
+metadata/_custom_type_script = "uid://dobm6yuaoj8fb"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwdfreybkwx6l"]
+
+[ext_resource type="Script" uid="uid://cmlxsbw12pyub" path="res://scripts/loops_manager.gd" id="1_817y2"]
+
+[node name="LoopsManager" type="Control" unique_id=1312822046]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_817y2")
+
+[node name="DayTimer" type="Timer" parent="." unique_id=776206234]
+wait_time = 3.0
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=841993510]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="TaskTimer" type="Timer" parent="." unique_id=1267507647]
