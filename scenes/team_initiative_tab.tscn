@@ -11,6 +11,7 @@ theme = ExtResource("1_t1pb0")
 button_mask = 3
 text = "Org-Wide"
 script = ExtResource("1_1usig")
+x_button_sprite = ExtResource("4_leiwh")
 
 [node name="XButton" type="Button" parent="." unique_id=1875193540]
 layout_mode = 1

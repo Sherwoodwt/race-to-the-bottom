@@ -7,6 +7,8 @@ signal closed
 @onready var x_button: Button = $XButton
 @onready var org_button: Button = $OrgButton
 
+@export var x_button_sprite: Texture2D
+
 var tasks: Tasks
 var employee: Employee # set this
 
@@ -18,19 +20,22 @@ func _ready():
 		x_button.disabled = false
 	text = "%s's Team" % employee.name
 	pressed.connect(focus_team)
-	SignalBus.task_finished.connect(func(_i): check_closable())
+	SignalBus.task_finished.connect(func(_i): check_running())
 	SignalBus.fired.connect(func(e): if e == employee: queue_free.call_deferred())
 
 func focus_team():
 	x_button.visible = false
 	for task in tasks.tasks:
 		task.check_employee(employee)
+		if !task.running:
+			task.task.target = employee
 	disabled = true
 	focused.emit()
 
 func unfocus_team():
 	disabled = false
-	check_closable()
+	x_button.visible = true
+	check_running()
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
@@ -40,10 +45,15 @@ func _gui_input(event: InputEvent) -> void:
 	and !disabled:
 		queue_free.call_deferred()
 
-func check_closable():
-	if !tasks.visible and employee.role != OrgData.top:
-		if not tasks.is_running():
-			x_button.visible = true
+func check_running():
+	var running = tasks.running_count(employee)
+	if running > 0:
+		x_button.text = "%d" % running
+		x_button.icon = null
+	
+	elif employee.role != OrgData.top:
+		x_button.text = ""
+		x_button.icon = x_button_sprite
 
 func close():
 	closed.emit()

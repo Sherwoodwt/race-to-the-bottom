@@ -18,8 +18,6 @@ func _ready():
 	timer.timeout.connect(finish_task)
 	pressed.connect(start_task)
 	SignalBus.quarter_end.connect(reset)
-	SignalBus.task_started.connect(check_disabled)
-	check_disabled(task)
 
 func _physics_process(_delta: float) -> void:
 	if running:
@@ -29,11 +27,13 @@ func start_task():
 	timer.start()
 	disabled = true
 	running = true
+	disabled = true
 	SignalBus.task_started.emit(task)
 
 func finish_task():
 	timer.stop()
 	running = false
+	disabled = false
 	progress.value = 0
 	task.target.apply_task(task)
 	SignalBus.task_finished.emit(task)
@@ -42,13 +42,10 @@ func finish_task():
 func reset():
 	disabled = false
 
-func check_disabled(check_task: Task):
-	if check_task.title == self.task.title:
-		disabled = true
-
 func check_employee(boss: Employee):
 	var val: int = 0
-	for employee in boss.role.worker_team():
+	var worker_team = boss.role.worker_team()
+	for employee in worker_team:
 		if employee.check_task(task):
 			val += 1
-	effect_label.text = "%d" % val
+	effect_label.text = "%d/%d" % [val, worker_team.size()]

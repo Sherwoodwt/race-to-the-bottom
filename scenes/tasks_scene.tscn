@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxlfbu58p3sn1"]
 
 [ext_resource type="Script" uid="uid://dwr7juwu6cyda" path="res://scripts/tasks.gd" id="1_35c73"]
-[ext_resource type="PackedScene" uid="uid://clalyvjgy5an4" path="res://scenes/taskButton.tscn" id="2_q0qnu"]
+[ext_resource type="PackedScene" uid="uid://clalyvjgy5an4" path="res://scenes/task_button.tscn" id="2_q0qnu"]
 
 [node name="TaskScene" type="Control" unique_id=1359222754]
 layout_mode = 3

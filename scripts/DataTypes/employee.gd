@@ -37,6 +37,7 @@ static func generate(role: Role) -> Employee:
 	employee.demerits.append(employee.team_demerit)
 	return employee
 
+# returns true if the employee is likely to fail
 func check_task(task: Task) -> bool:
 	var ini := task.attributes
 	var rel = attributes.reliability - ini.reliability
