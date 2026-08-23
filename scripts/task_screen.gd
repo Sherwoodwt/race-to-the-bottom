@@ -2,7 +2,7 @@ class_name TaskScreen
 extends Control
 
 @onready var tab_area: Control = $Panel/MarginContainer/VBoxContainer/ScrollContainer/Panel/MarginContainer/HBoxContainer
-@onready var tasks: Tasks = $Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/TaskArea/TaskScene
+@onready var tasks: Tasks = $Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/TaskArea/Tasks
 
 @export var task_tab_scene: PackedScene
 
@@ -13,6 +13,7 @@ func _ready():
 	var inst = task_tab_scene.instantiate() as TaskTab
 	inst.tasks = tasks
 	inst.employee = OrgData.top.employee
+	inst.tasks.employee = inst.employee
 	inst.focused.connect(func(): team_focused(inst))
 	tab_area.add_child(inst)
 	inst.focus_team()

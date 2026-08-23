@@ -17,7 +17,7 @@ func _ready() -> void:
 		task_area.remove_child(c)
 	
 	# generate first task at start
-	create_task(90)
+	create_task.call_deferred(90)
 	var msg = "Your first task has been assigned.\n\n\nPlease view it on the Tasks tab at your earliest convenience."
 	SignalBus.alert.emit.call_deferred(msg)
 

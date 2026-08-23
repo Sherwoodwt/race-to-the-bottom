@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bnfy33yynqhrq" path="res://themes/theme.tres" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b0ngi5j3o2o1s" path="res://scenes/organization.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://cpocei8kf6n4n" path="res://scripts/window_panel.gd" id="4_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/tasks.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cxbghx5n0reqh" path="res://scenes/task_screen.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bqiclrrtrgi52" path="res://scenes/assignment.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://70o35bn0meuh" path="res://scenes/call.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_window.tscn" id="8_dinhu"]
@@ -264,6 +264,39 @@ button_group = SubResource("ButtonGroup_kvpfn")
 text = "METRICS"
 script = ExtResource("2_lnu2h")
 tab_scene = NodePath("../../MetricsWindow")
+
+[node name="Panel" type="HBoxContainer" parent="." unique_id=1894901391]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Tasks" type="Label" parent="Panel" unique_id=462997399]
+layout_mode = 2
+
+[node name="Money" type="TextureProgressBar" parent="Panel" unique_id=19355119]
+layout_mode = 2
+size_flags_horizontal = 6
+value = 100.0
+fill_mode = 3
+
+[node name="Productivity" type="TextureProgressBar" parent="Panel" unique_id=1225146689]
+layout_mode = 2
+size_flags_horizontal = 6
+value = 100.0
+fill_mode = 3
+
+[node name="Q_Time" type="TextureProgressBar" parent="Panel" unique_id=1721162617]
+layout_mode = 2
+size_flags_horizontal = 6
+value = 100.0
+fill_mode = 5
 
 [node name="Alert" type="Control" parent="." unique_id=1172318797]
 process_mode = 2
