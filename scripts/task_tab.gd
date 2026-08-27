@@ -25,7 +25,7 @@ func _ready():
 
 func focus_team():
 	x_button.visible = false
-	for task in tasks.tasks:
+	for task in TaskData.tasks:
 		task.check_employee(employee)
 		if !task.running:
 			task.task.target = employee

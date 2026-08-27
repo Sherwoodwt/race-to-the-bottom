@@ -13,6 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bn057oo1dvaay" path="res://scenes/profile_window.tscn" id="8_dinhu"]
 [ext_resource type="Script" uid="uid://ho2o66uciyfb" path="res://scripts/alert.gd" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cccrpq4fk3fum" path="res://assets/ui/x-small.png" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://j0ovtk0sxixp" path="res://scripts/panel_totals.gd" id="13_1kice"]
+[ext_resource type="Texture2D" uid="uid://btw2y71yq8p4v" path="res://assets/empty_vertical.png" id="13_ca42v"]
+[ext_resource type="Texture2D" uid="uid://cyuyp041epsrj" path="res://assets/ui/dollar.png" id="14_rysoc"]
+[ext_resource type="Texture2D" uid="uid://bbrahmcqbwaat" path="res://assets/progress_vertical.png" id="15_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://bci5ifkf0760m" path="res://assets/ui/productivity.png" id="16_264po"]
+[ext_resource type="Texture2D" uid="uid://tj0no3vr48ss" path="res://assets/empty-time_small.png" id="17_1kice"]
+[ext_resource type="Texture2D" uid="uid://2hj6xw2na1rf" path="res://assets/full-time_small.png" id="18_5newe"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_kvpfn"]
 
@@ -265,38 +272,89 @@ text = "METRICS"
 script = ExtResource("2_lnu2h")
 tab_scene = NodePath("../../MetricsWindow")
 
-[node name="Panel" type="HBoxContainer" parent="." unique_id=1894901391]
+[node name="PanelTotals" type="HBoxContainer" parent="." unique_id=1894901391]
+z_index = 10
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -114.0
-offset_bottom = 40.0
+offset_left = -294.0
+offset_right = 29.666748
+offset_bottom = 44.444458
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.9, 0.9)
+theme_override_constants/separation = 0
+alignment = 2
+script = ExtResource("13_1kice")
 
-[node name="Tasks" type="Label" parent="Panel" unique_id=462997399]
+[node name="Tasks" type="Button" parent="PanelTotals" unique_id=203302377]
 layout_mode = 2
+theme = ExtResource("2_p57ef")
+text = "Tasks:3"
 
-[node name="Money" type="TextureProgressBar" parent="Panel" unique_id=19355119]
+[node name="Button" type="Button" parent="PanelTotals" unique_id=790391767]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme = ExtResource("2_p57ef")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelTotals/Button" unique_id=421329658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_region = true
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelTotals/Button/HBoxContainer3" unique_id=495928377]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = -12
+
+[node name="TextureRect" type="TextureRect" parent="PanelTotals/Button/HBoxContainer3/HBoxContainer" unique_id=2021180377]
+layout_mode = 2
+texture = ExtResource("14_rysoc")
+stretch_mode = 3
+
+[node name="Money" type="TextureProgressBar" parent="PanelTotals/Button/HBoxContainer3/HBoxContainer" unique_id=19355119]
 layout_mode = 2
 size_flags_horizontal = 6
-value = 100.0
+size_flags_vertical = 4
 fill_mode = 3
+texture_under = ExtResource("13_ca42v")
+texture_progress = ExtResource("15_ssvqc")
 
-[node name="Productivity" type="TextureProgressBar" parent="Panel" unique_id=1225146689]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelTotals/Button/HBoxContainer3" unique_id=255074616]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = -12
+
+[node name="TextureRect" type="TextureRect" parent="PanelTotals/Button/HBoxContainer3/HBoxContainer2" unique_id=1662571859]
+layout_mode = 2
+texture = ExtResource("16_264po")
+stretch_mode = 3
+
+[node name="Productivity" type="TextureProgressBar" parent="PanelTotals/Button/HBoxContainer3/HBoxContainer2" unique_id=1842387126]
 layout_mode = 2
 size_flags_horizontal = 6
-value = 100.0
+size_flags_vertical = 4
 fill_mode = 3
+texture_under = ExtResource("13_ca42v")
+texture_progress = ExtResource("15_ssvqc")
 
-[node name="Q_Time" type="TextureProgressBar" parent="Panel" unique_id=1721162617]
+[node name="QTime" type="TextureProgressBar" parent="PanelTotals/Button/HBoxContainer3" unique_id=1281758785]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_p57ef")
 value = 100.0
 fill_mode = 5
+texture_under = ExtResource("17_1kice")
+texture_progress = ExtResource("18_5newe")
 
 [node name="Alert" type="Control" parent="." unique_id=1172318797]
 process_mode = 2
@@ -368,12 +426,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -34.0
-offset_top = 11.0
-offset_right = -14.0
-offset_bottom = 31.0
+offset_left = -24.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = 25.0
 grow_horizontal = 0
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.9, 0.9)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_p57ef")

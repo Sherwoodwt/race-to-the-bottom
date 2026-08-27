@@ -1,10 +1,7 @@
 extends Node
 
-signal productivity_changed
-
 const MAX_TEAM_SIZE = 10
 const MIN_TEAM_SIZE = 6 # just initial
-const PRODUCTIVITY_MIN := .5
 const MAX_REHIRE_AMOUNT := 4
 
 @onready var leadership_roles: Array[Role] = load_all("res://scripts/Roles/leadership/")
@@ -22,7 +19,7 @@ func load_all(path: String):
 	return roles
 
 func _ready():
-	SignalBus.quarter_end.connect(new_quarter)
+	SignalBus.new_quarter.connect(new_quarter)
 	SignalBus.fired.connect(handle_fired)
 	top = make_tree(0)
 	make_comments(top)
@@ -46,7 +43,7 @@ func make_tree(level: int) -> Role:
 		cur = worker_roles.pick_random().duplicate(true)
 	if level != 0:
 		cur.employee = Employee.generate(cur)
-		cur.employee.productivity_changed.connect(func(): productivity_changed.emit())
+		cur.employee.productivity_changed.connect(func(): SignalBus.productivity_changed.emit())
 	else:
 		cur.employee = Employee.generate(cur)
 		cur.employee.attributes.reliability = 5
@@ -74,7 +71,7 @@ func new_quarter():
 		if smallest != null and smallest.role.team.size() < MAX_TEAM_SIZE:
 			var newb := worker_roles.pick_random().duplicate(true) as Role
 			newb.employee = Employee.generate(newb)
-			newb.employee.productivity_changed.connect(func(): productivity_changed.emit())
+			newb.employee.productivity_changed.connect(func(): SignalBus.productivity_changed.emit())
 			smallest.role.team.append(newb)
 			newb.employee.generate_reviews(true)
 	SignalBus.refresh_tree.emit()
@@ -91,6 +88,7 @@ func handle_fired(employee: Employee):
 	# promote next person and adjust hierarchy recursively
 	handle_replacement(employee.role)
 	SignalBus.refresh_tree.emit()
+	SignalBus.productivity_changed.emit()
 
 # promote subordinate up, or if no subordinates just remove from hierarchy
 func handle_replacement(role: Role):

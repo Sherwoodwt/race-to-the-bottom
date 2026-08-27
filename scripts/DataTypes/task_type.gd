@@ -19,4 +19,6 @@ func generate() -> Task:
 	
 	task.wait_time = randi_range(min_wait_time, max_wait_time)
 	task.title = titles.pick_random()
+	task.picture = picture
+	task.demerit = demerit
 	return task

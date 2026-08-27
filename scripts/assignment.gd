@@ -13,34 +13,24 @@ extends Control
 @onready var fired_count_label: Label = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Label
 @onready var fired_area: Control = $Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ScrollContainer/HBoxContainer
 
-@export var target_budget_diff: int
 @export var portrait_scene: PackedScene
 
-var productivity: float
-var budget: int
-var target_budget: int
-var budget_total: int
-
 func _ready() -> void:
-	SignalBus.quarter_end.connect(new_quarter)
+	SignalBus.new_quarter.connect(new_quarter)
 	SignalBus.day_end.connect(new_day)
-	OrgData.productivity_changed.connect(update_productivity)
-	SignalBus.refresh_tree.connect(update_productivity)
+	SignalBus.productivity_changed.connect(update_productivity)
 	update_productivity()
-	target_budget = budget - target_budget_diff
 
 func _physics_process(_delta: float) -> void:
-	target_budget_label.text = "$%dK" % target_budget
-	budget_label.text = "$%dK" % budget
-	var dif = target_budget - budget
+	target_budget_label.text = "$%dK" % TaskData.target_budget
+	budget_label.text = "$%dK" % TaskData.budget
+	var dif = TaskData.target_budget - TaskData.budget
 	budget_diff_label.text = "$%dK" % dif
 	budget_diff_label.add_theme_color_override("font_color", Color.DARK_RED if dif < 0 else Color.WEB_GREEN)
-	target_productivity_label.text = "%d%%" % int(OrgData.PRODUCTIVITY_MIN * 100)
-	productivity_label.text = "%d%%" % int(productivity * 100)
+	target_productivity_label.text = "%d%%" % int(TaskData.PRODUCTIVITY_MIN * 100)
+	productivity_label.text = "%d%%" % int(TaskData.productivity * 100)
 
 func update_productivity():
-	productivity = OrgData.top.employee.get_productivity()
-	budget = OrgData.get_total_budget()
 	fired_count_label.text = "Total Fired: %d" % OrgData.fired_employees.size()
 	for e in OrgData.fired_employees:
 		var vbox = VBoxContainer.new()
@@ -56,20 +46,9 @@ func update_productivity():
 		inst.set_portrait(e.portrait)
 
 func new_quarter(quarter: int):
-	if budget > target_budget or productivity < OrgData.PRODUCTIVITY_MIN:
-		SignalBus.lose.emit("You've failed to meet the quarterly budget and productivity goals. You've been terminated.")
-	# save budget earned progress
-	budget_total = target_budget - budget
-	budget_total_label.text = "$%dK" % budget_total
-	budget_total_label.add_theme_color_override("font_color", Color.DARK_RED if budget_total < 0 else Color.WEB_GREEN)
-	
-	# reset values and start new quarter
+	budget_total_label.text = "$%dK" % TaskData.budget_total
+	budget_total_label.add_theme_color_override("font_color", Color.DARK_RED if TaskData.budget_total < 0 else Color.WEB_GREEN)
 	progress.value = progress.max_value
-	SignalBus.quarter_end.emit()
-	target_budget_diff += 5
-	target_budget = budget - target_budget_diff
-	update_productivity()
-	
 	if quarter % 10 == 1:
 		quarter_label.text = "%dst Quarter" % quarter
 	elif quarter % 10 == 2:
@@ -80,7 +59,7 @@ func new_quarter(quarter: int):
 		quarter_label.text = "%dth Quarter" % quarter
 
 func new_day(day: int):
-	progress.value -= 1
+	progress.value = TaskData.cur_day
 	day_label.text = "%d Days" % (progress.value)
 	if progress.value == 1:
 		day_label.text = "%d Day" % (progress.value)

@@ -13,7 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e70hn")
-target_budget_diff = 150
 portrait_scene = ExtResource("2_wq4el")
 
 [node name="DayTimer" type="Timer" parent="." unique_id=2040148004]

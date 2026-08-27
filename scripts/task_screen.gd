@@ -39,5 +39,5 @@ func team_focused(tab: TaskTab):
 	for t in tabs:
 		if t != tab:
 			t.unfocus_team()
-	for t in tasks.tasks:
+	for t in TaskData.tasks:
 		t.visible = !t.running or t.task.target == tab.employee

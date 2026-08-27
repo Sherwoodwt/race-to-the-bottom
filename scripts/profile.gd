@@ -34,7 +34,7 @@ func _on_hierarchy_focus_changed(target: PortraitButton) -> void:
 	task_button.disabled = OrgData.top == role or role.team.size() == 0
 	fire_button.disabled = OrgData.top == role \
 		or role.employee.demerits.size() == 0 \
-		or role.employee.get_productivity() >= OrgData.PRODUCTIVITY_MIN \
+		or role.employee.get_productivity() >= TaskData.PRODUCTIVITY_MIN \
 		or role.boss.team.size() == 1 \
 		or role.team.size() == 1
 	employee_name.text = role.employee.name

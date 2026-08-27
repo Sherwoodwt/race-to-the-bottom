@@ -24,7 +24,7 @@ func next_day():
 	if quarter_progress.value <= 0:
 		quarter_progress.value = quarter_progress.max_value
 		cur_quarter += 1
-		SignalBus.quarter_end.emit(cur_quarter)
+		SignalBus.new_quarter.emit(cur_quarter)
 		reset_task_timer()
 		SignalBus.alert.emit("It is now Quarter %d" % cur_quarter)
 	SignalBus.day_end.emit(quarter_progress.value)

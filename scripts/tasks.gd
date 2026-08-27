@@ -12,7 +12,7 @@ var employee: Employee
 
 func _ready() -> void:
 	SignalBus.task_timeout.connect(create_task)
-	SignalBus.focus_changed.connect(func(e): employee = e)
+	SignalBus.focus_changed.connect(func(r): employee = r.employee)
 	for c in task_area.get_children():
 		task_area.remove_child(c)
 	

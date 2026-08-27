@@ -17,7 +17,7 @@ func _ready():
 	timer.wait_time = task.wait_time
 	timer.timeout.connect(finish_task)
 	pressed.connect(start_task)
-	SignalBus.quarter_end.connect(reset)
+	SignalBus.new_quarter.connect(reset)
 
 func _physics_process(_delta: float) -> void:
 	if running:
@@ -27,7 +27,6 @@ func start_task():
 	timer.start()
 	disabled = true
 	running = true
-	disabled = true
 	SignalBus.task_started.emit(task)
 
 func finish_task():
@@ -37,7 +36,7 @@ func finish_task():
 	progress.value = 0
 	task.target.apply_task(task)
 	SignalBus.task_finished.emit(task)
-	SignalBus.alert.emit("Finished %s task on %s's team" % [task.title, task.employee.name])
+	SignalBus.alert.emit("Finished %s task on %s's team" % [task.title, task.target.name])
 
 func reset():
 	disabled = false

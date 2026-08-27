@@ -32,7 +32,7 @@ func _ready():
 		p.set_portrait(PortraitGenerator.generate_portrait())
 	main_portrait.set_portrait(PortraitGenerator.generate_portrait())
 	you.set_portrait(OrgData.top.employee.portrait)
-	SignalBus.quarter_end.connect(func(): lose_progress.value = 0)
+	SignalBus.new_quarter.connect(func(): lose_progress.value = 0)
 	talk_progress.hide()
 
 func _physics_process(_delta: float) -> void:

@@ -13,9 +13,11 @@ signal refresh_tree
 
 signal task_finished(task: Task)
 signal task_started(task: Task)
+signal tasks_updated(count: int)
 
+signal productivity_changed
 signal day_end(new_day: int)
-signal quarter_end(new_quarter: int)
+signal new_quarter(new_quarter: int)
 signal task_timeout(time_left: float)
 signal call_alert
 signal lose(reason: String)

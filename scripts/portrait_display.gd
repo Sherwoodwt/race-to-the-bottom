@@ -15,7 +15,7 @@ var _portrait: Portrait
 var start_g: float
 
 func _ready():
-	OrgData.productivity_changed.connect(update_color)
+	SignalBus.productivity_changed.connect(update_color)
 	start_g = filter.modulate.g
 
 #func check_empty(employee: Employee):
@@ -44,6 +44,6 @@ func update_color():
 	var prod = _employee.get_productivity()
 	filter.modulate.a = 1 - prod
 	filter.modulate.g = start_g
-	if prod < OrgData.PRODUCTIVITY_MIN:
+	if prod < TaskData.PRODUCTIVITY_MIN:
 		filter.modulate.g = 0
 		filter.modulate.a = .5
