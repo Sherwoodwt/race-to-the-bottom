@@ -14,6 +14,7 @@ signal refresh_tree
 signal task_finished(task: Task)
 signal task_started(task: Task)
 signal tasks_updated(count: int)
+signal task_tab_clicked(employee: Employee)
 
 signal productivity_changed
 signal day_end(new_day: int)

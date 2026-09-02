@@ -39,8 +39,9 @@ func new_quarter(q: int):
 		SignalBus.lose.emit("You've failed to meet the quarterly budget and productivity goals. You've been terminated.")
 	# save budget earned progress
 	budget_total = target_budget - budget
-	# reset values and start new quarter
 	
+	# reset values and start new quarter
+	cur_day = QUARTER_DAYS
 	target_budget_diff += 5
 	target_budget = budget - target_budget_diff
 	SignalBus.productivity_changed.emit()

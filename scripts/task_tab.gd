@@ -25,12 +25,9 @@ func _ready():
 
 func focus_team():
 	x_button.visible = false
-	for task in TaskData.tasks:
-		task.check_employee(employee)
-		if !task.running:
-			task.task.target = employee
 	disabled = true
 	focused.emit()
+	SignalBus.task_tab_clicked.emit(employee)
 
 func unfocus_team():
 	disabled = false

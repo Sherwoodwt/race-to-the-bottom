@@ -12,7 +12,7 @@ var employee: Employee
 
 func _ready() -> void:
 	SignalBus.task_timeout.connect(create_task)
-	SignalBus.focus_changed.connect(func(r): employee = r.employee)
+	SignalBus.task_tab_clicked.connect(set_employee)
 	for c in task_area.get_children():
 		task_area.remove_child(c)
 	
@@ -24,6 +24,9 @@ func _ready() -> void:
 # return number of running tasks for employee
 func running_count(employee: Employee) -> int:
 	return tasks.filter(func(t: TaskButton): return t.running and t.task.target == employee).size()
+
+func set_employee(e: Employee):
+	employee = e
 
 func create_task(time_left: float):
 	var task_type = TaskData.task_pool.pick_random()
